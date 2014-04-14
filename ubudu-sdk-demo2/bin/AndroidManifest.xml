@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ubudu_sdk_demo2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.ubudu_sdk_demo2.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- BEGIN UbuduSDK stuff -->
+
+        <receiver android:name=".service.UbuduBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.ubudu.sdk.WebActivity" />
+
+        <service
+            android:name="com.ubudu.sdk.service.UbuduService"
+            android:enabled="true"
+            android:exported="true" >
+    
+        </service>
+        <!-- the following should be coallesced eventually into the above service... -->
+        <service
+            android:name="com.ubudu.radiusnetworks.ibeacon.service.IBeaconService"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false" />
+        <service
+            android:name="com.ubudu.radiusnetworks.ibeacon.IBeaconIntentProcessor"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false" >
+            <meta-data
+                android:name="background"
+                android:value="true" />
+
+            <intent-filter android:priority="1" >
+                <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
+            </intent-filter>
+        </service>
+
+        <!-- END UbuduSDK stuff -->
+
+    </application>
+
+</manifest>
