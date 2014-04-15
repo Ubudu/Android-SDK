@@ -35,6 +35,7 @@ Your first need to include all the required librairies into your project.
 
 2. In the same way add also following libs (versions can be higher):
 
+- android-support-v4.jar
 - gson-2.2.4.jar
 - ormlite-android-4.48.jar
 - ormlite-core-4.48.jar
