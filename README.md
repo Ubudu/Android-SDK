@@ -44,5 +44,5 @@ After this, your project should looks like:
 ![Eclipse project content](/__media-files/images/image_2.jpg) 
 
 3. The next step is prepare two other projects in your workspace:
-- google-play-services-lib
-- Volley
+- [google-play-services-lib](http://developer.android.com/google/play-services/setup.html)
+- [Volley](https://android.googlesource.com/platform/frameworks/volley)
