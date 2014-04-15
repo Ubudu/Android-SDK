@@ -30,6 +30,7 @@ Starting to use the Ubudu SDK on Android app is very simple. Have a look at theu
 Your first need to include all the required librairies into your project.
 
 1. Firstly add by drag&drop the *ubudu-sdk.1.0.1.jar* into libs folder in your project.
+
 ![Eclipse project content](/__media-files/images/image_1.jpg) 
 
 2. In the same way add also following libs (versions can be higher):
@@ -43,6 +44,7 @@ These libraries can be downloaded in the following web-sites:
 - [Google GSON](https://code.google.com/p/google-gson/)
 
 After this, your project should looks like:
+
 ![Eclipse project content](/__media-files/images/image_2.jpg) 
 
 3. The next step is prepare two other projects in your workspace:
@@ -52,4 +54,23 @@ After this, your project should looks like:
 
 You can add them into your project as references by pressing alt + enter or clicking right mouse button on your project and selecting “Properties” and go into Android section.
 
-![Eclipse project content](/__media-files/images/image_3.jpg) 
+![Eclipse project content](/__media-files/images/image_3.jpg)
+
+### Changes required in the Manifest File
+Ubudu-SDK requires to work specific permissions, activities, receivers and services. Add them into *AndroidManifest.xml* in your project.
+
+#### Permissions required
+```
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    ```
+
+
