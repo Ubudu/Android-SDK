@@ -71,4 +71,45 @@ Ubudu-SDK requires to work specific permissions, activities, receivers and servi
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
   ```
 
+#### Activities, receivers and services:
+In application section add:
+``` xml
+<!-- BEGIN UbuduSDK stuff -->
+
+<receiver android:name=".service.UbuduBootReceiver" >
+<intent-filter>
+<action android:name="android.intent.action.BOOT_COMPLETED" />
+</intent-filter>
+</receiver>
+
+<activity android:name="com.ubudu.sdk.WebActivity" />
+
+<service
+android:name="com.ubudu.sdk.service.UbuduService"
+android:enabled="true"
+android:exported="true" >
+</service>
+<!-- the following should be coallesced eventually into the above service... -->
+<service
+android:name="com.ubudu.network.ibeacon.service.IBeaconService"
+android:enabled="true"
+android:exported="false"
+android:isolatedProcess="false" />
+<service
+android:name="com.ubudu.network.ibeacon.IBeaconIntentProcessor"
+android:enabled="true"
+android:exported="false"
+android:isolatedProcess="false" >
+<meta-data
+android:name="background"
+android:value="true" />
+
+<intent-filter android:priority="1" >
+<action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
+</intent-filter>
+</service>
+
+<!-- END UbuduSDK stuff -->
+```
+
 
