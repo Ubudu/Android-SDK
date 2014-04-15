@@ -6,6 +6,7 @@ Ubudu contextual interactions SDK for Android
 ### System and hardware requirements
 For Geofencing
 - Android >=4.3
+
 For beacons related features
 - A Bluetooth Low Energy (BLE) radio, present in some devices as part of Bluetooth 4.0
 - A working BLE API that allows third-party app code to access BLE. This is present in some Android 4.3+ devices.
@@ -20,7 +21,7 @@ For beacons related features
     + Samsung Galaxy Note 2, Note 3, Note 10.1
     + Sony Xperia Z, Z1, Z1 Compact
     + Sony Xperia Tablet Z, Ultra, ZR, ZL
-    + Sony Xperia SP, T, TX, V (OS v4.3+ only)
+    + Sony Xperia SP, T, TX, V
 
 ### Adding the Ubudu SDK framework to your project
 
