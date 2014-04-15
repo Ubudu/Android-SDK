@@ -60,7 +60,7 @@ You can add them into your project as references by pressing alt + enter or clic
 Ubudu-SDK requires to work specific permissions, activities, receivers and services. Add them into *AndroidManifest.xml* in your project.
 
 #### Permissions required
-```
+``` xml
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="18" />
@@ -71,6 +71,6 @@ Ubudu-SDK requires to work specific permissions, activities, receivers and servi
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    ```
+  ```
 
 
