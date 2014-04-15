@@ -49,3 +49,6 @@ After this, your project should looks like:
 
 - [google-play-services-lib](http://developer.android.com/google/play-services/setup.html)
 - [Volley](https://android.googlesource.com/platform/frameworks/volley)
+
+You can add them into your project as references by pressing alt + enter or clicking right mouse button on your project and selecting “Properties” and go into Android section.
+![Eclipse project content](/__media-files/images/image_3.jpg) 
