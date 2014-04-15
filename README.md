@@ -61,9 +61,7 @@ Ubudu-SDK requires to work specific permissions, activities, receivers and servi
 
 #### Permissions required
 ``` xml
-    <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="18" />
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
