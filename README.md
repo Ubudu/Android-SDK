@@ -33,9 +33,11 @@ Your first need to include all the required librairies into your project.
 ![Eclipse project content](/__media-files/images/image_1.jpg) 
 
 2. In the same way add also following libs (versions can be higher):
+
 - gson-2.2.4.jar
 - ormlite-android-4.48.jar
 - ormlite-core-4.48.jar
+
 These libraries can be downloaded in the following web-sites: 
 - [OrmLite](http://ormlite.com)
 - [Google GSON](https://code.google.com/p/google-gson/)
@@ -44,5 +46,6 @@ After this, your project should looks like:
 ![Eclipse project content](/__media-files/images/image_2.jpg) 
 
 3. The next step is prepare two other projects in your workspace:
+ 
 - google-play-services-lib
 - Volley
