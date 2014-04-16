@@ -32,12 +32,15 @@ public class MainActivity extends Activity implements TextOutput {
 	private static final String namespace = "71b309965b54bdd8d3594a1253fb0da408154982";
 
 	private boolean isScanningActive = false;
+	private UbuduSDK sdk;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		System.out.println("onCreate()");
+		
 		mInfoLabel = (TextView) findViewById(R.id.informationLabel);
 		mOutputText = (TextView) findViewById(R.id.outputText);
 		mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -46,7 +49,7 @@ public class MainActivity extends Activity implements TextOutput {
 		mActionButton.setOnClickListener(actionButtonListener);
 		mOutputText.setMovementMethod(new ScrollingMovementMethod());
 
-		UbuduSDK sdk = UbuduSDK.getSharedInstance(getApplicationContext());
+		sdk = UbuduSDK.getSharedInstance(getApplicationContext());
 		sdk.setNamespace(namespace);
 
 		mBeaconDelegate = new DemoAreaDelegate(this);
@@ -54,7 +57,6 @@ public class MainActivity extends Activity implements TextOutput {
 		mBeaconManager.setAreaDelegate(mBeaconDelegate);
 
 		activateBluetoothIfPossible();
-
 	}
 
 	@Override
@@ -170,8 +172,13 @@ public class MainActivity extends Activity implements TextOutput {
 	protected void onResume() {
 		super.onResume();
 		registerInfoReceiver();
+		
+		if (sdk.getBeaconManager().isMonitoring()) {
+			isScanningActive = true;
+			refreshActionButtonState();
+		}
 	}
-
+	
 	@Override
 	protected void onPause() {
 		super.onPause();
