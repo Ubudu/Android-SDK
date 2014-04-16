@@ -16,12 +16,14 @@ Ubudu contextual interactions SDK for Android
     + Motorola Moto G, Moto X
     + Motorola Droid RAZR M, RAZR HD, RAZR Maxx HD 
     + Motorola Droid Ultra, Maxx, Mini (OS v4.4+ only)
-    + LGE Nexus 4, 5, 7 (2013)
-    + Samsung Galaxy S3, S3 Mini, S4, S4 Mini, S4 Active, S5
+    + LGE Nexus 4*, 5*, 7 (2013)
+    + Samsung Galaxy S3*, S3 Mini, S4*, S4 Mini, S4 Active, S5
     + Samsung Galaxy Note 2, Note 3, Note 10.1
     + Sony Xperia Z, Z1, Z1 Compact
     + Sony Xperia Tablet Z, Ultra, ZR, ZL
     + Sony Xperia SP, T, TX, V
+
+* tested devices. Nexus 4 has well known problems when Wifi and BLE operate simultanesouly :-(
 
 ### Adding the Ubudu SDK framework to your project
 
