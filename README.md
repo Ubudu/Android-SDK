@@ -124,12 +124,6 @@ root of the API.
 ```java
     UbuduSDK sdk=UbuduSDK.getSharedInstance(context);
 ```
-The sdk gives access to managers for the various classes of areas.  Currently available are:
-
-- UbuduGeofenceManager
-- UbuduBeaconManager
-
-
 #### Namespace
 
 The namespace is a UUID corresponding to the application, provided by
