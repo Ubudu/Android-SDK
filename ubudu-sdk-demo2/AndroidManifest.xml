@@ -49,12 +49,12 @@
         </service>
         <!-- the following should be coallesced eventually into the above service... -->
         <service
-            android:name="com.ubudu.radiusnetworks.ibeacon.service.IBeaconService"
+            android:name="com.ubudu.network.ibeacon.service.IBeaconService"
             android:enabled="true"
             android:exported="false"
             android:isolatedProcess="false" />
         <service
-            android:name="com.ubudu.radiusnetworks.ibeacon.IBeaconIntentProcessor"
+            android:name="com.ubudu.network.ibeacon.IBeaconIntentProcessor"
             android:enabled="true"
             android:exported="false"
             android:isolatedProcess="false" >
