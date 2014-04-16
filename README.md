@@ -23,7 +23,7 @@ Ubudu contextual interactions SDK for Android
     + Sony Xperia Tablet Z, Ultra, ZR, ZL
     + Sony Xperia SP, T, TX, V
 
-* tested devices. Nexus 4 has well known problems when Wifi and BLE operate simultanesouly :-(
+    *tested devices. Nexus 4 has well known problems when Wifi and BLE operate simultanesouly :-(
 
 ### Adding the Ubudu SDK framework to your project
 
