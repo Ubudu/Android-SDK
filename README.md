@@ -72,6 +72,7 @@ Ubudu-SDK requires to work specific permissions, activities, receivers and servi
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
   ```
 
 #### Activities, receivers and services:
