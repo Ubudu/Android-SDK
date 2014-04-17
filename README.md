@@ -31,7 +31,7 @@ Starting to use the Ubudu SDK on Android app is very simple. Have a look at theu
 #### Instruction for Eclipse projects:
 Your first need to include all the required librairies into your project.
 
-1. Firstly add by drag&drop the *ubudu-sdk.1.0.1.jar* into libs folder in your project.
+1. Firstly add by drag&drop the *ubudu-sdk.1.0.2.jar* into libs folder in your project.
 
 ![Eclipse project content](/__media-files/images/image_1.jpg) 
 
