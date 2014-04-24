@@ -51,6 +51,8 @@ public class MainActivity extends Activity implements TextOutput {
 
 		sdk = UbuduSDK.getSharedInstance(getApplicationContext());
 		sdk.setNamespace(namespace);
+		
+		sdk.setMaximumDailyNumberOfNotificationsAllowed(99);
 
 		mBeaconDelegate = new DemoAreaDelegate(this);
 		mBeaconManager = sdk.getBeaconManager();
