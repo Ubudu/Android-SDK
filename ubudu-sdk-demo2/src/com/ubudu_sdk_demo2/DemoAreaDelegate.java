@@ -15,7 +15,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
     
   @SuppressWarnings("unused")
   private static final String TAG   = "ubudu.DemoAreaDelegate";
-  private static final String Label = "GeoFence";
+  // private static final String Label = "GeoFence";
     
   TextOutput                  mOutput;
     

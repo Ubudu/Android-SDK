@@ -1,7 +1,6 @@
 package com.ubudu_sdk_demo2;
 
 import com.ubudu.sdk.UbuduAreaDelegate;
-import com.ubudu.sdk.UbuduBeacon;
 import com.ubudu.sdk.UbuduBeaconManager;
 import com.ubudu.sdk.UbuduSDK;
 
@@ -14,13 +13,13 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ProgressBar;
+//import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements TextOutput {
 
 	private TextView mInfoLabel, mOutputText;
-	private ProgressBar mProgressBar;
+  // private ProgressBar mProgressBar;
 	private Button mActionButton;
 
 	private InfoAreaReceiver mInfoReceiver;
@@ -43,7 +42,7 @@ public class MainActivity extends Activity implements TextOutput {
 		
 		mInfoLabel = (TextView) findViewById(R.id.informationLabel);
 		mOutputText = (TextView) findViewById(R.id.outputText);
-		mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+		// mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 		mActionButton = (Button) findViewById(R.id.actionButton);
 
 		mActionButton.setOnClickListener(actionButtonListener);
