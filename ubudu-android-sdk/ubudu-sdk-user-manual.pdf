@@ -1125,12 +1125,12 @@ endobj
 % 'R65': class PDFInfo 
 65 0 obj
 << /Author ()
- /CreationDate (D:20140424043757+08'00')
+ /CreationDate (D:20140516002748-01'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
  /Subject (\(unspecified\))
- /Title (UbuduSDK User Manual - version 1.0.0) >>
+ /Title (UbuduSDK User Manual - version 1.0.6) >>
 endobj
 % 'R66': class PDFOutlines 
 66 0 obj
@@ -1440,7 +1440,7 @@ stream
 q
 1 0 0 1 62.69291 705.0236 cm
 q
-BT 1 0 0 1 0 4 Tm 55.22488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (UbuduSDK ) Tj /F3 20 Tf (User Manual - version 1.0.0) Tj T* -55.22488 0 Td ET
+BT 1 0 0 1 0 4 Tm 55.22488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (UbuduSDK ) Tj /F3 20 Tf (User Manual - version 1.0.6) Tj T* -55.22488 0 Td ET
 Q
 Q
 q
@@ -3538,7 +3538,7 @@ xref
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(-\014a\332\357\013\211J"\374\253\354\240\277\327\305) (-\014a\332\357\013\211J"\374\253\354\240\277\327\305)] 
+ [(9QN\237\263\023\030\335\334\310\217\275\332\026\244\227) (9QN\237\263\023\030\335\334\310\217\275\332\026\244\227)] 
 
  /Info 65 0 R
  /Root 64 0 R
