@@ -5,12 +5,6 @@
     android:background="#fcd38b" >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/logo3" />
-
-    <RelativeLayout
         android:id="@+id/activeSpot"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -33,5 +27,18 @@
             android:layout_centerHorizontal="true"
             android:text="Press start for start searching for geofences" />
     </RelativeLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/activeSpot" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/logo3" />
 
 </RelativeLayout>

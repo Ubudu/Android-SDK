@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class UbuduPagerAdapter extends FragmentPagerAdapter {
 
-	public final static String[] mFragmentsNames = {"beacons"};
+	public final static String[] mFragmentsNames = {"beacons", "geofences"};
 	
 	public UbuduPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -17,6 +17,8 @@ public class UbuduPagerAdapter extends FragmentPagerAdapter {
 		switch (arg0) {
 		case 0:
 			return BeaconFragment.newInstance();
+		case 1:
+			return GeofenceFragment.newInstance();
 		default:
 			return null;
 		}
@@ -26,7 +28,4 @@ public class UbuduPagerAdapter extends FragmentPagerAdapter {
 	public int getCount() {
 		return mFragmentsNames.length;
 	}
-	
-	
-
 }

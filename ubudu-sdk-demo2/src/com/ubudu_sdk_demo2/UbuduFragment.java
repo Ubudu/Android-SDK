@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class UbuduFragment extends Fragment {
 
 	public static final int BEACON = 1;
+	public static final int GEOFENCE = 2;
 
 	private TextView mActionButtonStatus;
 	private TextView mInfoLabel;
@@ -33,12 +34,17 @@ public class UbuduFragment extends Fragment {
 		this.mInfoLabel = infoLabel;
 		this.mTextOutput = textOutput;
 
-		// Check is manager searching. If yes perform views.
+		// Check are managers searching. If yes refresh views.
 		if (UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).getBeaconManager()
-				.isMonitoring()) {
+				.isMonitoring()
+				|| UbuduSDK.getSharedInstance(getActivity().getApplicationContext())
+						.getGeofenceManager().isMonitoring()) {
 			mScanningActive = true;
 			if (getMode() == BEACON) {
 				refreshActionButtonState("beacons");
+			}
+			if (getMode() == GEOFENCE) {
+				refreshActionButtonState("geofences");
 			}
 		}
 	}
@@ -84,6 +90,9 @@ public class UbuduFragment extends Fragment {
 		if (getMode() == BEACON) {
 			refreshActionButtonState("beacons");
 		}
+		if (getMode() == GEOFENCE) {
+			refreshActionButtonState("geofences");
+		}
 		if (e != null) {
 			getTextOutput().printf("Error: %s\n", e.toString());
 		}
@@ -94,6 +103,10 @@ public class UbuduFragment extends Fragment {
 		if (getMode() == BEACON) {
 			getTextOutput().printf("Stop searching for beacons\n");
 			refreshActionButtonState("beacons");
+		}
+		if (getMode() == GEOFENCE) {
+			getTextOutput().printf("Stop searching for geofences\n");
+			refreshActionButtonState("geofences");
 		}
 	}
 

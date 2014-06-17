@@ -69,7 +69,7 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 					startScanning(e);
 				} else {
 					((MainActivity)getActivity()).getBeaconManager().stop(getActivity());
-					UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).release(getActivity().getApplicationContext());
+					//UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).release(getActivity().getApplicationContext());
 					stopScanning();
 				}
 			}
