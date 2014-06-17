@@ -1,10 +1,5 @@
 package com.ubudu_sdk_demo2;
 
-import com.ubudu.sdk.UbuduAreaDelegate;
-import com.ubudu.sdk.UbuduBeaconManager;
-import com.ubudu.sdk.UbuduGeofenceManager;
-import com.ubudu.sdk.UbuduSDK;
-
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +7,11 @@ import android.support.v4.view.ViewPager;
 import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+
+import com.ubudu.sdk.UbuduAreaDelegate;
+import com.ubudu.sdk.UbuduBeaconManager;
+import com.ubudu.sdk.UbuduGeofenceManager;
+import com.ubudu.sdk.UbuduSDK;
 
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
@@ -46,6 +46,9 @@ public class MainActivity extends FragmentActivity implements TextOutput {
 		
 		mBeaconManager = mUbuduSdk.getBeaconManager();
 		mGeofenceManager = mUbuduSdk.getGeofenceManager();
+		mBeaconManager = mUbuduSdk.getBeaconManager();
+		
+		mBeaconManager.setAreaDelegate(getAreaDelegate());
 		
 		mUbuduPagerAdapter = new UbuduPagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);

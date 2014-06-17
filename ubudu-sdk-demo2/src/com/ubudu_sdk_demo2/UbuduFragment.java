@@ -1,15 +1,9 @@
 package com.ubudu_sdk_demo2;
 
-import com.ubudu.sdk.UbuduSDK;
-
-import android.app.Activity;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.ubudu.sdk.UbuduSDK;
 
 public class UbuduFragment extends Fragment {
 
@@ -20,7 +14,8 @@ public class UbuduFragment extends Fragment {
 	private TextView mInfoLabel;
 	private TextOutput mTextOutput;
 
-	private boolean mScanningActive = false;
+	private boolean mBeaconsScanningActive = false;
+	private boolean mGeofencesScanningActive = false;
 
 	/**
 	 * Has to be overrided by children
@@ -36,17 +31,14 @@ public class UbuduFragment extends Fragment {
 
 		// Check are managers searching. If yes refresh views.
 		if (UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).getBeaconManager()
-				.isMonitoring()
-				|| UbuduSDK.getSharedInstance(getActivity().getApplicationContext())
-						.getGeofenceManager().isMonitoring()) {
-			mScanningActive = true;
-			if (getMode() == BEACON) {
-				refreshActionButtonState("beacons");
-			}
-			if (getMode() == GEOFENCE) {
-				refreshActionButtonState("geofences");
-			}
+				.isMonitoring()) {
+			mBeaconsScanningActive = true;
 		}
+		if (UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).getGeofenceManager()
+				.isMonitoring()) {
+			mGeofencesScanningActive = true;
+		}
+		refreshActionButtonState();
 	}
 
 	/**
@@ -70,28 +62,42 @@ public class UbuduFragment extends Fragment {
 		return mTextOutput;
 	}
 
-	public boolean isScanningActive() {
-		return mScanningActive;
+	public boolean isBeaconsScanningActive() {
+		return mBeaconsScanningActive;
 	}
 
-	private void refreshActionButtonState(String s) {
-		if (!isScanningActive()) {
-			mInfoLabel.setText("Press button to start searching for " + s);
+	public boolean isGeofencesScanningActive() {
+		return mGeofencesScanningActive;
+	}
+
+	private void refreshActionButtonState() {
+		if (!isBeaconsScanningActive() && getMode() == BEACON) {
+			mInfoLabel.setText("Press button to start searching for beacons");
 			mActionButtonStatus.setText("Start");
-		} else {
-			mInfoLabel.setText("Press button to stop searching for " + s);
+		} else if (isBeaconsScanningActive() && getMode() == BEACON) {
+			mInfoLabel.setText("Press button to stop searching for beacons");
+			mActionButtonStatus.setText("Stop");
+		}
+
+		if (!isGeofencesScanningActive() && getMode() == GEOFENCE) {
+			mInfoLabel.setText("Press button to start searching for geofences");
+			mActionButtonStatus.setText("Start");
+		} else if (isGeofencesScanningActive() && getMode() == GEOFENCE) {
+			mInfoLabel.setText("Press button to stop searching for geofences");
 			mActionButtonStatus.setText("Stop");
 		}
 	}
 
 	public void startScanning(Error e) {
 
-		mScanningActive = true;
 		if (getMode() == BEACON) {
-			refreshActionButtonState("beacons");
+			mBeaconsScanningActive = true;
+			refreshActionButtonState();
 		}
 		if (getMode() == GEOFENCE) {
-			refreshActionButtonState("geofences");
+			mGeofencesScanningActive = true;
+			refreshActionButtonState();
+
 		}
 		if (e != null) {
 			getTextOutput().printf("Error: %s\n", e.toString());
@@ -99,14 +105,16 @@ public class UbuduFragment extends Fragment {
 	}
 
 	public void stopScanning() {
-		mScanningActive = false;
+
 		if (getMode() == BEACON) {
 			getTextOutput().printf("Stop searching for beacons\n");
-			refreshActionButtonState("beacons");
+			mBeaconsScanningActive = false;
+			refreshActionButtonState();
 		}
 		if (getMode() == GEOFENCE) {
 			getTextOutput().printf("Stop searching for geofences\n");
-			refreshActionButtonState("geofences");
+			mGeofencesScanningActive = false;
+			refreshActionButtonState();
 		}
 	}
 

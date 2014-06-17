@@ -1,18 +1,16 @@
 package com.ubudu_sdk_demo2;
 
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.ubudu.sdk.UbuduSDK;
-
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.common.GooglePlayServicesUtil;
 
 public class GeofenceFragment extends UbuduFragment implements OnClickListener {
 
@@ -57,14 +55,12 @@ public class GeofenceFragment extends UbuduFragment implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.activeSpot: {
-			if (!isScanningActive()) {
+			if (!isGeofencesScanningActive()) {
 				getTextOutput().printf("Start searching for geofences\n");
 				Error e = ((MainActivity) getActivity()).getGeofenceManager().start(getActivity());
 				startScanning(e);
 			} else {
 				((MainActivity) getActivity()).getGeofenceManager().stop(getActivity());
-				UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).release(
-						getActivity().getApplicationContext());
 				stopScanning();
 			}
 		}

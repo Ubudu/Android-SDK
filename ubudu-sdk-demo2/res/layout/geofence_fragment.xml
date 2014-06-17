@@ -5,6 +5,12 @@
     android:background="#fcd38b" >
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/logo3" />
+
+    <RelativeLayout
         android:id="@+id/activeSpot"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

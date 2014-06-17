@@ -1,12 +1,12 @@
 package com.ubudu_sdk_demo2;
 
-import com.ubudu.sdk.UbuduArea;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+
+import com.ubudu.sdk.UbuduArea;
 
 public class InfoAreaReceiver extends BroadcastReceiver {
   @SuppressWarnings("unused")

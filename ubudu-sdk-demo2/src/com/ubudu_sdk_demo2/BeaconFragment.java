@@ -1,13 +1,11 @@
 package com.ubudu_sdk_demo2;
 
-import com.ubudu.sdk.UbuduSDK;
-
 import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -63,13 +61,12 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 		switch (v.getId()) {
 			case R.id.activeSpot:
 			{
-				if(!isScanningActive()) {
+				if(!isBeaconsScanningActive()) {
 					getTextOutput().printf("Start searching for beacons\n");
 					Error e = ((MainActivity)getActivity()).getBeaconManager().start(getActivity());
 					startScanning(e);
 				} else {
 					((MainActivity)getActivity()).getBeaconManager().stop(getActivity());
-					//UbuduSDK.getSharedInstance(getActivity().getApplicationContext()).release(getActivity().getApplicationContext());
 					stopScanning();
 				}
 			}
