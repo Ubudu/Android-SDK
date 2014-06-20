@@ -27,11 +27,11 @@ Ubudu contextual interactions SDK for Android
 
 ### Adding the Ubudu SDK framework to your project
 
-Starting to use the Ubudu SDK on Android app is very simple. Have a look at theubudu-demo-app2 in the directory for a complete example.
+Starting to use the Ubudu SDK on Android app is very simple. Have a look at the ubudu-demo-app2 in the directory for a complete example.
 #### Instruction for Eclipse projects:
 Your first need to include all the required librairies into your project.
 
-1. Firstly add by drag&drop the *ubudu-sdk.1.0.2.jar* into libs folder in your project.
+1. Firstly add by drag&drop the newest version of *ubudu-sdk.jar* into libs folder in your project.
 
 ![Eclipse project content](/__media-files/images/image_1.jpg) 
 
@@ -427,3 +427,7 @@ normal processing is wanted, it can call one of the UbuduSDK methods:
 </tbody>
 </table>
 
+
+#### Adding map into your project
+In ubudu-demo-app2 there is completed example how to use map for support geofences. You have to only generate and change map API key in AndroidManifest.xml file. To achieve this follow Google Developers guide: 
+- [How to get Google Maps API key](https://developers.google.com/maps/documentation/android/start#get_an_android_certificate_and_the_google_maps_api_key)
