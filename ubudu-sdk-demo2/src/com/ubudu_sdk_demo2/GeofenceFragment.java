@@ -1,18 +1,23 @@
 package com.ubudu_sdk_demo2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-public class GeofenceFragment extends UbuduFragment implements OnClickListener {
+public class GeofenceFragment extends UbuduFragment implements View.OnClickListener {
 
 	private RelativeLayout mActiveSpot;
 	private Map mMap;
@@ -56,6 +61,10 @@ public class GeofenceFragment extends UbuduFragment implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.activeSpot: {
 			if (!isGeofencesScanningActive()) {
+				if (!checkIsGpsEnabled()) {
+					showGpsAlertDialog();
+					return;
+				}
 				getTextOutput().printf("Start searching for geofences\n");
 				Error e = ((MainActivity) getActivity()).getGeofenceManager().start(getActivity());
 				startScanning(e);
@@ -65,6 +74,48 @@ public class GeofenceFragment extends UbuduFragment implements OnClickListener {
 			}
 		}
 		}
+	}
+
+	private void showGpsAlertDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setMessage("Please enable location with high accuracy or battery saving mode");
+		builder.setPositiveButton("OK", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				getActivity().startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+			}
+		});
+		builder.setNegativeButton("CANCEL", new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+			}
+		});
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+
+	/**
+	 * LocationClient uses Google Location Service to location estimates. Google
+	 * Location Service working only with High accuracy and Battery saving
+	 * location mode. Before start getting locations we have to enable one of
+	 * these modes
+	 * 
+	 * @return true - when location is enabled
+	 */
+	private boolean checkIsGpsEnabled() {
+		LocationManager manager = (LocationManager) getActivity().getSystemService(
+				Context.LOCATION_SERVICE);
+
+		if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+				&& manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+				|| (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+				&& manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+			return true;
+		}
+		return false;
 	}
 
 	private class GooglePlayCancelListener implements DialogInterface.OnCancelListener {
