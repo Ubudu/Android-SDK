@@ -35,11 +35,11 @@ develop with Ubudu SDKs and we only charge usage.
 
 ### Instruction for Eclipse projects
 
-See Android-SDK/eclipse/README.md
+See [Android-SDK/eclipse/README.md](/eclipse/README.md)
 
 ### Instruction for Android Studio projects
 
-See Android-SDK/studio/README.md
+See [Android-SDK/studio/README.md](/studio/README.md)
 
 
 ### Usage instructions

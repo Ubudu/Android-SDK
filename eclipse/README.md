@@ -4,7 +4,7 @@
 
 ## Ubudu contextual interactions SDK for Android
 
-For general information and usage, see Android-SDK/README.md
+For general information and usage, see ![Android-SDK/README.md](/README.md)
 
 ### Adding the Ubudu SDK framework to your Eclipse project
 
