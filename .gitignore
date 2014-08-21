@@ -18,6 +18,7 @@
 .metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version
 \#*
 bin/
+build/
 gen/
 google-play-services_lib/bin/google-play-services_lib.jar
 local.properties
