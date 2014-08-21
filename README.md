@@ -63,6 +63,29 @@ the the Ubudu contextual interaction manager web site.
 
 This should be set before starting the managers (see below).
 
+#### User information
+
+The application may send to the server user information, which allows
+the server to filter geofences and beacons on user properties and
+tags.
+
+```java
+    public class ApplicationUserInformation implements UbuduUser {
+        public String userId(){
+            return …;
+        }
+        public java.util.Map<String,String> properties(){
+            return …;
+        }
+        public java.util.Collection<String> tags(){
+            return …;
+        }
+    };
+    ApplicationUserInformation user=new ApplicationUserInformation(…);
+    sdk.setUserInformation(user);
+```
+
+
 #### Managers
 
 The `UbuduSDK` instance provides methods to obtain the *managers*, each of which deals with
