@@ -2,6 +2,13 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://5.135.82.92:8081/nexus/content/groups/public/'
+        // url 'http://5.135.82.92:8081/nexus/content/repositories/releases/'
+    }
+    // maven { 
+    //     url 'http://5.135.82.92:8081/nexus/content/repositories/snapshots/'
+    // }
 }
 
 dependencies {
@@ -10,7 +17,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:5.2.08'
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.j256.ormlite:ormlite-android:4.48'
-    compile 'com.j256.ormlite:ormlite-core:4.48'
+    compile 'com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
