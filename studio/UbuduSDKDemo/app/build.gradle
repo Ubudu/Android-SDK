@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.github.erd:android-volley:1.0.0'
+    compile 'com.google.android.gms:play-services:5.2.08'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'com.j256.ormlite:ormlite-core:4.48'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'com.ubudu.sdk.studiodemo'
+        minSdkVersion 18
+        targetSdkVersion 20
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        Release {
+            keyAlias 'studiodemo'
+            keyPassword 'studiodemo'
+            storeFile file('$MODULE_DIR$/studiodemo.keystore')
+            storePassword 'studiodemo'
+        }
+    }
+    productFlavors {
+    }
+}
+
