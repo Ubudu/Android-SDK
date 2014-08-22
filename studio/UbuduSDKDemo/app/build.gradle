@@ -2,25 +2,29 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
-    maven {
-        url 'http://5.135.82.92:8081/nexus/content/groups/public/'
-        // url 'http://5.135.82.92:8081/nexus/content/repositories/releases/'
-    }
-    // maven { 
+    maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+    // maven {
     //     url 'http://5.135.82.92:8081/nexus/content/repositories/snapshots/'
     // }
 }
 
-dependencies {
-    compile 'com.android.support:support-v4:20.0.0'
-    compile 'com.github.erd:android-volley:1.0.0'
-    compile 'com.google.android.gms:play-services:5.2.08'
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.j256.ormlite:ormlite-android:4.48'
-    compile 'com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
+dependencies {
+    compile('com.android.support:support-v4:20.0.0') {
+        transitive = true
+    }
+    compile('com.google.android.gms:play-services:5.2.08') {
+        transitive = true
+    }
+    compile('com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT@aar') {
+        transitive = true
+    }
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
 
 android {
     compileSdkVersion 20
