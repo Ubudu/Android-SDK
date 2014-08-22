@@ -69,7 +69,10 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 The Ubudu SDK requires specific permissions, activities, receivers and
 services.  They're added automatically by the Gradle AndroidManifest
-merging feature.
+merging feature.  You can find the AndroidManifest.xml file in the
+ubudu-sdk-*.aar zip archive, which you can find in the local maven
+cache in ~/.m2/caches/modules-2/ or in the
+[Ubudu Nexus Repository](http://5.135.82.92:8081/nexus/content/groups/public/com/ubudu/sdk/ubudu-sdk/).
 
 <!-- ======================================================== -->
 
