@@ -3,9 +3,6 @@ apply plugin: 'com.android.application'
 repositories {
     mavenCentral()
     maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
-    // maven {
-    //     url 'http://5.135.82.92:8081/nexus/content/repositories/snapshots/'
-    // }
 }
 
 configurations.all {
