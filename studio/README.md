@@ -17,19 +17,23 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 1. In the build.gradle file of your application module, add the Ubudu nexus repository:
 
+```gradle
     repositories {
         mavenCentral()
         maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
     }
+```
 
 2. In the build.gradle file of your application module, add the Ubudu SDK dependency:
 
+```gradle
     dependencies {
         compile('com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT@aar') {
             transitive = true
         }
         // …
     }
+```
 
   You may browse the
   [Ubudu Nexus Repository](http://5.135.82.92:8081/nexus/content/groups/public/com/ubudu/sdk/ubudu-sdk/)
@@ -44,6 +48,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 4. You may use the gradle dependencies command to see them:
 
+```shell
     [UbuduSDKDemo]$ ./gradlew :app:dependencies
     # …
     compile - Classpath for compiling the main sources.
@@ -58,6 +63,7 @@ Your first need to specify the dependency on the Ubudu SDK:
          \--- com.j256.ormlite:ormlite-android:4.48
               \--- com.j256.ormlite:ormlite-core:4.48
     # …
+```
 
 ### The Android Manifest File.
 
