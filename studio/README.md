@@ -28,7 +28,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```gradle
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:1.1.0T@aar') {
             transitive = true
         }
         // …
