@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ubudu.sdk"
-          android:versionCode="1"
-<<<<<<< HEAD
-          android:versionName="1.0.7" >
-=======
-          android:versionName="1.0" >
->>>>>>> 710a3f8c947ead49dc1df05668f265c47c6a2b32
+          android:versionCode="11"
+          android:versionName="1.1.1" >
 
   <!-- BEGIN UbuduSDK stuff -->
   <uses-sdk
@@ -44,7 +40,7 @@
     <service
         android:name="com.ubudu.sdk.service.UbuduService"
         android:enabled="true"
-        android:exported="true" >
+        android:exported="false" >
       <intent-filter>
         <action android:name="com.ubudu.sdk.service.UbuduService.action.DISPLAY_WEB_PAGE" />
         <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_SAMSUNG_WALLET" />

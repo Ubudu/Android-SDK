@@ -65,9 +65,9 @@ endobj
  0
  0 ]
  /Rect [ 159.3329
- 214.5736
+ 184.5736
  278.9729
- 226.5736 ]
+ 196.5736 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -80,9 +80,9 @@ endobj
  0
  0 ]
  /Rect [ 183.8029
- 196.5736
+ 166.5736
  330.6929
- 208.5736 ]
+ 178.5736 ]
  /Subtype /Link
  /Type /Annot >>
 endobj
@@ -188,7 +188,7 @@ endobj
  /Dest [ 9 0 R
  /XYZ
  62.69291
- 423.0236
+ 393.0236
  0 ]
  /Rect [ 62.69291
  618.7736
@@ -206,7 +206,7 @@ endobj
  /Dest [ 9 0 R
  /XYZ
  62.69291
- 423.0236
+ 393.0236
  0 ]
  /Rect [ 527.0227
  618.7736
@@ -1182,12 +1182,12 @@ endobj
 % 'R68': class PDFInfo 
 68 0 obj
 << /Author ()
- /CreationDate (D:20140825160450-01'00')
+ /CreationDate (D:20140826142237-01'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
  /Subject (\(unspecified\))
- /Title (UbuduSDK User Manual - version 1.1.0) >>
+ /Title (UbuduSDK User Manual - version 1.1.1) >>
 endobj
 % 'R69': class PDFOutlines 
 69 0 obj
@@ -1224,7 +1224,7 @@ endobj
 << /Dest [ 9 0 R
  /XYZ
  62.69291
- 423.0236
+ 393.0236
  0 ]
  /Next 73 0 R
  /Parent 69 0 R
@@ -1504,13 +1504,13 @@ endobj
 % 'R95': class PDFStream 
 95 0 obj
 % page stream
-<< /Length 9115 >>
+<< /Length 9671 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
 1 0 0 1 62.69291 705.0236 cm
 q
-BT 1 0 0 1 0 4 Tm 55.22488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (UbuduSDK ) Tj /F3 20 Tf (User Manual - version 1.1.0) Tj T* -55.22488 0 Td ET
+BT 1 0 0 1 0 4 Tm 55.22488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (UbuduSDK ) Tj /F3 20 Tf (User Manual - version 1.1.1) Tj T* -55.22488 0 Td ET
 Q
 Q
 q
@@ -1620,23 +1620,25 @@ q
 1 0 0 1 62.69291 537.0236 cm
 Q
 q
-1 0 0 1 62.69291 435.0236 cm
+1 0 0 1 62.69291 405.0236 cm
 1 1 1 rg
-n 0 102 469.8898 -18 re f*
+n 0 132 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 84 469.8898 -18 re f*
+n 0 114 469.8898 -18 re f*
 1 1 1 rg
-n 0 66 469.8898 -18 re f*
+n 0 96 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 48 469.8898 -30 re f*
+n 0 78 469.8898 -30 re f*
 1 1 1 rg
-n 0 18 469.8898 -18 re f*
+n 0 48 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 30 469.8898 -30 re f*
 .960784 .960784 .862745 rg
-n 0 102 469.8898 -18 re f*
+n 0 132 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 87 cm
+1 0 0 1 6 117 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 50.65197 12 re f*
@@ -1647,7 +1649,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 8.375984 0 Td (Version) Tj T* -8.375984 0 Td E
 Q
 Q
 q
-1 0 0 1 68.65197 87 cm
+1 0 0 1 68.65197 117 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 50.65197 12 re f*
@@ -1658,7 +1660,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 14.76598 0 Td (Date) Tj T* -14.76598 0 Td ET
 Q
 Q
 q
-1 0 0 1 131.3039 87 cm
+1 0 0 1 131.3039 117 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 125.8343 12 re f*
@@ -1669,7 +1671,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 48.18717 0 Td (Author) Tj T* -48.18717 0 Td ET
 Q
 Q
 q
-1 0 0 1 269.1383 87 cm
+1 0 0 1 269.1383 117 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 194.7515 12 re f*
@@ -1681,49 +1683,77 @@ Q
 Q
 0 0 0 rg
 q
-1 0 0 1 6 69 cm
+1 0 0 1 6 99 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 68.65197 69 cm
+1 0 0 1 68.65197 99 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-01) Tj T* ET
 Q
 Q
 q
-1 0 0 1 131.3039 69 cm
+1 0 0 1 131.3039 99 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Pascal Bourguignon) Tj T* ET
 Q
 Q
 q
-1 0 0 1 269.1383 69 cm
+1 0 0 1 269.1383 99 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Created stub.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 51 cm
+1 0 0 1 6 81 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 68.65197 51 cm
+1 0 0 1 68.65197 81 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-02-07) Tj T* ET
 Q
 Q
 q
-1 0 0 1 131.3039 51 cm
+1 0 0 1 131.3039 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Pascal Bourguignon) Tj T* ET
+Q
+Q
+q
+1 0 0 1 269.1383 81 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added some sections TBD.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 63 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.2) Tj T* ET
+Q
+Q
+q
+1 0 0 1 68.65197 63 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-02-27) Tj T* ET
+Q
+Q
+q
+1 0 0 1 131.3039 63 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Pascal Bourguignon) Tj T* ET
@@ -1733,21 +1763,21 @@ q
 1 0 0 1 269.1383 51 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added some sections TBD.) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Added instructions to include the jar in an) Tj T* (application project.) Tj T* ET
 Q
 Q
 q
 1 0 0 1 6 33 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0.2) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.0) Tj T* ET
 Q
 Q
 q
 1 0 0 1 68.65197 33 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-02-27) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-25) Tj T* ET
 Q
 Q
 q
@@ -1758,28 +1788,28 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Pascal Bourguignon) Tj T* ET
 Q
 Q
 q
-1 0 0 1 269.1383 21 cm
+1 0 0 1 269.1383 33 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Added instructions to include the jar in an) Tj T* (application project.) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added UbuduUser interface.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 68.65197 3 cm
+1 0 0 1 6 15 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-25) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 131.3039 3 cm
+1 0 0 1 68.65197 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-26) Tj T* ET
+Q
+Q
+q
+1 0 0 1 131.3039 15 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Pascal Bourguignon) Tj T* ET
@@ -1789,7 +1819,7 @@ q
 1 0 0 1 269.1383 3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added UbuduUser interface.) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Added anti hacking protocol configuration) Tj T* (from the server.) Tj T* ET
 Q
 Q
 q
@@ -1797,42 +1827,43 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 84 m 469.8898 84 l S
-n 0 66 m 469.8898 66 l S
+n 0 114 m 469.8898 114 l S
+n 0 96 m 469.8898 96 l S
+n 0 78 m 469.8898 78 l S
 n 0 48 m 469.8898 48 l S
-n 0 18 m 469.8898 18 l S
-n 62.65197 0 m 62.65197 102 l S
-n 125.3039 0 m 125.3039 102 l S
-n 263.1383 0 m 263.1383 102 l S
-n 0 102 m 469.8898 102 l S
+n 0 30 m 469.8898 30 l S
+n 62.65197 0 m 62.65197 132 l S
+n 125.3039 0 m 125.3039 132 l S
+n 263.1383 0 m 263.1383 132 l S
+n 0 132 m 469.8898 132 l S
 n 0 0 m 469.8898 0 l S
-n 0 0 m 0 102 l S
-n 469.8898 0 m 469.8898 102 l S
+n 0 0 m 0 132 l S
+n 469.8898 0 m 469.8898 132 l S
 Q
 Q
 q
-1 0 0 1 62.69291 435.0236 cm
+1 0 0 1 62.69291 405.0236 cm
 Q
 q
-1 0 0 1 62.69291 402.0236 cm
+1 0 0 1 62.69291 372.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F3 17.5 Tf 0 0 0 rg (3   Colophon) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 372.0236 cm
+1 0 0 1 62.69291 342.0236 cm
 q
 BT 1 0 0 1 0 14 Tm 2.532339 Tw 12 TL /F1 10 Tf 0 0 0 rg (The source of this document is written in ) Tj /F5 10 Tf (reStructured Text ) Tj /F1 10 Tf (format. It is in the ) Tj /F5 10 Tf (git ) Tj /F1 10 Tf (repository under) Tj T* 0 Tw /F4 10 Tf (documentation/user-manual/user-manual.txt) Tj /F1 10 Tf (.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 366.0236 cm
+1 0 0 1 62.69291 336.0236 cm
 Q
 q
-1 0 0 1 62.69291 366.0236 cm
+1 0 0 1 62.69291 336.0236 cm
 Q
 q
-1 0 0 1 62.69291 354.0236 cm
+1 0 0 1 62.69291 324.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1852,10 +1883,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 348.0236 cm
+1 0 0 1 62.69291 318.0236 cm
 Q
 q
-1 0 0 1 62.69291 336.0236 cm
+1 0 0 1 62.69291 306.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1875,17 +1906,17 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 336.0236 cm
+1 0 0 1 62.69291 306.0236 cm
 Q
 q
-1 0 0 1 62.69291 318.0236 cm
+1 0 0 1 62.69291 288.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (You can generate various formats from it:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 272.8236 cm
+1 0 0 1 62.69291 242.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1906,26 +1937,26 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 252.8236 cm
+1 0 0 1 62.69291 222.8236 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (\(cf. Makefile in the ) Tj /F4 10 Tf (documentation/user-manual/ ) Tj /F1 10 Tf (directory\).) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 234.8236 cm
+1 0 0 1 62.69291 204.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Authors:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 228.8236 cm
+1 0 0 1 62.69291 198.8236 cm
 Q
 q
-1 0 0 1 62.69291 228.8236 cm
+1 0 0 1 62.69291 198.8236 cm
 Q
 q
-1 0 0 1 62.69291 216.8236 cm
+1 0 0 1 62.69291 186.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1945,10 +1976,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 210.8236 cm
+1 0 0 1 62.69291 180.8236 cm
 Q
 q
-1 0 0 1 62.69291 198.8236 cm
+1 0 0 1 62.69291 168.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1968,17 +1999,17 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 198.8236 cm
+1 0 0 1 62.69291 168.8236 cm
 Q
 q
-1 0 0 1 62.69291 180.8236 cm
+1 0 0 1 62.69291 150.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Legal status:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 162.8236 cm
+1 0 0 1 62.69291 132.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Copyright \2512013,2014 ubudu SAS, All right reserved) Tj T* ET
@@ -2692,7 +2723,7 @@ endobj
 % 'R98': class PDFStream 
 98 0 obj
 % page stream
-<< /Length 5180 >>
+<< /Length 5148 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -2734,35 +2765,63 @@ BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (First get instance of ) Tj /F4 10 Tf
 Q
 Q
 q
-1 0 0 1 62.69291 300.9568 cm
+1 0 0 1 62.69291 296.0607 cm
 q
 q
-.805709 0 0 .805709 0 0 cm
+1 0 0 1 0 0 cm
 q
-1 0 0 1 6.6 8.191538 cm
+1 0 0 1 6.6 6.6 cm
 q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 582 24 re B*
+n -6 -6 468.6898 24 re B*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (UbuduGeofenceManager mGeofenceManager=UbuduSDK.getSharedInstance\(context\).getGeofenceManager\(\);) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (UbuduSDK sdk=UbuduSDK.getSharedInstance\(context\);) Tj T* ET
 Q
 Q
 Q
 Q
 Q
 q
-1 0 0 1 62.69291 280.9568 cm
+1 0 0 1 62.69291 276.0607 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Set the application namespace) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 242.8607 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (sdk.setNamespace\(namespace\);) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 222.8607 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Set delegate that handle actions from SDK) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 247.7568 cm
+1 0 0 1 62.69291 177.6607 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -2772,51 +2831,25 @@ q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 468.6898 24 re B*
+n -6 -6 468.6898 36 re B*
 Q
-q
-BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (mGeofenceManager.setAreaDelegate\() Tj (<) Tj (someAreaDelegate) Tj (>) Tj (\);) Tj T* ET
-Q
-Q
-Q
-Q
-Q
-q
-1 0 0 1 62.69291 227.7568 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Set namespace) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 194.5568 cm
-q
-q
-1 0 0 1 0 0 cm
-q
-1 0 0 1 6.6 6.6 cm
-q
-.662745 .662745 .662745 RG
-.5 w
-.960784 .960784 .862745 rg
-n -6 -6 468.6898 24 re B*
-Q
-q
-BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (mGeofenceManager.setNamespace\() Tj (<) Tj (namespace) Tj (>) Tj (\);) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F4 10 Tf 12 TL (UbuduGeofenceManager mGeofenceManager=sdk.getGeofenceManager\(\);) Tj T* (mGeofenceManager.setAreaDelegate\(someAreaDelegate\);) Tj T* ET
 Q
 Q
 Q
 Q
 Q
 q
-1 0 0 1 62.69291 162.5568 cm
+1 0 0 1 62.69291 145.6607 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.970814 Tw (Next start service with startGeofencing\(Context ctx\). From this moment application will start receiving) Tj T* 0 Tw (geofences and notify user in case of proper conditions.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 129.3568 cm
+1 0 0 1 62.69291 112.4607 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -2837,7 +2870,7 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 109.3568 cm
+1 0 0 1 62.69291 92.46072 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To stop using SDK use following code:) Tj T* ET
@@ -3690,28 +3723,28 @@ xref
 0000025561 00000 n
 0000025798 00000 n
 0000025959 00000 n
-0000035173 00000 n
-0000043296 00000 n
-0000049111 00000 n
-0000054390 00000 n
-0000059307 00000 n
-0000066974 00000 n
-0000068537 00000 n
-0000068717 00000 n
-0000068796 00000 n
-0000068875 00000 n
-0000068954 00000 n
-0000069033 00000 n
-0000069112 00000 n
-0000069191 00000 n
+0000035729 00000 n
+0000043852 00000 n
+0000049667 00000 n
+0000054914 00000 n
+0000059831 00000 n
+0000067498 00000 n
+0000069061 00000 n
+0000069241 00000 n
+0000069320 00000 n
+0000069399 00000 n
+0000069478 00000 n
+0000069557 00000 n
+0000069636 00000 n
+0000069715 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\333XNXC\323\031\226GO\323\221\0123\020\277) (\333XNXC\323\031\226GO\323\221\0123\020\277)] 
+ [(\372R\274jH\354\233u[\223\224\323\013v\317\223) (\372R\274jH\354\233u[\223\224\323\013v\317\223)] 
 
  /Info 68 0 R
  /Root 67 0 R
  /Size 110 >>
 startxref
-69239
+69763
 %%EOF

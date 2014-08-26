@@ -4090,12 +4090,12 @@ endobj
 % 'R222': class PDFInfo 
 222 0 obj
 << /Author ()
- /CreationDate (D:20140825153321-01'00')
+ /CreationDate (D:20140826142230-01'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
  /Subject (\(unspecified\))
- /Title (Ubudu SDK Specifications - version 1.1.0) >>
+ /Title (Ubudu SDK Specifications - version 1.1.1) >>
 endobj
 % 'R223': class PDFOutlines 
 223 0 obj
@@ -5009,7 +5009,7 @@ stream
 q
 1 0 0 1 62.69291 705.0236 cm
 q
-BT 1 0 0 1 0 4 Tm 40.88488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (Ubudu SDK ) Tj /F3 20 Tf (Specifications - version 1.1.0) Tj T* -40.88488 0 Td ET
+BT 1 0 0 1 0 4 Tm 40.88488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (Ubudu SDK ) Tj /F3 20 Tf (Specifications - version 1.1.1) Tj T* -40.88488 0 Td ET
 Q
 Q
 q
@@ -22464,7 +22464,7 @@ xref
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\244ZX\265\205\363ui\207\265_\036\256\372P\267) (\244ZX\265\205\363ui\207\265_\036\256\372P\267)] 
+ [(n\031K"\314\224h\213\204\361\355\326l\312\207\203) (n\031K"\314\224h\213\204\361\355\326l\312\207\203)] 
 
  /Info 222 0 R
  /Root 221 0 R
