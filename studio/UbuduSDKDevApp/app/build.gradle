@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+}
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+dependencies {
+    compile('com.android.support:support-v4:20.0.0') {
+        transitive = true
+    }
+    compile('com.google.android.gms:play-services:5.2.08') {
+        transitive = true
+    }
+    compile('com.ubudu.sdk:ubudu-sdk:1.1.1@aar') {
+        transitive = true
+    }
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'com.ubudu.sdk.studiodevapp'
+        minSdkVersion 18
+        targetSdkVersion 20
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+

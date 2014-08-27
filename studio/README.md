@@ -74,5 +74,41 @@ ubudu-sdk-*.aar zip archive, which you can find in the local maven
 cache in ~/.m2/caches/modules-2/ or in the
 [Ubudu Nexus Repository](http://5.135.82.92:8081/nexus/content/groups/public/com/ubudu/sdk/ubudu-sdk/).
 
+## Ubudu SDK Demo 
+
+A little demonstration application for the Ubudu SDK.  You should
+configure your own namespace in the MainActivity.java before
+compiling.
+
+
+## Ubudu SDK Dev App
+
+This is the application used by Ubudu SDK developers to exercise the
+Ubudu SDK.
+
+It is not a typical example for a usual Ubudu SDK application, but it
+may help developers to test out the SDK.
+
+Usage:
+
+1. Select Authenticate in the menu, and enter your OOAUTH2 access token.
+
+2. click on Save.
+
+3. there's a little bug so you'll have to remove the virtual keyboard
+   so the view is updated with the list of applications you have
+   configured.
+
+4. click on the application (namespace) you want to use.
+
+5. Select "Show Logs" in the menu.
+
+6. Select "Select Beacons" in the menu.
+
+7. Enter or exit the area of a beacon.
+
+8. Use the "List the Beacons" menu to get the list of monitored (M)
+   and active (A) beacons.
+
 <!-- ======================================================== -->
 

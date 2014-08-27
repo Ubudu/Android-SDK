@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <item android:id="@+id/action_authenticate" android:title="@string/action_authenticate"></item>
+  <item android:id="@+id/action_user" android:title="@string/action_user"></item>
+  <item android:id="@+id/action_geofence" android:title="@string/action_geofence"></item>
+  <item android:id="@+id/action_beacon" android:title="@string/action_beacon"></item>
+  <item android:id="@+id/show_map" android:title="@string/show_map"></item>
+  <item android:id="@+id/show_log" android:title="@string/show_log"></item>
+  <item android:id="@+id/list_geofences" android:title="@string/list_geofences"></item>
+  <item android:id="@+id/list_beaconregions" android:title="@string/list_beaconregions"></item>
+  
+</menu>

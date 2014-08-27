@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+  <TextView
+      android:id="@+id/label_ooauth_access_token"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/label_ooauth_access_token"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <EditText
+      android:id="@+id/ooauth_access_token"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10" 
+      android:inputType="text"
+      android:textAppearance="?android:attr/textAppearanceMedium" >
+    <requestFocus />
+  </EditText>
+
+  <View
+      android:layout_width="1dp"
+      android:layout_height="10dp" >
+  </View>
+
+  <TextView
+      android:id="@+id/label_application_list"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/label_application_list"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+  <ListView
+      android:id="@+id/application_list"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1" >
+
+  </ListView>
+
+  <View
+      android:layout_width="1dp"
+      android:layout_height="10dp" >
+  </View>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" >
+
+    <Button
+        android:id="@+id/cancel_ooauth_access_token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel" 
+        android:onClick="onCancelOoauthAccessToken"
+        />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+    
+    <Button
+        android:id="@+id/erase_ooauth_access_token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_erase" 
+        android:onClick="onEraseOoauthAccessToken"
+        />
+    
+    <View
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" >
+    </View>
+
+    <Button
+        android:id="@+id/validate_ooauth_access_token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_save" 
+        android:onClick="onSaveOoauthAccessToken"
+        />
+
+  </LinearLayout>
+  
+</LinearLayout>
