@@ -1,5 +1,6 @@
 *.ap_
 *.apk
+*.bak
 *.class
 *.dex
 *.iml
