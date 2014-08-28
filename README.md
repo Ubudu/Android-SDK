@@ -386,5 +386,5 @@ guide:
 
 ## Documentation
 
-- [User manual](/ubudu-sdk-user-manual.md)
+- [User Manual](/ubudu-sdk-user-manual.md)
 - [Specifications](/ubudu-sdk-specifications.md)
