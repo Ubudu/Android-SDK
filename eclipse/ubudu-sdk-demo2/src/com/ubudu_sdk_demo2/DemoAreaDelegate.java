@@ -26,6 +26,13 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
     mMap = map;
   }
 
+  public boolean statusChanged(int change){
+    mOutput.printf("service %s\n",((change==0)?"unavailable"
+                                   :(change==1)?"activated"
+                                   :"shut down"));
+    return true;
+  }
+
   private double oldLatitude=0.0;
   private double oldLongitude=0.0;
   public void positionChanged(final android.location.Location newPosition){
