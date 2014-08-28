@@ -382,3 +382,9 @@ support geofences. You have to only generate and change map API key in
 AndroidManifest.xml file. To achieve this follow Google Developers
 guide:  
 - [How to get Google Maps API key](https://developers.google.com/maps/documentation/android/start#get_an_android_certificate_and_the_google_maps_api_key)
+
+
+## Documentation
+
+- [User manual](/ubudu-sdk-user-manual.md)
+- [Specifications](/ubudu-sdk-specifications.md)
