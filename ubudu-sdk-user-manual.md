@@ -1661,4 +1661,4 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 
 ### Class Diagram
 
-![image](ubudu-sdk-class-diagram.png%0A%20:scale:%20130%20%)
+![image](ubudu-sdk-class-diagram.png)
