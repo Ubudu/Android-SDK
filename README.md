@@ -84,7 +84,30 @@ tags.
     ApplicationUserInformation user=new ApplicationUserInformation(…);
     sdk.setUserInformation(user);
 ```
+#### Logging to file
 
+It would be useful feature during development. If you encounter any problems you can send us logs so we can help you solve the problem.
+
+To enable logging to file use:
+
+```java		
+UbuduSDK sdk = UbuduSDK.getSharedInstance(getApplicationContext());
+sdk.setFileLogEnabled(true);
+```
+
+To get logs use:
+
+```java
+String logs = sdk.debugFileContent();
+```
+
+To clear log file use:
+
+```java
+sdk.clearDebugFile(getActivity().getApplicationContext());
+```
+
+You can check the example in ubudu-sdk-demo2 (eclipse) or UbuduSDKDemo (Android Studio).
 
 #### Managers
 
