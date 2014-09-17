@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ubudu.sdk"
           android:versionCode="12"
-          android:versionName="1.1.2" >
+          android:versionName="1.2.0" >
 
   <!-- BEGIN UbuduSDK stuff -->
   <uses-sdk
