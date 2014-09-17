@@ -10,6 +10,38 @@
         android:background="@drawable/logo3"/>
 
     <RelativeLayout
+        android:id="@+id/sendLogsView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clearLogsView"
+        android:background="#10000000" >
+
+        <TextView
+            android:id="@+id/sendLogsB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Send logs"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/clearLogsView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/activeSpot"
+        android:background="#10000000" >
+
+        <TextView
+            android:id="@+id/clearLogsB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Clear logs"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/activeSpot"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

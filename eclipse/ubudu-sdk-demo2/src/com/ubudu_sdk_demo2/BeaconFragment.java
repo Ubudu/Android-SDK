@@ -84,7 +84,6 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 				break;
 			}
 			case R.id.sendLogsView:
-			case R.id.sendLogsB:
 			{
 				String[] TO = {"warsaw@ubudu.biz"};
 
@@ -108,7 +107,6 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 				break;
 			}
 			case R.id.clearLogsView:
-			case R.id.clearLogsB:
 			{
 			    UbuduSDK sdk=UbuduSDK.getSharedInstance(getActivity().getApplicationContext());
 			    sdk.clearDebugFile(getActivity().getApplicationContext());
