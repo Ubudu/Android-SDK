@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.1.2
+`UbuduSDK` User Manual - version 1.2.5
 ======================================
 
 Introduction
@@ -16,10 +16,12 @@ Modifications
 -------------
 
 <table>
+<colgroup>
 <col width="13%" />
 <col width="13%" />
 <col width="29%" />
 <col width="43%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Version</th>
@@ -65,6 +67,30 @@ Modifications
 <td align="left">Pascal Bourguignon</td>
 <td align="left">Added statusChange() delegate method.</td>
 </tr>
+<tr class="odd">
+<td align="left">1.2.0</td>
+<td align="left">2014-09-16</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Added setFileLogEnabled flag for enabling getting / clearing logs</td>
+</tr>
+<tr class="even">
+<td align="left">1.2.1</td>
+<td align="left">2014-09-18</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Added support for custom baseURL</td>
+</tr>
+<tr class="odd">
+<td align="left">1.2.3</td>
+<td align="left">2014-10-06</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Fix WiFi &amp; BLE issues</td>
+</tr>
+<tr class="even">
+<td align="left">1.2.5</td>
+<td align="left">2014-10-17</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Support for continous proximities</td>
+</tr>
 </tbody>
 </table>
 
@@ -87,6 +113,7 @@ Authors:
 
 -   François Kruta \<<francois.kruta@ubudu.com>\>
 -   Pascal Bourguignon \<<pascal.bourguignon@ubudu.com>\>
+-   Tomasz Ziolkowski \<<tomasz.ziolkowski@ubudu.com>\>
 
 Legal status:
 
@@ -289,9 +316,11 @@ You may also configure a specific delegate with a specific manager, `com.ubudu.s
 #### Operation modes
 
 <table>
+<colgroup>
 <col width="34%" />
 <col width="19%" />
 <col width="46%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">automatic*SendingIsEnabled</th>
@@ -1662,3 +1691,4 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 ### Class Diagram
 
 ![image](ubudu-sdk-class-diagram.png)
+

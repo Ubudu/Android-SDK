@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.1.2
+`Ubudu SDK` Specifications - version 1.2.5
 ==========================================
 
 Introduction
@@ -16,10 +16,12 @@ Modifications
 -------------
 
 <table>
+<colgroup>
 <col width="13%" />
 <col width="13%" />
 <col width="16%" />
 <col width="56%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Version</th>
@@ -141,6 +143,30 @@ Modifications
 <td align="left">PJB</td>
 <td align="left">Added statusChange() delegate method.</td>
 </tr>
+<tr class="even">
+<td align="left">1.2.0</td>
+<td align="left">2014-09-16</td>
+<td align="left">TZ |Adde</td>
+<td align="left">d setFileLogEnabled flag for enabling getting / clearing logs</td>
+</tr>
+<tr class="odd">
+<td align="left">1.2.1</td>
+<td align="left">2014-09-18</td>
+<td align="left">TZ |Adde</td>
+<td align="left">d support for custom baseURL</td>
+</tr>
+<tr class="even">
+<td align="left">1.2.3</td>
+<td align="left">2014-10-06</td>
+<td align="left">TZ |Fix</td>
+<td align="left">for WiFi &amp; BLE issues</td>
+</tr>
+<tr class="odd">
+<td align="left">1.2.5</td>
+<td align="left">2014-10-17</td>
+<td align="left">TZ |Supp</td>
+<td align="left">ort for continous proximities</td>
+</tr>
 </tbody>
 </table>
 
@@ -166,6 +192,7 @@ Authors:
 
 -   FK: François Kruta \<<francois.kruta@ubudu.com>\>
 -   PJB: Pascal Bourguignon \<<pascal.bourguignon@ubudu.com>\>
+-   TZ: Tomasz Ziolkowski \<<tomasz.ziolkowski@ubudu.com>\>
 
 Legal status:
 
@@ -274,8 +301,10 @@ So, for example, with a structure such as :
 would be interpreted as the following schedule:
 
 <table>
+<colgroup>
 <col width="26%" />
 <col width="62%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Day</th>
@@ -2913,4 +2942,5 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 
 ### Class Diagram
 
-![image](ubudu-sdk-class-diagram.png%0A%20:scale:%20130%20%)
+![image](ubudu-sdk-class-diagram.png)
+
