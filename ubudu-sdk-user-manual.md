@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.2.5
+`UbuduSDK` User Manual - version 1.4.1
 ======================================
 
 Introduction
@@ -71,25 +71,63 @@ Modifications
 <td align="left">1.2.0</td>
 <td align="left">2014-09-16</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left">Added setFileLogEnabled flag for enabling getting / clearing logs</td>
+<td align="left">Added setFileLogEnabled flag for enabling getting / clearing logs.</td>
 </tr>
 <tr class="even">
 <td align="left">1.2.1</td>
 <td align="left">2014-09-18</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left">Added support for custom baseURL</td>
+<td align="left">Added support for custom baseURL.</td>
 </tr>
 <tr class="odd">
 <td align="left">1.2.3</td>
 <td align="left">2014-10-06</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left">Fix WiFi &amp; BLE issues</td>
+<td align="left">Fix WiFi &amp; BLE issues.</td>
 </tr>
 <tr class="even">
 <td align="left">1.2.5</td>
 <td align="left">2014-10-17</td>
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Support for continous proximities</td>
+</tr>
+<tr class="odd">
+<td align="left"><p>1.3.0</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>2014-11-06</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|Fix bug with</p>
+</blockquote></td>
+<td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. user's tags.</td>
+</tr>
+<tr class="even">
+<td align="left"><p>1.4.0</p>
+<blockquote>
+<h3>|</h3>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>2014-11-13</p>
+<blockquote>
+<h3>|</h3>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|Regions are |UUID. That m |the same pro |different ma |the shame re</p>
+</blockquote></td>
+<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region defined by proximiy eans all beacons with ximityUUID and jor/minor belongs to gion.</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4.1</td>
+<td align="left">2014-11-19</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Bug fixes</td>
 </tr>
 </tbody>
 </table>
@@ -127,22 +165,22 @@ Table of Contents
 
 The `UbuduSDK` library to use in all applications connecting to Ubudu geofences and bluetooth LE beacons for geomarketing services for Android platform.
 
-### Getting started
+##### Getting started
 
 This section will contain information regarding adding the `UbuduSDK` to any host application along with necessary project configuration which are required by the `UbuduSDK`.
 
-#### Add the dependencies
+###### Add the dependencies
 
 The `UbuduSDK` requires the following dependent libraries:
 
 -   google-play-services\_lib (4.0.30),
 -   volley (1.0)
 
-#### Add the `UbuduSDK` jar file
+###### Add the `UbuduSDK` jar file
 
 Add the `ubudu-sdk-|VERSION|.jar` file to your project libs/ subdirectory.
 
-#### Define permissions to your `AndroidManifest.xml` file.
+###### Define permissions to your `AndroidManifest.xml` file.
 
 Add following permisssions to manifest file of your project: :
 
@@ -156,7 +194,7 @@ Add following permisssions to manifest file of your project: :
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
-#### Add activities, receivers and services to your `AndroidManifest.xml` file.
+###### Add activities, receivers and services to your `AndroidManifest.xml` file.
 
 Add following services and activities to the `AndroidManifest.xml` file of your application: :
 
@@ -206,7 +244,7 @@ Add following services and activities to the `AndroidManifest.xml` file of your 
 
     <!-- END UbuduSDK stuff -->
 
-### Usage instructions
+##### Usage instructions
 
 To start using `UbuduSDK` use following code:
 
@@ -233,7 +271,7 @@ To stop using SDK use following code: :
 
 Starting this command will first remove tracking any geofences that are in use by UbuduSDK and then will stop service resposible for checking parameters used to load new data.
 
-### Design principle of the `UbuduSDK` API
+##### Design principle of the `UbuduSDK` API
 
 The `com.ubudu.sdk.UbuduSDK` class has a shared instance that is the root of the API. It provides methods to obtain the *managers*, each of which deals with a different kind of areas: geofences, bluetooth LE beacons, ultrasound areas. If the kind of areas is not available on the device, then `null` is returned instead of a manager.
 
@@ -250,13 +288,13 @@ The three manager classes share a common superclass, `com.ubudu.sdk.UbuduAreaMan
       // …
     }
 
-#### Settings
+###### Settings
 
-##### `com.ubudu.sdk.UbuduSDK` settings
+####### `com.ubudu.sdk.UbuduSDK` settings
 
 **TBD**
 
-##### `com.ubudu.sdk.UbuduUser` settings
+####### `com.ubudu.sdk.UbuduUser` settings
 
 The application may send to the server user information, which allows the server to filter geofences and beacons on user properties and tags.
 
@@ -274,25 +312,25 @@ The application may send to the server user information, which allows the server
     ApplicationUserInformation user=new ApplicationUserInformation(…);
     UbuduSDK.getSharedInstance(context).setUserInformation(user);
 
-##### `com.ubudu.sdk.UbuduAreaManager` settings
+####### `com.ubudu.sdk.UbuduAreaManager` settings
 
 **TBD**
 
 Note: the manager settings are specific to each manager: ie. you can have different settings for geofences than for beacons.
 
-##### `com.ubudu.sdk.UbuduGeofenceManager` specific settings
+####### `com.ubudu.sdk.UbuduGeofenceManager` specific settings
 
 **TBD**
 
-##### `com.ubudu.sdk.UbuduBeaconManager` specific settings
+####### `com.ubudu.sdk.UbuduBeaconManager` specific settings
 
 **TBD**
 
-##### `com.ubudu.sdk.UbuduUltrasoundManager` specific settings
+####### `com.ubudu.sdk.UbuduUltrasoundManager` specific settings
 
 **TBD**
 
-#### Delegate
+###### Delegate
 
 The application may configure delegate objects to intercept the processing and notifications upon area entered or exited events.
 
@@ -309,11 +347,11 @@ An `UbuduAreaDelegate` can be configured with the `com.ubudu.sdk.UbuduAreaManage
 
 You may also configure a specific delegate with a specific manager, `com.ubudu.sdk.UbuduGeofenceManager#setGeofenceDelegate`, `com.ubudu.sdk.UbuduBeaconManager#setBeaconDelegate`, or `com.ubudu.sdk.UbuduUltrasoundManager#setUltrasoundDelegate`. When a manager specific delegate is configured, that manager doesn't use the UbuduAreaDelegate configured with `setAreaDelegate`.
 
-##### Description of the delegate protocol
+####### Description of the delegate protocol
 
 **TBD**
 
-#### Operation modes
+###### Operation modes
 
 <table>
 <colgroup>
@@ -378,20 +416,20 @@ You may also configure a specific delegate with a specific manager, `com.ubudu.s
 
 **TBD**
 
-#### Lifecycles
+###### Lifecycles
 
 **TBD**
 
-##### Examples
+####### Examples
 
 **TBD**
 
 Ubudu SDK - Android API
 -----------------------
 
-### General Classes and Interfaces
+##### General Classes and Interfaces
 
-#### UbuduSDK
+###### UbuduSDK
 
     package com.ubudu.sdk;
 
@@ -491,7 +529,7 @@ Ubudu SDK - Android API
       public void openSamsungWallet(java.net.URL samsungWalletURL,android.content.Context clientContext){…}
     }
 
-#### UbuduUser
+###### UbuduUser
 
     package com.ubudu.sdk;
 
@@ -550,7 +588,7 @@ Ubudu SDK - Android API
 
     };
 
-#### UbuduOpenInterval
+###### UbuduOpenInterval
 
     package com.ubudu.sdk;
 
@@ -669,7 +707,7 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduRule
+###### UbuduRule
 
     package com.ubudu.sdk;
 
@@ -734,7 +772,7 @@ Ubudu SDK - Android API
       public Action action();
     }
 
-#### UbuduArea
+###### UbuduArea
 
     package com.ubudu.sdk;
 
@@ -769,7 +807,7 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduNotification
+###### UbuduNotification
 
     package com.ubudu.sdk;
 
@@ -790,7 +828,7 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduEvent
+###### UbuduEvent
 
     package com.ubudu.sdk;
 
@@ -805,7 +843,7 @@ Ubudu SDK - Android API
       public void setNotification(UbuduNotification newNotification);
     }
 
-#### UbuduAreaDelegate
+###### UbuduAreaDelegate
 
 The messages to the delegate can be sent from a different thread than the main thread.
 
@@ -899,7 +937,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduAreaManager
+###### UbuduAreaManager
 
     package com.ubudu.sdk;
 
@@ -1014,9 +1052,9 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Geofence Classes and Interfaces
+##### Geofence Classes and Interfaces
 
-#### UbuduGeofence
+###### UbuduGeofence
 
     package com.ubudu.sdk;
 
@@ -1055,7 +1093,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduGeofenceEvent
+###### UbuduGeofenceEvent
 
     package com.ubudu.sdk;
 
@@ -1074,7 +1112,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
      */
 
-#### UbuduGeofenceDelegate
+###### UbuduGeofenceDelegate
 
     package com.ubudu.sdk;
 
@@ -1162,7 +1200,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduGeofenceManager
+###### UbuduGeofenceManager
 
     package com.ubudu.sdk;
 
@@ -1187,9 +1225,9 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Proximity Beacon Classes and Interfaces
+##### Proximity Beacon Classes and Interfaces
 
-#### UbuduBeaconRegion
+###### UbuduBeaconRegion
 
     package com.ubudu.sdk;
 
@@ -1215,7 +1253,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeacon
+###### UbuduBeacon
 
     package com.ubudu.sdk;
 
@@ -1262,7 +1300,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeaconRegionEvent
+###### UbuduBeaconRegionEvent
 
     package com.ubudu.sdk;
 
@@ -1299,7 +1337,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
      */
 
-#### UbuduBeaconRegionDelegate
+###### UbuduBeaconRegionDelegate
 
     package com.ubudu.sdk;
 
@@ -1387,7 +1425,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeaconManager
+###### UbuduBeaconManager
 
     package com.ubudu.sdk;
 
@@ -1418,9 +1456,9 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Ultrasound Code Detector Classes and Interfaces
+##### Ultrasound Code Detector Classes and Interfaces
 
-#### UbuduUltrasoundArea
+###### UbuduUltrasoundArea
 
     package com.ubudu.sdk;
 
@@ -1439,7 +1477,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduUltrasound
+###### UbuduUltrasound
 
     package com.ubudu.sdk;
 
@@ -1457,7 +1495,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduUltrasoundEvent
+###### UbuduUltrasoundEvent
 
     package com.ubudu.sdk;
 
@@ -1488,7 +1526,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
      */
 
-#### UbuduUltrasoundDelegate
+###### UbuduUltrasoundDelegate
 
 The messages to the delegate can be sent from a different thread than the main thread.
 
@@ -1527,7 +1565,7 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 
     }
 
-#### UbuduUltrasoundManager
+###### UbuduUltrasoundManager
 
     package com.ubudu.sdk;
 
@@ -1688,7 +1726,7 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 
     }
 
-### Class Diagram
+##### Class Diagram
 
 ![image](ubudu-sdk-class-diagram.png)
 
