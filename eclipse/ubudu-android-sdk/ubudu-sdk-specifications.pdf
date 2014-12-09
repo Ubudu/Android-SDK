@@ -28,13 +28,13 @@ endobj
 << /BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font >>
 endobj
 9 0 obj
-<< /A << /S /URI /Type /Action /URI (mailto:francois.kruta@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 177.6729 250.5736 297.3129 262.5736 ] /Subtype /Link /Type /Annot >>
+<< /A << /S /URI /Type /Action /URI (mailto:francois.kruta@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 177.6729 364.5736 297.3129 376.5736 ] /Subtype /Link /Type /Annot >>
 endobj
 10 0 obj
-<< /A << /S /URI /Type /Action /URI (mailto:pascal.bourguignon@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 207.7029 232.5736 354.5929 244.5736 ] /Subtype /Link /Type /Annot >>
+<< /A << /S /URI /Type /Action /URI (mailto:pascal.bourguignon@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 207.7029 346.5736 354.5929 358.5736 ] /Subtype /Link /Type /Annot >>
 endobj
 11 0 obj
-<< /A << /S /URI /Type /Action /URI (mailto:tomasz.ziolkowski@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 196.5429 214.5736 336.1729 226.5736 ] /Subtype /Link /Type /Annot >>
+<< /A << /S /URI /Type /Action /URI (mailto:tomasz.ziolkowski@ubudu.com) >> /Border [ 0 0 0 ] /Rect [ 196.5429 328.5736 336.1729 340.5736 ] /Subtype /Link /Type /Annot >>
 endobj
 12 0 obj
 << /Annots [ 9 0 R 10 0 R 11 0 R ] /Contents 303 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 300 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
@@ -53,10 +53,10 @@ endobj
 << /Border [ 0 0 0 ] /Contents () /Dest [ 7 0 R /XYZ 62.69291 729.0236 0 ] /Rect [ 527.0227 636.7736 532.5827 648.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 17 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 12 0 R /XYZ 62.69291 501.0236 0 ] /Rect [ 62.69291 618.7736 123.2529 630.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 12 0 R /XYZ 62.69291 615.0236 0 ] /Rect [ 62.69291 618.7736 123.2529 630.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 18 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 12 0 R /XYZ 62.69291 501.0236 0 ] /Rect [ 527.0227 618.7736 532.5827 630.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 12 0 R /XYZ 62.69291 615.0236 0 ] /Rect [ 527.0227 618.7736 532.5827 630.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 19 0 obj
 << /Border [ 0 0 0 ] /Contents () /Dest [ 78 0 R /XYZ 62.69291 729.0236 0 ] /Rect [ 62.69291 600.7736 161.0429 612.7736 ] /Subtype /Link /Type /Annot >>
@@ -777,8 +777,8 @@ endobj
 << /Outlines 231 0 R /PageLabels 370 0 R /PageMode /UseNone /Pages 300 0 R /Type /Catalog >>
 endobj
 230 0 obj
-<< /Author () /CreationDate (D:20141119104506-01'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
-  /Title (Ubudu SDK Specifications - version 1.4.1) >>
+<< /Author () /CreationDate (D:20141209160438-01'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
+  /Title (Ubudu SDK Specifications - version 1.4.2) >>
 endobj
 231 0 obj
 << /Count 82 /First 232 0 R /Last 271 0 R /Type /Outlines >>
@@ -790,7 +790,7 @@ endobj
 << /Dest [ 7 0 R /XYZ 62.69291 729.0236 0 ] /Next 234 0 R /Parent 231 0 R /Prev 232 0 R /Title (\376\377\0002\000\240\000\240\000\240\000M\000o\000d\000i\000f\000i\000c\000a\000t\000i\000o\000n\000s) >>
 endobj
 234 0 obj
-<< /Dest [ 12 0 R /XYZ 62.69291 501.0236 0 ] /Next 235 0 R /Parent 231 0 R /Prev 233 0 R /Title (\376\377\0003\000\240\000\240\000\240\000C\000o\000l\000o\000p\000h\000o\000n) >>
+<< /Dest [ 12 0 R /XYZ 62.69291 615.0236 0 ] /Next 235 0 R /Parent 231 0 R /Prev 233 0 R /Title (\376\377\0003\000\240\000\240\000\240\000C\000o\000l\000o\000p\000h\000o\000n) >>
 endobj
 235 0 obj
 << /Dest [ 78 0 R /XYZ 62.69291 729.0236 0 ] /Next 236 0 R /Parent 231 0 R /Prev 234 0 R /Title (\376\377\0004\000\240\000\240\000\240\000T\000a\000b\000l\000e\000 \000o\000f\000 \000C\000o\000n\000t\000e\000n\000t\000s) >>
@@ -1016,7 +1016,7 @@ stream
 q
 1 0 0 1 62.69291 705.0236 cm
 q
-BT 1 0 0 1 0 4 Tm 40.88488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (Ubudu) Tj ( ) Tj (SDK ) Tj /F3 20 Tf 0 0 0 rg (Specifications - version 1.4.1) Tj T* -40.88488 0 Td ET
+BT 1 0 0 1 0 4 Tm 40.88488 0 Td 24 TL /F2 20 Tf 0 0 0 rg (Ubudu) Tj ( ) Tj (SDK ) Tj /F3 20 Tf 0 0 0 rg (Specifications - version 1.4.2) Tj T* -40.88488 0 Td ET
 Q
 Q
 q
@@ -1176,7 +1176,7 @@ Q
 endstream
 endobj
 302 0 obj
-<< /Length 13416 >>
+<< /Length 15266 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -1189,73 +1189,81 @@ q
 1 0 0 1 62.69291 696.0236 cm
 Q
 q
-1 0 0 1 62.69291 90.02362 cm
+1 0 0 1 62.69291 138.0236 cm
 1 1 1 rg
-n 0 606 469.8898 -18 re f*
+n 0 558 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 588 469.8898 -30 re f*
+n 0 540 469.8898 -18 re f*
 1 1 1 rg
-n 0 558 469.8898 -30 re f*
+n 0 522 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 528 469.8898 -30 re f*
+n 0 504 469.8898 -18 re f*
 1 1 1 rg
-n 0 498 469.8898 -30 re f*
+n 0 486 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 468 469.8898 -30 re f*
+n 0 468 469.8898 -18 re f*
 1 1 1 rg
-n 0 438 469.8898 -30 re f*
+n 0 450 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 408 469.8898 -30 re f*
+n 0 432 469.8898 -30 re f*
 1 1 1 rg
-n 0 378 469.8898 -30 re f*
+n 0 402 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 348 469.8898 -42 re f*
+n 0 384 469.8898 -42 re f*
 1 1 1 rg
-n 0 306 469.8898 -30 re f*
+n 0 342 469.8898 -30 re f*
 .878431 .878431 .878431 rg
-n 0 276 469.8898 -60 re f*
+n 0 312 469.8898 -60 re f*
 1 1 1 rg
-n 0 216 469.8898 -30 re f*
+n 0 252 469.8898 -24 re f*
 .878431 .878431 .878431 rg
-n 0 186 469.8898 -36 re f*
+n 0 228 469.8898 -36 re f*
 1 1 1 rg
-n 0 150 469.8898 -30 re f*
+n 0 192 469.8898 -24 re f*
 .878431 .878431 .878431 rg
-n 0 120 469.8898 -30 re f*
+n 0 168 469.8898 -18 re f*
 1 1 1 rg
-n 0 90 469.8898 -30 re f*
+n 0 150 469.8898 -18 re f*
 .878431 .878431 .878431 rg
-n 0 60 469.8898 -30 re f*
+n 0 132 469.8898 -18 re f*
+1 1 1 rg
+n 0 114 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 84 469.8898 -18 re f*
+1 1 1 rg
+n 0 66 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 48 469.8898 -18 re f*
 1 1 1 rg
 n 0 30 469.8898 -30 re f*
 .960784 .960784 .862745 rg
-n 0 606 469.8898 -18 re f*
+n 0 558 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 591 cm
+1 0 0 1 6 543 cm
 q
 .960784 .960784 .862745 rg
-n 0 0 49.02464 12 re f*
+n 0 0 42.92218 12 re f*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 7.562322 0 Td (Version) Tj T* -7.562322 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 4.51109 0 Td (Version) Tj T* -4.51109 0 Td ET
 Q
 Q
 q
-1 0 0 1 67.02464 591 cm
+1 0 0 1 60.92218 543 cm
 q
 .960784 .960784 .862745 rg
-n 0 0 49.02464 12 re f*
+n 0 0 55.12711 12 re f*
 Q
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 13.95232 0 Td (Date) Tj T* -13.95232 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 17.00355 0 Td (Date) Tj T* -17.00355 0 Td ET
 Q
 Q
 q
-1 0 0 1 128.0493 591 cm
+1 0 0 1 128.0493 543 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 61.22957 12 re f*
@@ -1266,7 +1274,7 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 15.88479 0 Td (Author) Tj T* -15.88479 0 Td ET
 Q
 Q
 q
-1 0 0 1 201.2789 591 cm
+1 0 0 1 201.2789 543 cm
 q
 .960784 .960784 .862745 rg
 n 0 0 262.6109 12 re f*
@@ -1278,112 +1286,112 @@ Q
 Q
 0 0 0 rg
 q
-1 0 0 1 6 573 cm
+1 0 0 1 6 525 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 561 cm
+1 0 0 1 60.92218 525 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-01) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 573 cm
+1 0 0 1 128.0493 525 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 573 cm
+1 0 0 1 201.2789 525 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Created.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 543 cm
+1 0 0 1 6 507 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 531 cm
+1 0 0 1 60.92218 507 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (2) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-02) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 543 cm
+1 0 0 1 128.0493 507 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 543 cm
+1 0 0 1 201.2789 507 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Integred FK's comments.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 513 cm
+1 0 0 1 6 489 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.2) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 501 cm
+1 0 0 1 60.92218 489 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (4) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-04) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 513 cm
+1 0 0 1 128.0493 489 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 513 cm
+1 0 0 1 201.2789 489 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Integred answers to questions.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 483 cm
+1 0 0 1 6 471 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.3) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 471 cm
+1 0 0 1 60.92218 471 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (7) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-07) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 483 cm
+1 0 0 1 128.0493 471 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 483 cm
+1 0 0 1 201.2789 471 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added iBeacon Advertisement Messages section.) Tj T* ET
@@ -1397,10 +1405,10 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.4) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 441 cm
+1 0 0 1 60.92218 453 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (9) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-09) Tj T* ET
 Q
 Q
 q
@@ -1418,174 +1426,174 @@ BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Use java.util.Date instead of java.util.Calen
 Q
 Q
 q
-1 0 0 1 6 423 cm
+1 0 0 1 6 435 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.5) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 411 cm
+1 0 0 1 60.92218 435 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-0) Tj T* (9) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-09) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 423 cm
+1 0 0 1 128.0493 435 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 423 cm
+1 0 0 1 201.2789 435 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added context parameter to start and stop on android.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 393 cm
+1 0 0 1 6 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.6) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 381 cm
+1 0 0 1 60.92218 417 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-10-2) Tj T* (3) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-23) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 393 cm
+1 0 0 1 128.0493 417 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 381 cm
+1 0 0 1 201.2789 405 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Split out UbuduIOSSDK, and changes to the server) Tj T* (section.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 363 cm
+1 0 0 1 6 387 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.7) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 351 cm
+1 0 0 1 60.92218 387 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-11-0) Tj T* (4) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-11-04) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 363 cm
+1 0 0 1 128.0493 387 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 363 cm
+1 0 0 1 201.2789 387 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Updated and precised the rule/action specification.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 333 cm
+1 0 0 1 6 369 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.8) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 321 cm
+1 0 0 1 60.92218 369 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-11-0) Tj T* (8) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-11-08) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 333 cm
+1 0 0 1 128.0493 369 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 309 cm
+1 0 0 1 201.2789 345 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL (Added UbuduSDK displayWebPage and) Tj T* (openPassbook/SamsungWallet utility methods. Refined) Tj T* (description of user notifications processing.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 291 cm
+1 0 0 1 6 327 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.9) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 279 cm
+1 0 0 1 60.92218 327 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-11-2) Tj T* (1) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-11-21) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 291 cm
+1 0 0 1 128.0493 327 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 279 cm
+1 0 0 1 201.2789 315 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Changed the schedule data structure to match the Ruby) Tj T* (library used on the server.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 261 cm
+1 0 0 1 6 297 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.10) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 249 cm
+1 0 0 1 60.92218 297 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-11-2) Tj T* (5) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-11-25) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 261 cm
+1 0 0 1 128.0493 297 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 267 cm
+1 0 0 1 201.2789 303 cm
 Q
 q
-1 0 0 1 201.2789 267 cm
+1 0 0 1 201.2789 303 cm
 Q
 q
-1 0 0 1 201.2789 255 cm
+1 0 0 1 201.2789 291 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1606,10 +1614,10 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 249 cm
+1 0 0 1 201.2789 285 cm
 Q
 q
-1 0 0 1 201.2789 237 cm
+1 0 0 1 201.2789 273 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1630,10 +1638,10 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 231 cm
+1 0 0 1 201.2789 267 cm
 Q
 q
-1 0 0 1 201.2789 219 cm
+1 0 0 1 201.2789 255 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1654,37 +1662,37 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 219 cm
+1 0 0 1 201.2789 255 cm
 Q
 q
-1 0 0 1 6 201 cm
+1 0 0 1 6 237 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.11) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 189 cm
+1 0 0 1 60.92218 237 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2013-12-3) Tj T* (0) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-12-30) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 201 cm
+1 0 0 1 128.0493 237 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 207 cm
+1 0 0 1 201.2789 243 cm
 Q
 q
-1 0 0 1 201.2789 207 cm
+1 0 0 1 201.2789 243 cm
 Q
 q
-1 0 0 1 201.2789 195 cm
+1 0 0 1 201.2789 231 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1705,37 +1713,37 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 195 cm
+1 0 0 1 201.2789 231 cm
 Q
 q
-1 0 0 1 6 171 cm
+1 0 0 1 6 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.12) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 159 cm
+1 0 0 1 60.92218 213 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-04-2) Tj T* (4) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-04-24) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 171 cm
+1 0 0 1 128.0493 213 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 177 cm
+1 0 0 1 201.2789 219 cm
 Q
 q
-1 0 0 1 201.2789 177 cm
+1 0 0 1 201.2789 219 cm
 Q
 q
-1 0 0 1 201.2789 153 cm
+1 0 0 1 201.2789 195 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1756,37 +1764,37 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 153 cm
+1 0 0 1 201.2789 195 cm
 Q
 q
-1 0 0 1 6 135 cm
+1 0 0 1 6 177 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.0.13) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 123 cm
+1 0 0 1 60.92218 177 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-08-1) Tj T* (3) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-13) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 135 cm
+1 0 0 1 128.0493 177 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 141 cm
+1 0 0 1 201.2789 183 cm
 Q
 q
-1 0 0 1 201.2789 141 cm
+1 0 0 1 201.2789 183 cm
 Q
 q
-1 0 0 1 201.2789 129 cm
+1 0 0 1 201.2789 171 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1807,104 +1815,215 @@ q
 Q
 Q
 q
-1 0 0 1 201.2789 129 cm
+1 0 0 1 201.2789 171 cm
 Q
 q
-1 0 0 1 6 105 cm
+1 0 0 1 6 153 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 93 cm
+1 0 0 1 60.92218 153 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-08-2) Tj T* (5) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-25) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 105 cm
+1 0 0 1 128.0493 153 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 105 cm
+1 0 0 1 201.2789 153 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added UbuduUser interface.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 75 cm
+1 0 0 1 6 135 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 63 cm
+1 0 0 1 60.92218 135 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-08-2) Tj T* (6) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-26) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 75 cm
+1 0 0 1 128.0493 135 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 75 cm
+1 0 0 1 201.2789 135 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added anti hacking protocol configuration from the server.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 45 cm
+1 0 0 1 6 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.1.2) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 33 cm
+1 0 0 1 60.92218 117 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-08-2) Tj T* (8) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-08-28) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 45 cm
+1 0 0 1 128.0493 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (PJB) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 45 cm
+1 0 0 1 201.2789 117 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added statusChange\(\) delegate method.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 15 cm
+1 0 0 1 6 99 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 3 cm
+1 0 0 1 60.92218 99 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-09-1) Tj T* (6) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-09-16) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.0493 99 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
+Q
+Q
+q
+1 0 0 1 201.2789 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Added setFileLogEnabled flag for enabling getting /) Tj T* (clearing logs.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.1) Tj T* ET
+Q
+Q
+q
+1 0 0 1 60.92218 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-09-18) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.0493 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
+Q
+Q
+q
+1 0 0 1 201.2789 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added support for custom baseURL.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.3) Tj T* ET
+Q
+Q
+q
+1 0 0 1 60.92218 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-10-06) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.0493 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
+Q
+Q
+q
+1 0 0 1 201.2789 51 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Fix for WiFi & BLE issues.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.5) Tj T* ET
+Q
+Q
+q
+1 0 0 1 60.92218 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-10-17) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.0493 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
+Q
+Q
+q
+1 0 0 1 201.2789 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Support for continous proximities.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.3.0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 60.92218 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-11-06) Tj T* ET
 Q
 Q
 q
@@ -1917,8 +2036,7 @@ Q
 q
 1 0 0 1 201.2789 3 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Added setFileLogEnabled flag for enabling getting /) Tj T* (clearing logs.) Tj T* ET
+BT 1 0 0 1 0 14 Tm 12 TL /F1 10 Tf 0 0 0 rg (Added setWifiBleFixDisabled for disabling fix for wifi & ble) Tj T* (ble issue. Fix bug with user's tags.) Tj T* ET
 Q
 Q
 q
@@ -1927,30 +2045,34 @@ q
 0 0 0 RG
 .25 w
 n 0 0 m 469.8898 0 l S
-n 0 588 m 469.8898 588 l S
-n 0 558 m 469.8898 558 l S
-n 0 528 m 469.8898 528 l S
-n 0 498 m 469.8898 498 l S
+n 0 540 m 469.8898 540 l S
+n 0 522 m 469.8898 522 l S
+n 0 504 m 469.8898 504 l S
+n 0 486 m 469.8898 486 l S
 n 0 468 m 469.8898 468 l S
-n 0 438 m 469.8898 438 l S
-n 0 408 m 469.8898 408 l S
-n 0 378 m 469.8898 378 l S
-n 0 348 m 469.8898 348 l S
-n 0 306 m 469.8898 306 l S
-n 0 276 m 469.8898 276 l S
-n 0 216 m 469.8898 216 l S
-n 0 186 m 469.8898 186 l S
+n 0 450 m 469.8898 450 l S
+n 0 432 m 469.8898 432 l S
+n 0 402 m 469.8898 402 l S
+n 0 384 m 469.8898 384 l S
+n 0 342 m 469.8898 342 l S
+n 0 312 m 469.8898 312 l S
+n 0 252 m 469.8898 252 l S
+n 0 228 m 469.8898 228 l S
+n 0 192 m 469.8898 192 l S
+n 0 168 m 469.8898 168 l S
 n 0 150 m 469.8898 150 l S
-n 0 120 m 469.8898 120 l S
-n 0 90 m 469.8898 90 l S
-n 0 60 m 469.8898 60 l S
+n 0 132 m 469.8898 132 l S
+n 0 114 m 469.8898 114 l S
+n 0 84 m 469.8898 84 l S
+n 0 66 m 469.8898 66 l S
+n 0 48 m 469.8898 48 l S
 n 0 30 m 469.8898 30 l S
-n 61.02464 0 m 61.02464 606 l S
-n 122.0493 0 m 122.0493 606 l S
-n 195.2789 0 m 195.2789 606 l S
-n 0 606 m 469.8898 606 l S
-n 0 0 m 0 606 l S
-n 469.8898 0 m 469.8898 606 l S
+n 54.92218 0 m 54.92218 558 l S
+n 122.0493 0 m 122.0493 558 l S
+n 195.2789 0 m 195.2789 558 l S
+n 0 558 m 469.8898 558 l S
+n 0 0 m 0 558 l S
+n 469.8898 0 m 469.8898 558 l S
 Q
 Q
 q
@@ -2010,189 +2132,101 @@ Q
 endstream
 endobj
 303 0 obj
-<< /Length 8587 >>
+<< /Length 6960 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 513.0236 cm
+1 0 0 1 62.69291 627.0236 cm
 1 1 1 rg
-n 0 216 469.8898 -30 re f*
+n 0 102 469.8898 -66 re f*
 .878431 .878431 .878431 rg
-n 0 186 469.8898 -30 re f*
+n 0 36 469.8898 -18 re f*
 1 1 1 rg
-n 0 156 469.8898 -30 re f*
-.878431 .878431 .878431 rg
-n 0 126 469.8898 -30 re f*
-1 1 1 rg
-n 0 96 469.8898 -66 re f*
-.878431 .878431 .878431 rg
-n 0 30 469.8898 -30 re f*
+n 0 18 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.1) Tj T* ET
-Q
-Q
-q
-1 0 0 1 67.02464 189 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-09-1) Tj T* (8) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.0493 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
-Q
-Q
-q
-1 0 0 1 201.2789 201 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Added support for custom baseURL.) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.3) Tj T* ET
-Q
-Q
-q
-1 0 0 1 67.02464 159 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-10-0) Tj T* (6) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.0493 171 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
-Q
-Q
-q
-1 0 0 1 201.2789 171 cm
-q
-BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Fix for WiFi & BLE issues.) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 141 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.2.5) Tj T* ET
-Q
-Q
-q
-1 0 0 1 67.02464 129 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-10-1) Tj T* (7) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.0493 141 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
-Q
-Q
-q
-1 0 0 1 201.2789 141 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Support for continous proximities.) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 111 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.3.0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 67.02464 99 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-11-0) Tj T* (6) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.0493 111 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
-Q
-Q
-q
-1 0 0 1 201.2789 99 cm
-q
-BT 1 0 0 1 0 14 Tm 12 TL /F1 10 Tf 0 0 0 rg (Added setWifiBleFixDisabled for disabling fix for wifi & ble) Tj T* (ble issue. Fix bug with user's tags.) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 81 cm
+1 0 0 1 6 87 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.4.0) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 69 cm
+1 0 0 1 60.92218 87 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-11-1) Tj T* (3) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-11-13) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 81 cm
+1 0 0 1 128.0493 87 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 33 cm
+1 0 0 1 201.2789 39 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL (Add setRegionExitMinDelay setter to set delay after which) Tj T* (delegate get notified about exiting region Regions are) Tj T* (defined by proximiy UUID. That means all beacons with the) Tj T* (same proximityUUID and different major/minor belongs to) Tj T* (the shame region.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 6 15 cm
+1 0 0 1 6 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.4.1) Tj T* ET
 Q
 Q
 q
-1 0 0 1 67.02464 3 cm
+1 0 0 1 60.92218 21 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (2014-11-1) Tj T* (9) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-11-19) Tj T* ET
 Q
 Q
 q
-1 0 0 1 128.0493 15 cm
+1 0 0 1 128.0493 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
 Q
 Q
 q
-1 0 0 1 201.2789 15 cm
+1 0 0 1 201.2789 21 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Bug fixes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (1.4.2) Tj T* ET
+Q
+Q
+q
+1 0 0 1 60.92218 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2014-12-09) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.0493 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TZ) Tj T* ET
+Q
+Q
+q
+1 0 0 1 201.2789 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Proximity accuracy improved) Tj T* ET
 Q
 Q
 q
@@ -2200,50 +2234,47 @@ q
 1 j
 0 0 0 RG
 .25 w
-n 0 216 m 469.8898 216 l S
-n 0 186 m 469.8898 186 l S
-n 0 156 m 469.8898 156 l S
-n 0 126 m 469.8898 126 l S
-n 0 96 m 469.8898 96 l S
-n 0 30 m 469.8898 30 l S
-n 61.02464 0 m 61.02464 216 l S
-n 122.0493 0 m 122.0493 216 l S
-n 195.2789 0 m 195.2789 216 l S
-n 0 0 m 0 216 l S
-n 469.8898 0 m 469.8898 216 l S
+n 0 102 m 469.8898 102 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 54.92218 0 m 54.92218 102 l S
+n 122.0493 0 m 122.0493 102 l S
+n 195.2789 0 m 195.2789 102 l S
+n 0 0 m 0 102 l S
+n 469.8898 0 m 469.8898 102 l S
 n 0 0 m 469.8898 0 l S
 Q
 Q
 q
-1 0 0 1 62.69291 513.0236 cm
+1 0 0 1 62.69291 627.0236 cm
 Q
 q
-1 0 0 1 62.69291 480.0236 cm
+1 0 0 1 62.69291 594.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F3 17.5 Tf 0 0 0 rg (3   Colophon) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 450.0236 cm
+1 0 0 1 62.69291 564.0236 cm
 q
 BT 1 0 0 1 0 14 Tm 2.532339 Tw 12 TL /F1 10 Tf 0 0 0 rg (The source of this document is written in ) Tj /F4 10 Tf 0 0 0 rg (reStructured Text ) Tj /F1 10 Tf 0 0 0 rg (format. It is in the ) Tj /F4 10 Tf 0 0 0 rg (git ) Tj /F1 10 Tf 0 0 0 rg (repository under) Tj T* 0 Tw /F5 10 Tf 0 0 0 rg (documentation/specifications/ubudu-sdk-specifications.txt) Tj /F1 10 Tf 0 0 0 rg (.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 420.0236 cm
+1 0 0 1 62.69291 534.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .744985 Tw (We use rst2pdf, rst2html and pandoc to convert the reStructured Text format to PDF, HTML and GitHub) Tj T* 0 Tw (MarkDown formats.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 414.0236 cm
+1 0 0 1 62.69291 528.0236 cm
 Q
 q
-1 0 0 1 62.69291 414.0236 cm
+1 0 0 1 62.69291 528.0236 cm
 Q
 q
-1 0 0 1 62.69291 402.0236 cm
+1 0 0 1 62.69291 516.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2263,10 +2294,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 396.0236 cm
+1 0 0 1 62.69291 510.0236 cm
 Q
 q
-1 0 0 1 62.69291 384.0236 cm
+1 0 0 1 62.69291 498.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2286,17 +2317,17 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 384.0236 cm
+1 0 0 1 62.69291 498.0236 cm
 Q
 q
-1 0 0 1 62.69291 366.0236 cm
+1 0 0 1 62.69291 480.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (You can generate various formats from it:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 308.8236 cm
+1 0 0 1 62.69291 422.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -2316,26 +2347,26 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 288.8236 cm
+1 0 0 1 62.69291 402.8236 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (\(cf. Makefile in the ) Tj /F5 10 Tf 0 0 0 rg (documentation/specifications/ ) Tj /F1 10 Tf 0 0 0 rg (directory\).) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 270.8236 cm
+1 0 0 1 62.69291 384.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Authors:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 264.8236 cm
+1 0 0 1 62.69291 378.8236 cm
 Q
 q
-1 0 0 1 62.69291 264.8236 cm
+1 0 0 1 62.69291 378.8236 cm
 Q
 q
-1 0 0 1 62.69291 252.8236 cm
+1 0 0 1 62.69291 366.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2355,10 +2386,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 246.8236 cm
+1 0 0 1 62.69291 360.8236 cm
 Q
 q
-1 0 0 1 62.69291 234.8236 cm
+1 0 0 1 62.69291 348.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2378,10 +2409,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 228.8236 cm
+1 0 0 1 62.69291 342.8236 cm
 Q
 q
-1 0 0 1 62.69291 216.8236 cm
+1 0 0 1 62.69291 330.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -2401,17 +2432,17 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 216.8236 cm
+1 0 0 1 62.69291 330.8236 cm
 Q
 q
-1 0 0 1 62.69291 198.8236 cm
+1 0 0 1 62.69291 312.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Legal status:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 180.8236 cm
+1 0 0 1 62.69291 294.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Copyright \2512013,2014 ubudu SAS, All right reserved) Tj T* ET
@@ -18809,148 +18840,148 @@ xref
 0000372442 00000 n
 0000373071 00000 n
 0000375823 00000 n
-0000389298 00000 n
-0000397943 00000 n
-0000407587 00000 n
-0000418137 00000 n
-0000428850 00000 n
-0000439187 00000 n
-0000447275 00000 n
-0000458263 00000 n
-0000464593 00000 n
-0000473979 00000 n
-0000482220 00000 n
-0000493482 00000 n
-0000498346 00000 n
-0000505182 00000 n
-0000507727 00000 n
-0000517311 00000 n
-0000524214 00000 n
-0000532765 00000 n
-0000540486 00000 n
-0000548557 00000 n
-0000555518 00000 n
-0000562076 00000 n
-0000566722 00000 n
-0000568844 00000 n
-0000578206 00000 n
-0000588608 00000 n
-0000595616 00000 n
-0000604186 00000 n
-0000612177 00000 n
-0000620371 00000 n
-0000628234 00000 n
-0000637094 00000 n
-0000641941 00000 n
-0000643960 00000 n
-0000648801 00000 n
-0000649793 00000 n
-0000653003 00000 n
-0000656286 00000 n
-0000659540 00000 n
-0000660891 00000 n
-0000663469 00000 n
-0000667072 00000 n
-0000668792 00000 n
-0000671822 00000 n
-0000674762 00000 n
-0000678692 00000 n
-0000681904 00000 n
-0000684205 00000 n
-0000687191 00000 n
-0000689995 00000 n
-0000692953 00000 n
-0000694674 00000 n
-0000697702 00000 n
-0000700368 00000 n
-0000702378 00000 n
-0000704547 00000 n
-0000707220 00000 n
-0000709664 00000 n
-0000712726 00000 n
-0000715408 00000 n
-0000718446 00000 n
-0000721536 00000 n
-0000724189 00000 n
-0000727324 00000 n
-0000731017 00000 n
-0000734388 00000 n
-0000735659 00000 n
-0000736868 00000 n
-0000737705 00000 n
-0000737743 00000 n
-0000737781 00000 n
-0000737819 00000 n
-0000737857 00000 n
-0000737895 00000 n
-0000737933 00000 n
-0000737971 00000 n
-0000738009 00000 n
-0000738047 00000 n
-0000738086 00000 n
-0000738125 00000 n
-0000738164 00000 n
-0000738203 00000 n
-0000738242 00000 n
-0000738281 00000 n
-0000738320 00000 n
-0000738359 00000 n
-0000738398 00000 n
-0000738437 00000 n
-0000738476 00000 n
-0000738515 00000 n
-0000738554 00000 n
-0000738593 00000 n
-0000738632 00000 n
-0000738671 00000 n
-0000738710 00000 n
-0000738749 00000 n
-0000738788 00000 n
-0000738827 00000 n
-0000738866 00000 n
-0000738905 00000 n
-0000738944 00000 n
-0000738983 00000 n
-0000739022 00000 n
-0000739061 00000 n
-0000739100 00000 n
-0000739139 00000 n
-0000739178 00000 n
-0000739217 00000 n
-0000739256 00000 n
-0000739295 00000 n
-0000739334 00000 n
-0000739373 00000 n
-0000739412 00000 n
-0000739451 00000 n
-0000739490 00000 n
-0000739529 00000 n
-0000739568 00000 n
-0000739607 00000 n
-0000739646 00000 n
-0000739685 00000 n
-0000739724 00000 n
-0000739763 00000 n
-0000739802 00000 n
-0000739841 00000 n
-0000739880 00000 n
-0000739919 00000 n
-0000739958 00000 n
-0000739997 00000 n
-0000740036 00000 n
-0000740075 00000 n
-0000740114 00000 n
-0000740153 00000 n
-0000740192 00000 n
-0000740231 00000 n
-0000740270 00000 n
-0000740309 00000 n
-0000740348 00000 n
+0000391148 00000 n
+0000398166 00000 n
+0000407810 00000 n
+0000418360 00000 n
+0000429073 00000 n
+0000439410 00000 n
+0000447498 00000 n
+0000458486 00000 n
+0000464816 00000 n
+0000474202 00000 n
+0000482443 00000 n
+0000493705 00000 n
+0000498569 00000 n
+0000505405 00000 n
+0000507950 00000 n
+0000517534 00000 n
+0000524437 00000 n
+0000532988 00000 n
+0000540709 00000 n
+0000548780 00000 n
+0000555741 00000 n
+0000562299 00000 n
+0000566945 00000 n
+0000569067 00000 n
+0000578429 00000 n
+0000588831 00000 n
+0000595839 00000 n
+0000604409 00000 n
+0000612400 00000 n
+0000620594 00000 n
+0000628457 00000 n
+0000637317 00000 n
+0000642164 00000 n
+0000644183 00000 n
+0000649024 00000 n
+0000650016 00000 n
+0000653226 00000 n
+0000656509 00000 n
+0000659763 00000 n
+0000661114 00000 n
+0000663692 00000 n
+0000667295 00000 n
+0000669015 00000 n
+0000672045 00000 n
+0000674985 00000 n
+0000678915 00000 n
+0000682127 00000 n
+0000684428 00000 n
+0000687414 00000 n
+0000690218 00000 n
+0000693176 00000 n
+0000694897 00000 n
+0000697925 00000 n
+0000700591 00000 n
+0000702601 00000 n
+0000704770 00000 n
+0000707443 00000 n
+0000709887 00000 n
+0000712949 00000 n
+0000715631 00000 n
+0000718669 00000 n
+0000721759 00000 n
+0000724412 00000 n
+0000727547 00000 n
+0000731240 00000 n
+0000734611 00000 n
+0000735882 00000 n
+0000737091 00000 n
+0000737928 00000 n
+0000737966 00000 n
+0000738004 00000 n
+0000738042 00000 n
+0000738080 00000 n
+0000738118 00000 n
+0000738156 00000 n
+0000738194 00000 n
+0000738232 00000 n
+0000738270 00000 n
+0000738309 00000 n
+0000738348 00000 n
+0000738387 00000 n
+0000738426 00000 n
+0000738465 00000 n
+0000738504 00000 n
+0000738543 00000 n
+0000738582 00000 n
+0000738621 00000 n
+0000738660 00000 n
+0000738699 00000 n
+0000738738 00000 n
+0000738777 00000 n
+0000738816 00000 n
+0000738855 00000 n
+0000738894 00000 n
+0000738933 00000 n
+0000738972 00000 n
+0000739011 00000 n
+0000739050 00000 n
+0000739089 00000 n
+0000739128 00000 n
+0000739167 00000 n
+0000739206 00000 n
+0000739245 00000 n
+0000739284 00000 n
+0000739323 00000 n
+0000739362 00000 n
+0000739401 00000 n
+0000739440 00000 n
+0000739479 00000 n
+0000739518 00000 n
+0000739557 00000 n
+0000739596 00000 n
+0000739635 00000 n
+0000739674 00000 n
+0000739713 00000 n
+0000739752 00000 n
+0000739791 00000 n
+0000739830 00000 n
+0000739869 00000 n
+0000739908 00000 n
+0000739947 00000 n
+0000739986 00000 n
+0000740025 00000 n
+0000740064 00000 n
+0000740103 00000 n
+0000740142 00000 n
+0000740181 00000 n
+0000740220 00000 n
+0000740259 00000 n
+0000740298 00000 n
+0000740337 00000 n
+0000740376 00000 n
+0000740415 00000 n
+0000740454 00000 n
+0000740493 00000 n
+0000740532 00000 n
+0000740571 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com)
- [(\317\036\355\222H\234\020\326H\330\344D\305\262V\364) (\317\036\355\222H\234\020\326H\330\344D\305\262V\364)]
+ [(/,\306\206'\231a\311\230\352\365\244Ao\251\266) (/,\306\206'\231a\311\230\352\365\244Ao\251\266)]
  /Info 230 0 R /Root 229 0 R /Size 440 >>
 startxref
-740387
+740610
 %%EOF

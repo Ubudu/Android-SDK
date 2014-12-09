@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.4.1
+`UbuduSDK` User Manual - version 1.4.2
 ======================================
 
 Introduction
@@ -128,6 +128,12 @@ Modifications
 <td align="left">2014-11-19</td>
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Bug fixes</td>
+</tr>
+<tr class="even">
+<td align="left">1.4.2</td>
+<td align="left">2014-12-09</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Proximity accuracy improved.</td>
 </tr>
 </tbody>
 </table>
