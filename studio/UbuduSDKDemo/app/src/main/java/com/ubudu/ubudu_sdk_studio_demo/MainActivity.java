@@ -88,10 +88,9 @@ public class MainActivity extends FragmentActivity implements TextOutput {
 		
 		mUbuduSdk = UbuduSDK.getSharedInstance(getApplicationContext());
 		mUbuduSdk.setNamespace(NAMESPACE);
-		mUbuduSdk.setMaximumDailyNumberOfNotificationsAllowed(9999);
-        mUbuduSdk.setFileLogEnabled(true);
+    mUbuduSdk.setFileLogEnabled(true);
 
-        mBeaconManager = mUbuduSdk.getBeaconManager();
+    mBeaconManager = mUbuduSdk.getBeaconManager();
 		mGeofenceManager = mUbuduSdk.getGeofenceManager();
 		mBeaconManager = mUbuduSdk.getBeaconManager();
 		
