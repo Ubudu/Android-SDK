@@ -263,13 +263,7 @@ public class MainActivity extends Activity implements TextOutput {
 
     mBeaconManager=sdk.getBeaconManager();
     mBeaconManager.setAreaDelegate(mBeaconDelegate); // we can use the same delegate for both.
-    onResetButton(null);
-
-    int newMaximum=1000;
-    this.printf("maximum daily number of notifications allowed was %d\nSetting it to %d\n",
-                sdk.maximumDailyNumberOfNotificationsAllowed(),newMaximum);
-    sdk.setMaximumDailyNumberOfNotificationsAllowed(newMaximum);
-    
+    onResetButton(null);    
   }
 
 
