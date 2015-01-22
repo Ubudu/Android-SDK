@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.4.2
+`UbuduSDK` User Manual - version 1.4.5
 ======================================
 
 Introduction
@@ -92,19 +92,10 @@ Modifications
 <td align="left">Support for continous proximities</td>
 </tr>
 <tr class="odd">
-<td align="left"><p>1.3.0</p>
-<blockquote>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>2014-11-06</p>
-<blockquote>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>Tomasz Ziolkowski</p>
-<blockquote>
-<p>|Fix bug with</p>
-</blockquote></td>
-<td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. user's tags.</td>
+<td align="left">1.3.0</td>
+<td align="left">2014-11-06</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. Fix bug with user's tags.</td>
 </tr>
 <tr class="even">
 <td align="left"><p>1.4.0</p>
@@ -119,9 +110,9 @@ Modifications
 </blockquote></td>
 <td align="left"><p>Tomasz Ziolkowski</p>
 <blockquote>
-<p>|Regions are |UUID. That m |the same pro |different ma |the shame re</p>
+<p>|Regi |UUID |the |diff |the</p>
 </blockquote></td>
-<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region defined by proximiy eans all beacons with ximityUUID and jor/minor belongs to gion.</td>
+<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region ons are defined by proximiy . That means all beacons with same proximityUUID and erent major/minor belongs to shame region.</td>
 </tr>
 <tr class="odd">
 <td align="left">1.4.1</td>
@@ -134,6 +125,24 @@ Modifications
 <td align="left">2014-12-09</td>
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Proximity accuracy improved.</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4.3</td>
+<td align="left">2014-12-23</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Add max events count/periods for rules and for app. Add some more log events.</td>
+</tr>
+<tr class="even">
+<td align="left">1.4.4</td>
+<td align="left">2015-01-13</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Add min/max events count/periods for groups. Minor changes</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4.5</td>
+<td align="left">2015-01-22</td>
+<td align="left">Jean-Baptiste Quesney</td>
+<td align="left">Critical bug fix which prevented the SDK from working</td>
 </tr>
 </tbody>
 </table>
