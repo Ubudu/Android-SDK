@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.4.5
+`Ubudu SDK` Specifications - version 1.4.6
 ==========================================
 
 Introduction
@@ -206,6 +206,12 @@ Modifications
 <dd><p>the SDK unusable.</p>
 </dd>
 </dl></td>
+</tr>
+<tr class="even">
+<td align="left">1.4.6</td>
+<td align="left">2015-02-09</td>
+<td align="left">TZ</td>
+<td align="left">Fix a bug causes reset limit counters. Fix region behaviour.</td>
 </tr>
 </tbody>
 </table>
@@ -2403,3 +2409,4 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 ### Class Diagram
 
 ![image](ubudu-sdk-class-diagram.png)
+
