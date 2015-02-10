@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.4.5
+`UbuduSDK` User Manual - version 1.4.6
 ======================================
 
 Introduction
@@ -143,6 +143,12 @@ Modifications
 <td align="left">2015-01-22</td>
 <td align="left">Jean-Baptiste Quesney</td>
 <td align="left">Critical bug fix which prevented the SDK from working</td>
+</tr>
+<tr class="even">
+<td align="left">1.4.6</td>
+<td align="left">2015-02-09</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Fix a bug causes reset limit counters. Fix region behaviour.</td>
 </tr>
 </tbody>
 </table>
