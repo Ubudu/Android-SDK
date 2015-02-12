@@ -62,7 +62,8 @@ import com.ubudu.ubudu_sdk_studio_demo.TextOutput;
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// put here your namespace
-	private static final String NAMESPACE = "ed2f594c2eb20f3a1213e387af53cd86fa1f70e0"; // Proximities, Geofence - UbuduTest2
+    private static final String NAMESPACE = "5c457c751d92a4c9d14284ec5aaeba25ed1fcb05";
+//	private static final String NAMESPACE = "ed2f594c2eb20f3a1213e387af53cd86fa1f70e0"; // Proximities, Geofence - UbuduTest2
 	// private static final String NAMESPACE = "b79fc953ff1755d09314225fb81fad49a4ee7b2c";	// Groups
 	// private static final String NAMESPACE = "71b309965b54bdd8d3594a1253fb0da408154982"; // triggers
 	private UbuduPagerAdapter mUbuduPagerAdapter;

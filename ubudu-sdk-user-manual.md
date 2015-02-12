@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.4.6
+`UbuduSDK` User Manual - version 1.4.7
 ======================================
 
 Introduction
@@ -149,6 +149,12 @@ Modifications
 <td align="left">2015-02-09</td>
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Fix a bug causes reset limit counters. Fix region behaviour.</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4.7</td>
+<td align="left">2015-02-12</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Fix group and region behaviour. Update log events.</td>
 </tr>
 </tbody>
 </table>
