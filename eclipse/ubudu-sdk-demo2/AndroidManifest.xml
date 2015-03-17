@@ -66,19 +66,6 @@
             android:enabled="true"
             android:exported="false"
             android:isolatedProcess="false" />
-        <service
-            android:name="com.ubudu.network.ibeacon.IBeaconIntentProcessor"
-            android:enabled="true"
-            android:exported="false"
-            android:isolatedProcess="false" >
-            <meta-data
-                android:name="background"
-                android:value="true" />
-
-            <intent-filter android:priority="1" >
-                <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
-            </intent-filter>
-        </service>
 
         <!-- END UbuduSDK stuff -->
 
