@@ -1,5 +1,3 @@
- <!-- -*- mode:markdown;coding:utf-8 -*- -->
-
 # Android-SDK
 
 ## Ubudu contextual interactions SDK for Android
