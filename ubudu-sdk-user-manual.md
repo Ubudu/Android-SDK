@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.4.7
+`UbuduSDK` User Manual - version 1.4.9
 ======================================
 
 Introduction
@@ -155,6 +155,24 @@ Modifications
 <td align="left">2015-02-12</td>
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Fix group and region behaviour. Update log events.</td>
+</tr>
+<tr class="even">
+<td align="left">1.4.8</td>
+<td align="left">2015-03-17</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><ul>
+<li>Improve Stability of the SDK.</li>
+</ul>
+- Add medumFar and highFar proximities</td>
+</tr>
+<tr class="odd">
+<td align="left">1.4.9</td>
+<td align="left">2015-04-02</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><ul>
+<li>Improve rssi measurements.</li>
+<li>Fix bug with starting sdk</li>
+</ul></td>
 </tr>
 </tbody>
 </table>

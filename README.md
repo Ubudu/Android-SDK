@@ -29,7 +29,7 @@ develop with Ubudu SDKs and we only charge usage.
     + Sony Xperia Tablet Z, Ultra, ZR, ZL
     + Sony Xperia SP, T, TX, V
 
-\* tested devices. Nexus 4 has well known problems when Wifi and BLE operate simultanesouly :-(
+\* tested devices. Nexus 4 has well known problems when Wifi and BLE operate simultanesouly :-(. <b>The issue is fixed in version 1.2.3 :-).</b> 
 
 ### Instruction for Eclipse projects
 

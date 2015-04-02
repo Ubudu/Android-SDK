@@ -36,11 +36,13 @@ After this, your project should looks like:
 3. The next step is prepare two other projects in your workspace:
 
 - [google-play-services-lib](http://developer.android.com/google/play-services/setup.html)
-- [Volley](https://android.googlesource.com/platform/frameworks/volley)
+- [Volley](https://android.googlesource.com/platform/frameworks/volley) (before Ubudu Android-SDK version 1.4.8)
 
 You can add them into your project as references by pressing alt + enter or clicking right mouse button on your project and selecting “Properties” and go into Android section.
 
 ![Eclipse project content](/eclipse/__media-files/images/image_3.jpg)
+
+<b>Note:</b> From version 1.4.8 you don't have to add volley as a project.
 
 ### Changes required in the Manifest File
 Ubudu-SDK requires to work specific permissions, activities, receivers and services. Add them into *AndroidManifest.xml* in your project.

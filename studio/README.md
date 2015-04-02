@@ -28,7 +28,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```gradle
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:1.1.2@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:1.4.8@aar') {
             transitive = true
         }
         // …
@@ -56,8 +56,8 @@ Your first need to specify the dependency on the Ubudu SDK:
     |    \--- com.android.support:support-annotations:20.0.0
     +--- com.google.android.gms:play-services:5.2.08
     |    \--- com.android.support:support-v4:19.1.0 -> 20.0.0 (*)
-    \--- com.ubudu.sdk:ubudu-sdk:1.1.0-SNAPSHOT
-         +--- com.ubudu:volley:4.4.4-SNAPSHOT
+    \--- com.ubudu.sdk:ubudu-sdk:1.4.8
+         +--- com.ubudu:volley:4.5.0
          +--- com.google.android.gms:play-services:5.2.08 (*)
          +--- com.google.code.gson:gson:2.3
          \--- com.j256.ormlite:ormlite-android:4.48
