@@ -1,5 +1,5 @@
-`UbuduSDK` User Manual - version 1.4.9
-======================================
+`UbuduSDK` User Manual - version 1.4.10
+=======================================
 
 Introduction
 ------------
@@ -172,6 +172,14 @@ Modifications
 <td align="left"><ul>
 <li>Improve rssi measurements.</li>
 <li>Fix bug with starting sdk</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td align="left">1.4.10</td>
+<td align="left">2015-04-09</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><ul>
+<li>Fix getting native device from UbuduBeacon.</li>
 </ul></td>
 </tr>
 </tbody>
