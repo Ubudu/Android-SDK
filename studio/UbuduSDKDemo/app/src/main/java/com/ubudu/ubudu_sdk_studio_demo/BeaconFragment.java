@@ -1,6 +1,6 @@
 // -*- mode:java;coding:utf-8 -*-
 //****************************************************************************
-//FILE:               BeaconFragment.java
+//FILE:               BeaconBaseFragment.java
 //LANGUAGE:           java
 //SYSTEM:             Android
 //USER-INTERFACE:     Android
@@ -16,7 +16,7 @@
 //LEGAL
 //    ubudu-public
 //    
-//    Copyright (c) 2011-2014, UBUDU SAS
+//    Copyright (c) 2011-2015, UBUDU SAS
 //    All rights reserved.
 //    
 //    Redistribution and use in source and binary forms, with or without
@@ -48,7 +48,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,7 +56,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BeaconFragment extends UbuduFragment implements OnClickListener{
+public class BeaconFragment extends UbuduBaseFragment implements OnClickListener{
 
 	private RelativeLayout mActiveSpot;
     private RelativeLayout mSendLogsView;
@@ -71,7 +70,10 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.beacon_fragment, container, false);
 		
-		create((TextView) view.findViewById(R.id.startB), (TextView) view.findViewById(R.id.infoLabel), ((MainActivity) getActivity()).getOutput());
+		super.create(((MainActivity)getActivity()).getBeaconManager(),
+                (TextView) view.findViewById(R.id.startB),
+                (TextView) view.findViewById(R.id.infoLabel),
+                ((MainActivity) getActivity()).getOutput());
 		
 		mActiveSpot = (RelativeLayout) view.findViewById(R.id.activeSpot);
 		mActiveSpot.setOnClickListener(this);
@@ -82,7 +84,6 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 		
 		return view;
 	}
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -95,6 +96,11 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 	public int getMode() {
 		return BEACON;
 	}
+
+    @Override
+    public String getManagerAreasType() {
+        return "beacons";
+    }
 	
 	private boolean activateBluetoothIfPossible(TextOutput textOutput) {
 		BluetoothAdapter bt = BluetoothAdapter.getDefaultAdapter();
@@ -116,19 +122,16 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
 		switch (v.getId()) {
 			case R.id.activeSpot:
 			{
-				if(!isBeaconsScanningActive()) {
-					getTextOutput().printf("Start searching for beacons\n");
-					Error e = ((MainActivity)getActivity()).getBeaconManager().start(getActivity());
-					startScanning(e);
+				if (!isScanning()) {
+					startScanning();
 				} else {
-					((MainActivity)getActivity()).getBeaconManager().stop(getActivity());
-					stopScanning();
+                    stopScanning();
 				}
                 break;
 			}
             case R.id.sendLogsView:
             {
-                String[] TO = {"warsaw@ubudu.biz"};
+                String[] TO = {};
 
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("mailto:"));
@@ -137,26 +140,24 @@ public class BeaconFragment extends UbuduFragment implements OnClickListener{
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "UDUDU DEV SDK LOGS");
 
-                UbuduSDK sdk=UbuduSDK.getSharedInstance(getActivity().getApplicationContext());
+                UbuduSDK sdk = ((MainActivity)getActivity()).getUbuduSDK();
                 String logs = sdk.debugFileContent();
                 emailIntent.putExtra(Intent.EXTRA_TEXT, logs);
 
                 try {
-                    startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
                     getActivity().finish();
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getActivity().getApplicationContext(), "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "No email client installed.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
             case R.id.clearLogsView:
             {
-                UbuduSDK sdk=UbuduSDK.getSharedInstance(getActivity().getApplicationContext());
-                sdk.clearDebugFile(getActivity().getApplicationContext());
+                MainActivity mainActivity = (MainActivity)getActivity();
+                mainActivity.getUbuduSDK().clearDebugFile(getActivity());
                 break;
             }
 		}
 	}
-	
-	
 }

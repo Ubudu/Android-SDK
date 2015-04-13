@@ -16,7 +16,7 @@
 //LEGAL
 //    ubudu-public
 //    
-//    Copyright (c) 2011-2014, UBUDU SAS
+//    Copyright (c) 2011-2015, UBUDU SAS
 //    All rights reserved.
 //    
 //    Redistribution and use in source and binary forms, with or without
@@ -62,15 +62,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Map 
 {
-  
   protected GoogleMap mMap;
   protected Activity mActivity;
   protected Hashtable<String,Circle> mCircles;
 
-  public Map(Activity activity,int fragmentId){
-    mActivity=activity;
-    mMap=((MapFragment)(mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
-    if(mMap!=null){
+  public Map(Activity activity,int fragmentId) {
+    mActivity = activity;
+    mMap = ((MapFragment)(mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
+    if (mMap != null) {
       mMap.setMyLocationEnabled(true);
       mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
       mMap.setIndoorEnabled(true);
@@ -79,42 +78,40 @@ public class Map
     mCircles=new Hashtable<String,Circle>();
   }
 
-  public Location getLastKnownLocation(){
+  public Location getLastKnownLocation() {
     LocationManager locationManager=(LocationManager)(mActivity.getSystemService(Context.LOCATION_SERVICE));
-    Criteria criteria=new Criteria();
+    Criteria criteria = new Criteria();
     criteria.setAltitudeRequired(false);
     criteria.setBearingRequired(false);
     // criteria.setAccuracy(Criteria.ACCURACY_FINE);
     // criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-    String provider=locationManager.getBestProvider(criteria,true);
-    if(provider==null){
-      provider=LocationManager.GPS_PROVIDER;
+    String provider = locationManager.getBestProvider(criteria,true);
+    if (provider == null) {
+      provider = LocationManager.GPS_PROVIDER;
     }
-    return(locationManager.getLastKnownLocation(provider));
+    return locationManager.getLastKnownLocation(provider);
   }
 
-
-  public void updateLocationOnMap(){
-    if(mMap!=null){
+  public void updateLocationOnMap() {
+    if (mMap!=null) {
       Location currentLocation=getLastKnownLocation();
-      if(currentLocation != null){
+      if (currentLocation != null) {
         setLocationOnMap(currentLocation.getLatitude(),currentLocation.getLongitude());
       }
     }
   }
 
-
   private Marker mCurrentLocationMarker;
 
-  public void setLocationOnMap(double latitude,double longitude){
-    if(mMap!=null){
+  public void setLocationOnMap(double latitude,double longitude) {
+    if (mMap!=null) {
       LatLng location = new LatLng(latitude,longitude);
-      synchronized(this){
-        if(mCurrentLocationMarker==null){
+      synchronized(this) {
+        if (mCurrentLocationMarker == null) {
           MarkerOptions markerOptions = new MarkerOptions();
           // markerOptions.icon(someNiceIcon);
           markerOptions.position(location);
-          mCurrentLocationMarker=mMap.addMarker(markerOptions);
+          mCurrentLocationMarker = mMap.addMarker(markerOptions);
         } else {
           mCurrentLocationMarker.setPosition(location);
         }
@@ -123,7 +120,6 @@ public class Map
       mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
     }
   }
-
 
   public static final int UNCHANGED=0;
   public static final int OUTSIDE=1;
@@ -137,23 +133,23 @@ public class Map
   public static double METER=1.0;
   public static double KM=1000.0*METER;
 
-  public void removeCircle(String id){
+  public void removeCircle(String id) {
     Circle old=mCircles.remove(id);
-    if(old!=null){
+    if (old!=null) {
       old.remove();
     }
   }
 
-  public void updateCircle(String id,String name,double latitude,double longitude,double radius,int status){
+  public void updateCircle(String id,String name,double latitude,double longitude,double radius,int status) {
     int stroke=OUTSIDE_STROKE;
     int fill=OUTSIDE_FILL;
     Circle old=mCircles.get(id);
-    if(old!=null){
+    if (old!=null) {
       stroke=old.getStrokeColor();
       fill=old.getFillColor();
       old.remove();
     }
-    switch(status){
+    switch(status) {
      case OUTSIDE:
        stroke=OUTSIDE_STROKE;
        fill=OUTSIDE_FILL;
@@ -172,6 +168,5 @@ public class Map
                                    .strokeColor(stroke)
                                    .fillColor(fill)));
   }
-
 
 }

@@ -16,7 +16,7 @@
 //LEGAL
 //    ubudu-public
 //    
-//    Copyright (c) 2011-2014, UBUDU SAS
+//    Copyright (c) 2011-2015, UBUDU SAS
 //    All rights reserved.
 //    
 //    Redistribution and use in source and binary forms, with or without
@@ -55,129 +55,79 @@ import com.ubudu.sdk.UbuduBeaconManager;
 import com.ubudu.sdk.UbuduGeofenceManager;
 import com.ubudu.sdk.UbuduSDK;
 
-import com.ubudu.ubudu_sdk_studio_demo.UbuduPagerAdapter;
-import com.ubudu.ubudu_sdk_studio_demo.InfoAreaReceiver;
-import com.ubudu.ubudu_sdk_studio_demo.TextOutput;
-
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
-	// put here your namespace
-
-   	private static final String NAMESPACE = "ed2f594c2eb20f3a1213e387af53cd86fa1f70e0"; // Proximities, Geofence - UbuduTest2
+	// Set your own app namespace here
+   	private static final String NAMESPACE = "ed2f594c2eb20f3a1213e387af53cd86fa1f70e0";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
+    private TextView mOutputText;
 
 	private UbuduSDK mUbuduSdk;
 	
 	private UbuduBeaconManager mBeaconManager;
 	private UbuduGeofenceManager mGeofenceManager;
-	private InfoAreaReceiver mInfoAreaReceiver;
-	private UbuduAreaDelegate mAreaDelegate;
-	
-	private TextView mOutputText;
-	
-	
+
+    private DemoAreaDelegate mAreaDelegate;
+
+
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
 		setContentView(R.layout.activity_main);
-		
+
+        mUbuduPagerAdapter = new UbuduPagerAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mUbuduPagerAdapter);
 		mOutputText = (TextView) findViewById(R.id.outputText);
 		mOutputText.setMovementMethod(new ScrollingMovementMethod());
 		
 		mUbuduSdk = UbuduSDK.getSharedInstance(getApplicationContext());
 		mUbuduSdk.setNamespace(NAMESPACE);
-    mUbuduSdk.setFileLogEnabled(true);
+        mUbuduSdk.setFileLogEnabled(true);
 
-    mBeaconManager = mUbuduSdk.getBeaconManager();
+        mAreaDelegate = new DemoAreaDelegate(this);
+
 		mGeofenceManager = mUbuduSdk.getGeofenceManager();
+        mGeofenceManager.setAreaDelegate(mAreaDelegate);
+
 		mBeaconManager = mUbuduSdk.getBeaconManager();
-		
-		mBeaconManager.setAreaDelegate(getAreaDelegate());
-		
-		mUbuduPagerAdapter = new UbuduPagerAdapter(getSupportFragmentManager());
-		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mUbuduPagerAdapter);
+		mBeaconManager.setAreaDelegate(mAreaDelegate);
+
 	}
-	
-	public void setAreaDelegate(Map map) {
-		mAreaDelegate = new DemoAreaDelegate(this, map);
-		
-		mBeaconManager.setAreaDelegate(getAreaDelegate());
-		mGeofenceManager.setAreaDelegate(getAreaDelegate());
-	}
-	
-	public UbuduBeaconManager getBeaconManager() {
-		return mBeaconManager;
-	}
-	
-	public UbuduGeofenceManager getGeofenceManager() {
-		return mGeofenceManager;
-	}
-	
-	public InfoAreaReceiver getInfoAreaReceiver() {
-		return mInfoAreaReceiver;
-	}
-	
-	public UbuduAreaDelegate getAreaDelegate() {
-		return mAreaDelegate;
-	}
-	
-	public UbuduSDK getUbuduSDK() {
-		return mUbuduSdk;
-	}
+
+    public UbuduSDK getUbuduSDK() {
+        return mUbuduSdk;
+    }
+
+    public UbuduBeaconManager getBeaconManager() {
+        return mBeaconManager;
+    }
+
+    public UbuduGeofenceManager getGeofenceManager() {
+        return mGeofenceManager;
+    }
+
+    public DemoAreaDelegate getAreaDelegate() {
+        return mAreaDelegate;
+    }
 	
 	public TextOutput getOutput() {
 		return this;
 	}
-	
-	@Override
-	public void printf(String formatControl, Object... arguments) {
-		final String newText = String.format(formatControl, arguments);
-		synchronized (mOutputText) {
-			mOutputText.append(newText);
-			final Layout layout = mOutputText.getLayout();
-			if (layout != null) {
-				final int scrollAmount = layout.getLineTop(mOutputText.getLineCount())
-						- mOutputText.getHeight();
-				mOutputText.scrollTo(0, ((0 < scrollAmount) ? scrollAmount : 0));
-			}
-		}
-	}
-	
-	private void registerInfoReceiver() {
-		synchronized (this) {
-			if (mInfoAreaReceiver == null) {
-				mInfoAreaReceiver = new InfoAreaReceiver(this);
-				registerReceiver(mInfoAreaReceiver, new IntentFilter("com.ubudu.sdk.notify"));
-				this.printf("Registered info receiver.\n");
-			}
-		}
-	}
 
-	private void unregisterInfoReceiver() {
-		synchronized (this) {
-			if (mInfoAreaReceiver != null) {
-				unregisterReceiver(mInfoAreaReceiver);
-				mInfoAreaReceiver = null;
-				this.printf("Unregistered info receiver.\n");
-			}
-		}
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		registerInfoReceiver();
-		
-	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		unregisterInfoReceiver();
-	}
-	
-	
+    @Override
+    public void printf(String formatControl, Object... arguments) {
+        final String newText = String.format(formatControl + "\n", arguments);
+        synchronized (mOutputText) {
+            mOutputText.append(newText);
+            final Layout layout = mOutputText.getLayout();
+            if (layout != null) {
+                final int scrollAmount = layout.getLineTop(mOutputText.getLineCount()) - mOutputText.getHeight();
+                mOutputText.scrollTo(0, ((0 < scrollAmount) ? scrollAmount : 0));
+            }
+        }
+    }
+
 }
