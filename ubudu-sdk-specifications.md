@@ -1,5 +1,5 @@
-`Ubudu SDK` Specifications - version 1.4.10
-===========================================
+`Ubudu SDK` Specifications - version 1.5.0
+==========================================
 
 Introduction
 ------------
@@ -9,7 +9,6 @@ This is the specifications and documentation of the Ubudu SDK.
 This SDK contains several components:
 
 -   Ubudu Geofence SDK
--   Ubudu Ultrasound SDK
 -   Ubudu Proxmity Beacon SDK (Bluetooth)
 
 Modifications
@@ -243,6 +242,12 @@ Modifications
 <td align="left">TZ</td>
 <td align="left">Fix getting native device from UbuduBeacon.</td>
 </tr>
+<tr class="odd">
+<td align="left">1.5.0</td>
+<td align="left">2015-04-17</td>
+<td align="left">TZ</td>
+<td align="left">Stability improvements and bug fixes Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. Deep linking actions. Optimisation of user tags management tags management.</td>
+</tr>
 </tbody>
 </table>
 
@@ -294,7 +299,6 @@ There's a root shared instance of the `Ubudu SDK` class, that gives access to th
 
 -   `UbuduGeofenceManager`
 -   `UbuduBeaconManager`
--   `UbuduUltrasoundManager`
 
 The classes `UbuduGeofenceManager` and `UbuduBeaconManager` are subclasses of the abstract class `UbuduAreaManager`, which provides the following features:
 
@@ -305,7 +309,7 @@ The classes `UbuduGeofenceManager` and `UbuduBeaconManager` are subclasses of th
 -   allow/disallow automatic user notification sending (allowed by default).
 -   allow/disallow trace message logging, for debugging purpose (disabled by default).
 -   get the current position as known by the SDK.
--   get the list of areas (geofences, beacon regions, ultrasound codes).
+-   get the list of areas (geofences, beacon regions codes).
 -   determine if an area is "monitored" (when the current position is close enough of the area, and the current local time is within the start/end dates and scheduled open times).
 -   determine if an area is "active" (when the current position and current time is "inside").
 -   notify the user for an area transition (to be used when automatic sending is not allowed, upon reception of an event indicating this area is activated or deactivated).
@@ -704,7 +708,7 @@ must be followed. :
 -   legal or local timezone of the geofence (coordinates, at the current time).
 -   user timezone as configured on the mobile device.
 
-We specify the time zone of each area (geofence, beacon region, ultrasound area) in the data sent by the server.
+We specify the time zone of each area (geofence, beacon region area) in the data sent by the server.
 
 ##### Time
 
@@ -1697,23 +1701,6 @@ may return a JSON structure such as the following (note it's not up-to-date with
         "radius":"10.0",
         "format":"json"}}
 
-Ultrasound Code Detector
-------------------------
-
-The Ubudu Ultrasound Code Detector uses a licensed audio watermarking library to detect digital codes embeded in ultrasound captured with the microphone of mobile devices.
-
-Each ultrasound emiter can be configured with a different code, which is represented as a `UbuduUltrasoundArea`. (A `UbuduUltrasoundArea` can also have no code configured, so that it detects all the ultrasound emiters).
-
-Given the expected size of the geofence, and the time required to walk to the exact location where the ultrasound is transmitted, the `UbuduUltrasoundManager` can be configured to listen intermitently, and for a maximum duration.
-
-The typical use is:
-
--   the application detects entry into a geofence, a notification is sent to the user.
--   the user clicks on the notification and gets a web page with a ubudu-geous:// link specifying the `UbuduUltrasoundArea`.
--   the application starts the `UbuduUltrasoundManager` which listens periodically.
--   when an ultrasound code is detected, the notification specified in the ubudu-geous:// url is sent to the user, and the application stops the `UbuduUltrasoundManager`.
--   when the user exits from the geofence, the application stops the `UbuduUltrasoundManager`.
-
 Ubudu SDK - Android API
 -----------------------
 
@@ -1783,7 +1770,6 @@ Ubudu SDK - Android API
        */
       public UbuduGeofenceManager   getGeofenceManager(){…}
       public UbuduBeaconManager     getBeaconManager(){…}
-      public UbuduUltrasoundManager getUltrasoundManager(){…}
 
 
      /**
@@ -2064,7 +2050,38 @@ Ubudu SDK - Android API
 
 #### UbuduArea
 
-:
+    package com.ubudu.sdk;
+
+    public interface UbuduArea
+    {
+
+      /**
+       *
+       *
+       * The ID of the area.  Notice: it is unique only amongst a specific
+       * subclass of UbuduArea; eg. a UbuduGeofence and a
+       * UbuduBeaconRegion may have the same id().
+       *
+       */
+      public String id();
+
+
+      public String name();
+      public String address();
+
+      public boolean hasGroupId();
+      public String groupId();
+
+      public java.util.TimeZone timezone();
+
+      public java.util.Date startDatetime();
+      public java.util.Date endDatetime();
+      public java.util.Date lastUpdatedDatetime();
+
+      public java.util.List<UbuduOpenInterval> schedule();
+      public java.util.List<UbuduRule> rules();
+
+    }
 
 #### UbuduNotification
 
@@ -2099,11 +2116,206 @@ When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs t
 
 Note: Each manager can have also a specialized delegate with covariant argument types. When a specialized delegate is set, it shadows the area delegate, which is then ignored.
 
-:
+    package com.ubudu.sdk;
+
+    /**
+     *
+     * The UbuduSDK send the application the following messages:
+     *
+     */
+    public interface UbuduAreaDelegate
+    {
+
+      /**
+      *
+      * When the manager fails to start, the delegate receives statusChanged(SERVICE_UNAVAILABLE)
+      * When it started successfully, the delegate receives statusChanged(SERVICE_STARTED)
+      * When it stops, the delegate receives statusChanged(SERVICE_STOPPED)
+      *
+      * If there is no delegate, if if the statusChanged method returns
+      * false, then a Toast message is displayed.
+      *
+      */
+      public static final int SERVICE_UNAVAILABLE=0;
+      public static final int SERVICE_STARTED=1;
+      public static final int SERVICE_STOPPED=2;
+      public boolean statusChanged(int change);
+
+
+      /**
+       *
+       * position changed (new position)
+       *
+       */
+      public void positionChanged(android.location.Location newPosition);
+
+      /**
+       *
+       * area entered event (area): This is a raw event.  An action
+       * may not be taken by the SDK according to the rules.
+       *
+       */
+      public void areaEntered(UbuduArea enteredArea);
+
+      /**
+       *
+       * area exited event (area): This is a raw event.  An action
+       * may not be taken by the SDK according to the rules.
+       *
+       */
+      public void areaExited(UbuduArea exitedArea);
+
+      /**
+       *
+       * server notification (url): when  automatic server notifications
+       * sending is disallowed, the SDK sends this message to the application
+       * to let it notify the server thru the given url, or be notified.
+       * The delegate must return true to allow the SDK continue
+       * processing the actions, or false to abord processing the actions.
+       *
+       */
+      public boolean notifyServer(java.net.URL notificationServerUrl);
+
+
+      /**
+       *
+       * This message is sent to the delegate when the rule antecedant are
+       * all fullfilled after the server notification has been sent, and
+       * before the actions are taken.  It is possible no action will be taken
+       * (either because there's none, or because of other constraints
+       * preventing them to be taken).
+       * The event.notification is set, and event.notification.payload() contains the payload.
+       *
+       */
+      public void ruleFiredForEvent(UbuduEvent event);
+
+      /**
+       *
+       * Area notification (notification)  when automatic user
+       * notification sending is disallowed, the SDK sends this message to
+       * the application, to let it send the _`notifications` or otherwise deal
+       * with it.
+       * The event.notification is set, and event.notification.payload() contains the payload.
+       *
+       */
+      public void notifyUserForEvent(UbuduEvent event);
+
+    }
 
 #### UbuduAreaManager
 
-:
+    package com.ubudu.sdk;
+
+
+    public interface UbuduAreaManager 
+    {
+
+      /**
+       *
+       * The maximum number of notifications the user can receive each day
+       * (from 00:00:00 to 23:59:59).
+       *
+       */
+      public int maximumNumberOfNotificationsByDay();
+      public void setMaximumNumberOfNotificationsByDay(int maximum);
+
+
+      /**
+       *
+       * The delegate.
+       *
+       */
+      public void setAreaDelegate(UbuduAreaDelegate areaDelegate);
+      public UbuduAreaDelegate areaDelegate();
+
+
+      /**
+       *
+       * Start and stop the area monitoring.
+       *
+       * When stopped, no background activity occurs.
+       *
+       * start returns null on success, or an error object if it can't start.
+       */
+      public java.lang.Error start(android.content.Context clientContext);
+      public void stop(android.content.Context clientContext);
+      public boolean isMonitoring();
+
+
+      /**
+       *
+       * Allow/disallow automatic user notification sending (allowed by
+       * default).  The user notifications have a text (or a SDK provided
+       * default text), and embed an url to be open and/or a PassBook url to
+       * be open when the user selects the notification.
+       *
+       */
+      public void setEnableAutomaticUserNotificationSending(boolean enable);
+      public boolean automaticUserNotificationSendingIsEnabled();
+
+      /**
+       *
+       * allow/disallow automatic server notifications sending (allowed by default).
+       *
+       */
+      public void setEnableAutomaticServerNotificationSending(boolean enable);
+      public boolean automaticServerNotificationSendingIsEnabled();
+
+      /**
+       *
+       * allow/disallow trace message logging (Disabled by default).
+       *
+       */
+      public void setEnableTraceMessageLogging(boolean enable);
+      public boolean traceMessageLoggingIsEnabled();
+
+
+      /**
+       * 
+       * the current position as known by the SDK.
+       *
+       */
+      public android.location.Location currentPosition();
+
+
+      /**
+       *
+       * the list of areas.
+       *
+       */
+      public java.util.List<UbuduArea> areas();
+
+
+      /**
+       *
+       * determine if an area is "monitored" (when the current position is
+       * close enough of the area, and the current time is within the
+       * start/end dates and scheduled open times).
+       *
+       */
+      public boolean areaIsMonitored(UbuduArea area);
+
+
+      /**
+       * 
+       * determine if an area is "active" (when the current position and
+       * current time is 'inside').
+       *
+       */
+      public boolean areaIsActive(UbuduArea area);
+
+
+      /**
+       *
+       * send the predefined user notification for an active area (to be
+       * used when automatic sending is not allowed, upon reception of an
+       * event indicating this geofence is activated or deactivated).
+       * 
+       */
+      public void notifyUserForEvent(UbuduEvent event);
+
+
+    }
 
 ### Geofence Classes and Interfaces
 
@@ -2148,11 +2360,76 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
 #### UbuduBeaconRegion
 
-:
+    package com.ubudu.sdk;
+
+    public interface UbuduBeaconRegion extends UbuduArea
+    {
+
+      /**
+       * The proximityUUID of the beacons being targeted.
+       */
+      public String proximityUUID();
+
+
+      /**
+       * The major of the beacons being targeted.  May be null if any major is accepted.
+       * (br.major()==null => br.minor()==null)
+       */
+      public Integer major();
+
+      /**
+       * The minor of the beacons being targeted.  May be null if any minor is accepted.
+       */
+      public Integer minor();
+
+    }
 
 #### UbuduBeacon
 
-:
+    package com.ubudu.sdk;
+
+    /**
+     * Instances of UbuduBeacon represent actual beacons detected.
+     */
+    public interface UbuduBeacon
+    {
+
+      /**
+       * The proximityUUID of the detected device.
+       */
+      public String proximityUUID();
+
+      /**
+       * The major of detected device
+       */
+      public int major();
+
+      /**
+       * The minor of the detected device.
+       */
+      public int minor();
+
+      /**
+       * The RSSI in dBm of the detected device.
+       */
+      public double rssi();
+
+      /**
+       * The maximum (closest) promixity detected for the beacon.
+       */
+      public int detectedProximity();
+      public static final int PROXIMITY_UNKNOWN=UbuduRule.Antecedant.PROXIMITY_ANY;
+      public static final int PROXIMITY_IMMEDIATE=UbuduRule.Antecedant.PROXIMITY_IMMEDIATE;
+      public static final int PROXIMITY_NEAR=UbuduRule.Antecedant.PROXIMITY_NEAR;
+      public static final int PROXIMITY_FAR=UbuduRule.Antecedant.PROXIMITY_FAR;
+
+
+      /**
+       * The native device detected.
+       */
+      public android.bluetooth.BluetoothDevice nativeDevice();
+
+    }
 
 #### UbuduBeaconRegionEvent
 
@@ -2160,279 +2437,120 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
 #### UbuduBeaconRegionDelegate
 
-:
-
-#### UbuduBeaconManager
-
-:
-
-### Ultrasound Code Detector Classes and Interfaces
-
-#### UbuduUltrasoundArea
-
     package com.ubudu.sdk;
 
-    public interface UbuduUltrasoundArea extends UbuduArea
-    {
+    import java.net.URL;
 
-      /**
-       * An area that expects any code will return nil.
-       */
-      public java.util.List<java.lang.Byte> expectedCode();
-
-      /**
-       * Default reliability is 0.2
-       */
-      public double requiredReliability();
-
-    }
-
-#### UbuduUltrasound
-
-    package com.ubudu.sdk;
-
-    public interface UbuduUltrasound
-    {
-
-      /**
-       * The region that detected this ultrasound.
-       */
-      public UbuduUltrasoundArea area();
-
-      public java.util.List<java.lang.Byte> detectedCode();
-
-      public double reliability();
-
-    }
-
-#### UbuduUltrasoundEvent
-
-    package com.ubudu.sdk;
-
-
-    public interface UbuduUltrasoundEvent extends UbuduEvent
-    {
-
-      /**
-       * The area, with the right covariant class.
-       */
-      public UbuduUltrasoundArea ultrasoundArea();
-
-      /**
-       *
-       * The ultrasound object provides the specific data of the detected
-       * ultrasound code.
-       *
-       */
-      public UbuduUltrasound ultrasound();
-
-    }
-
-    /*
-     Invariant:
-
-     (ev.ultrasoundArea==ev.area)
-     && (ev.area==ev.ultrasound.area)
-
-     */
-
-#### UbuduUltrasoundDelegate
-
-The messages to the delegate can be sent from a different thread than the main thread.
-
-When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs them as errors; it then proceeds normally.
-
-    package com.ubudu.sdk;
-
-    public interface UbuduUltrasoundDelegate
-    {
-
-      /**
-       *
-       * Signals that listening on the microphone has started.
-       *
-       * The delegate will receive messages from the UbuduAreaDelegate
-       * protocol when codes are detected, until the delegate is changed, or
-       * listening is stopped in which case the delegate receives a
-       * listeningStoppedByDetector: message.
-       *
-       * NOTE: This method will be called from the detector thread.  The
-       * delegate should go back to the main thread if it needs to.
-       *
-       */
-      public void listeningStartedByDetector(UbuduUltrasoundManager detector);
-
-
-      /**
-       *
-       * Signals that listening on the microphone has stopped.
-       *
-       * NOTE: This method will be called from the detector thread.  The
-       * delegate should go back to the main thread if it needs to.
-       *
-       */
-      public void listeningStoppedByDetector(UbuduUltrasoundManager detector);
-
-    }
-
-#### UbuduUltrasoundManager
-
-    package com.ubudu.sdk;
 
     /**
      *
-     * UbuduUltrasoundManager let the application access to the ultrasound
-     * code detector of the Ubudu SDK. 
-     *
-     * Note: until we provide the API to let the application create areas
-     * and rules, areas() will return a list of a single
-     * UbuduUltrasoundArea with a single area that expects any code at a
-     * default reliability, with a single default on_entry rule.
+     * The UbuduSDK sends the application the following messages:
      *
      */
-    public interface UbuduUltrasoundManager extends UbuduAreaManager
+    public interface UbuduBeaconRegionDelegate
     {
 
       /**
+      *
+      * When the manager fails to start, the delegate receives statusChanged(SERVICE_UNAVAILABLE)
+      * When it started successfully, the delegate receives statusChanged(SERVICE_STARTED)
+      * When it stops, the delegate receives statusChanged(SERVICE_STOPPED)
+      *
+      * If there is no delegate, if if the statusChanged method returns
+      * false, then a Toast message is displayed.
+      *
+      */
+      public static final int SERVICE_UNAVAILABLE=0;
+      public static final int SERVICE_STARTED=1;
+      public static final int SERVICE_STOPPED=2;
+      public boolean statusChanged(int change);
+
+      /**
        *
-       * An UbuduUltrasoundManager instance has two delegates: an
-       * areaDelegate,  and an ultrasoundDelegate. They could be the same
-       * object, if it implements both protocols, but the manager must
-       * keep two references.
+       * position changed (new position)
        *
        */
-      public void setUltrasoundDelegate(UbuduUltrasoundDelegate ultrasoundDelegate);
-      public UbuduAreaDelegate ultrasoundDelegate();
+      public void positionChanged(android.location.Location newPosition);
+
+      /**
+       *
+       * beacon region entered event (area): This is a raw event.  An action
+       * may not be taken by the SDK according to the rules.
+       *
+       */
+      public void areaEntered(UbuduBeaconRegion enteredArea);
+
+      /**
+       *
+       * beacon region exited event (area): This is a raw event.  An action
+       * may not be taken by the SDK according to the rules.
+       *
+       */
+      public void areaExited(UbuduBeaconRegion exitedArea);
+
+      /**
+       *
+       * server notification (url): when  automatic server notifications
+       * sending is disallowed, the SDK sends this message to the application
+       * to let it notify the server thru the given url.
+       *
+       */
+      public boolean notifyServer(URL notificationServerUrl);
 
 
       /**
        *
-       * This is the time remaining before the end of listening duration.
-       * While remainingTime>0, isListening can be YES.
-       *
-       * (expressed in millisecond).
+       * This message is sent to the delegate when the rule antecedant are
+       * all fullfilled after the server notification has been sent, and
+       * before the actions are taken.  It is possible no action is taken
+       * (either because there's none, or because of other constraints
+       * preventing them to be taken).
+       * The event.notification is set, and event.notification.payload() contains the payload.
        *
        */
-      public long remainingTime();
+      public void ruleFiredForEvent(UbuduBeaconRegionEvent event);
 
       /**
        *
-       * Whether the detector is currently receiving sound from the microphone.
-       * NOTE: when listening is started for a long duration, microphone
-       * capture may be intermitent. cf. -remainingTime.
+       * Area notification (notification)  when automatic user
+       * notification sending is disallowed, the SDK sends this message to
+       * the application, to let it send the _`notifications` or otherwise deal
+       * with it.
+       * The event.notification is set, and event.notification.payload() contains the payload.
        *
        */
-      public boolean isListening();
+      public void notifyUserForEvent(UbuduBeaconRegionEvent event);
 
+    }
+
+#### UbuduBeaconManager
+
+    package com.ubudu.sdk;
+
+
+    public interface UbuduBeaconManager extends UbuduAreaManager
+    ;
 
       /**
        *
-       * Detector Parameters:
-       * May be set before starting.
-       * Changes while remainingTime>0 are ignored until next listening period.
-       *
-       * samplingRate        audio sampling rate (Hz); default 44100,
-       *                     allowed values: 192000, 176400, 96000, 88200,
-       *                     48000, 44100, 32000, 22050, 16000, 11025, 8000.
-       * codeLength          expected watermarking payload length.
-       * carrierFrequency    expected carrier signal starting frequency (Hz).
-       * fastScanMode        fast scan mode (0 or 1).
-       * allowNotReliable    allow detecting even not reliable watermarks (0 or 1).
-       * carrierThreshold    minimal carrier threshold (0.0 - 1.0, default 0.2).
+       * The ProximityUUID selects the beacons specific to the application.
        *
        */
-      public long samplingRate();
-      public void setSamplingrate(long newSamplingrate);
-      public long codeLength();
-      public void setCodelength(long newCodelength);
-      public long carrierFrequency();
-      public void setCarrierfrequency(long newCarrierfrequency);
-      public long fastScanMode();
-      public void setFastscanmode(long newFastscanmode);
-      public long allowNotReliable();
-      public void setAllownotreliable(long newAllownotreliable);
-      public double carrierThreshold();
-      public void setCarrierthreshold(double newCarrierthreshold);
-
-
-      /**
-       *
-       * listeningDuration is the maximum time listening
-       * should last, during each period (in millisecond).
-       *
-       * Listening occurs for a minimum time, and beyond is bounded by
-       * listeningDuration is.  See the remainingTime property.  When
-       * listening for long durations, the actual sound capture should be
-       * configured to be intermitent.  See the isListening property.
-       * 
-       */
-      public long listeningDuration();
-      public void setListeningduration(long newListeningduration);
-
-      /**
-       *
-       * period is the duration of a listening/not listening cycle (in
-       * millisecond).  The duration of the listening part of the cycle is
-       * given by listeningDuration.
-       *
-       */
-      public long period();
-      public void setPeriod(long newPeriod);
-
-
-      /**
-       * minimumReliability code received with a reliability below this
-       * minimum will be ignored.
-       */
-      public double minimumReliability();
-      public void setMinimumreliability(double newMinimumreliability);
-
-      /**
-       * when an error occurs during detection, it is reported here.
-       */
-      public java.lang.Error error();
-
-
-
-
-
-      /**
-       * An utility method. 
-       */
-      public static java.util.List<java.lang.Byte> dataFromHexadecimalString(String string);
+      public void setProximityUUID(String aProximityUUID);
+      public String proximityUUID();
 
 
 
       /**
        *
-       * Inserts a UbuduUltrasoundArea in the list of areas.
+       * The list of beacon regions.
        *
-       * url must have "ubudu-geous" as scheme, and must have a parameterString
-       * containing the following parameters:
-       * 
-       * id: the regionId of the fence.
-       * code: the expected ultrasound code (in hexadecimal).
-       * url: the url to go to when the ultrasound code is detected.
-       * notification: (optional) the text of a notification for delayed url opening.
-       * 
-       */
-      public void expectAreaAtURL(java.lang.URL url);
-
-
-      /**
-       * set listeningDuration and minimumReliability and call start.
-       *
-       * Starts a background thread that listens to ultrasounds captured on
-       * the microphone, and detects in them a code. 
-       *
-       * If this message is send while remainingTime>0, then a new duration and
-       * minimumReliability are set, and the listening goes on.
+       * This is the same list as returned by areas() but with the proper
+       * covariant type.
        *
        */
-      public void startListeningForDurationWithinPeriodWithMinimumReliability(android.content.Context clientContext,
-                                                                              long listeningDuration,
-                                                                              long period,
-                                                                              double minimumReliability);
+      public java.util.List<UbuduBeaconRegion> beaconRegions();
+
 
     }
 

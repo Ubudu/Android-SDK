@@ -1,5 +1,5 @@
-`UbuduSDK` User Manual - version 1.4.10
-=======================================
+`UbuduSDK` User Manual - version 1.5.0
+======================================
 
 Introduction
 ------------
@@ -10,7 +10,6 @@ This SDK contains several components:
 
 -   Ubudu Geofence SDK,
 -   Ubudu Proxmity Beacon SDK (Bluetooth).
--   Ubudu Ultrasound SDK,
 
 Modifications
 -------------
@@ -182,6 +181,21 @@ Modifications
 <li>Fix getting native device from UbuduBeacon.</li>
 </ul></td>
 </tr>
+<tr class="odd">
+<td align="left"><p>1.5.0</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>2015-04-17</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|Deep linking</p>
+</blockquote></td>
+<td align="left">Stability improvements and bug fixes. Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. actions. Optimisation of user tags management.</td>
+</tr>
 </tbody>
 </table>
 
@@ -326,7 +340,7 @@ Starting this command will first remove tracking any geofences that are in use b
 
 ##### Design principle of the `UbuduSDK` API
 
-The `com.ubudu.sdk.UbuduSDK` class has a shared instance that is the root of the API. It provides methods to obtain the *managers*, each of which deals with a different kind of areas: geofences, bluetooth LE beacons, ultrasound areas. If the kind of areas is not available on the device, then `null` is returned instead of a manager.
+The `com.ubudu.sdk.UbuduSDK` class has a shared instance that is the root of the API. It provides methods to obtain the *managers*, each of which deals with a different kind of areas: geofences, bluetooth LE beacons areas. If the kind of areas is not available on the device, then `null` is returned instead of a manager.
 
 The three manager classes share a common superclass, `com.ubudu.sdk.UbuduAreaManager`, and each deal with covariant subclasses.
 
@@ -336,7 +350,6 @@ The three manager classes share a common superclass, `com.ubudu.sdk.UbuduAreaMan
 
       public UbuduGeofenceManager   getGeofenceManager(){…}
       public UbuduBeaconManager     getBeaconManager(){…}
-      public UbuduUltrasoundManager getUltrasoundManager(){…}
 
       // …
     }
@@ -379,10 +392,6 @@ Note: the manager settings are specific to each manager: ie. you can have differ
 
 **TBD**
 
-####### `com.ubudu.sdk.UbuduUltrasoundManager` specific settings
-
-**TBD**
-
 ###### Delegate
 
 The application may configure delegate objects to intercept the processing and notifications upon area entered or exited events.
@@ -392,13 +401,12 @@ There are four delegate interfaces, each used by the corresponding manager class
     UbuduAreaDelegate             UbuduAreaManager
     UbuduBeaconRegionDelegate     UbuduBeaconManager
     UbuduGeofenceDelegate         UbuduGeofenceManager
-    UbuduUltrasoundDelegate       UbuduUltrasoundManager
 
 They are identical, only with covariant parameters.
 
 An `UbuduAreaDelegate` can be configured with the `com.ubudu.sdk.UbuduAreaManager#setAreaDelegate` method, for all the managers, but receiving generic parameters `com.ubudu.sdk.UbuduArea`.
 
-You may also configure a specific delegate with a specific manager, `com.ubudu.sdk.UbuduGeofenceManager#setGeofenceDelegate`, `com.ubudu.sdk.UbuduBeaconManager#setBeaconDelegate`, or `com.ubudu.sdk.UbuduUltrasoundManager#setUltrasoundDelegate`. When a manager specific delegate is configured, that manager doesn't use the UbuduAreaDelegate configured with `setAreaDelegate`.
+You may also configure a specific delegate with a specific manager, `com.ubudu.sdk.UbuduGeofenceManager#setGeofenceDelegate` or `com.ubudu.sdk.UbuduBeaconManager#setBeaconDelegate`. When a manager specific delegate is configured, that manager doesn't use the UbuduAreaDelegate configured with `setAreaDelegate`.
 
 ####### Description of the delegate protocol
 
@@ -1506,276 +1514,6 @@ Note: Each manager can have also a specialized delegate with covariant argument 
        */
       public java.util.List<UbuduBeaconRegion> beaconRegions();
 
-
-    }
-
-##### Ultrasound Code Detector Classes and Interfaces
-
-###### UbuduUltrasoundArea
-
-    package com.ubudu.sdk;
-
-    public interface UbuduUltrasoundArea extends UbuduArea
-    {
-
-      /**
-       * An area that expects any code will return nil.
-       */
-      public java.util.List<java.lang.Byte> expectedCode();
-
-      /**
-       * Default reliability is 0.2
-       */
-      public double requiredReliability();
-
-    }
-
-###### UbuduUltrasound
-
-    package com.ubudu.sdk;
-
-    public interface UbuduUltrasound
-    {
-
-      /**
-       * The region that detected this ultrasound.
-       */
-      public UbuduUltrasoundArea area();
-
-      public java.util.List<java.lang.Byte> detectedCode();
-
-      public double reliability();
-
-    }
-
-###### UbuduUltrasoundEvent
-
-    package com.ubudu.sdk;
-
-
-    public interface UbuduUltrasoundEvent extends UbuduEvent
-    {
-
-      /**
-       * The area, with the right covariant class.
-       */
-      public UbuduUltrasoundArea ultrasoundArea();
-
-      /**
-       *
-       * The ultrasound object provides the specific data of the detected
-       * ultrasound code.
-       *
-       */
-      public UbuduUltrasound ultrasound();
-
-    }
-
-    /*
-     Invariant:
-
-     (ev.ultrasoundArea==ev.area)
-     && (ev.area==ev.ultrasound.area)
-
-     */
-
-###### UbuduUltrasoundDelegate
-
-The messages to the delegate can be sent from a different thread than the main thread.
-
-When the ubudu-sdk calls the delegate, it catches all the exceptions, and logs them as errors; it then proceeds normally.
-
-    package com.ubudu.sdk;
-
-    public interface UbuduUltrasoundDelegate
-    {
-
-      /**
-       *
-       * Signals that listening on the microphone has started.
-       *
-       * The delegate will receive messages from the UbuduAreaDelegate
-       * protocol when codes are detected, until the delegate is changed, or
-       * listening is stopped in which case the delegate receives a
-       * listeningStoppedByDetector: message.
-       *
-       * NOTE: This method will be called from the detector thread.  The
-       * delegate should go back to the main thread if it needs to.
-       *
-       */
-      public void listeningStartedByDetector(UbuduUltrasoundManager detector);
-
-
-      /**
-       *
-       * Signals that listening on the microphone has stopped.
-       *
-       * NOTE: This method will be called from the detector thread.  The
-       * delegate should go back to the main thread if it needs to.
-       *
-       */
-      public void listeningStoppedByDetector(UbuduUltrasoundManager detector);
-
-    }
-
-###### UbuduUltrasoundManager
-
-    package com.ubudu.sdk;
-
-    /**
-     *
-     * UbuduUltrasoundManager let the application access to the ultrasound
-     * code detector of the Ubudu SDK. 
-     *
-     * Note: until we provide the API to let the application create areas
-     * and rules, areas() will return a list of a single
-     * UbuduUltrasoundArea with a single area that expects any code at a
-     * default reliability, with a single default on_entry rule.
-     *
-     */
-    public interface UbuduUltrasoundManager extends UbuduAreaManager
-    {
-
-      /**
-       *
-       * An UbuduUltrasoundManager instance has two delegates: an
-       * areaDelegate,  and an ultrasoundDelegate. They could be the same
-       * object, if it implements both protocols, but the manager must
-       * keep two references.
-       *
-       */
-      public void setUltrasoundDelegate(UbuduUltrasoundDelegate ultrasoundDelegate);
-      public UbuduAreaDelegate ultrasoundDelegate();
-
-
-      /**
-       *
-       * This is the time remaining before the end of listening duration.
-       * While remainingTime>0, isListening can be YES.
-       *
-       * (expressed in millisecond).
-       *
-       */
-      public long remainingTime();
-
-      /**
-       *
-       * Whether the detector is currently receiving sound from the microphone.
-       * NOTE: when listening is started for a long duration, microphone
-       * capture may be intermitent. cf. -remainingTime.
-       *
-       */
-      public boolean isListening();
-
-
-      /**
-       *
-       * Detector Parameters:
-       * May be set before starting.
-       * Changes while remainingTime>0 are ignored until next listening period.
-       *
-       * samplingRate        audio sampling rate (Hz); default 44100,
-       *                     allowed values: 192000, 176400, 96000, 88200,
-       *                     48000, 44100, 32000, 22050, 16000, 11025, 8000.
-       * codeLength          expected watermarking payload length.
-       * carrierFrequency    expected carrier signal starting frequency (Hz).
-       * fastScanMode        fast scan mode (0 or 1).
-       * allowNotReliable    allow detecting even not reliable watermarks (0 or 1).
-       * carrierThreshold    minimal carrier threshold (0.0 - 1.0, default 0.2).
-       *
-       */
-      public long samplingRate();
-      public void setSamplingrate(long newSamplingrate);
-      public long codeLength();
-      public void setCodelength(long newCodelength);
-      public long carrierFrequency();
-      public void setCarrierfrequency(long newCarrierfrequency);
-      public long fastScanMode();
-      public void setFastscanmode(long newFastscanmode);
-      public long allowNotReliable();
-      public void setAllownotreliable(long newAllownotreliable);
-      public double carrierThreshold();
-      public void setCarrierthreshold(double newCarrierthreshold);
-
-
-      /**
-       *
-       * listeningDuration is the maximum time listening
-       * should last, during each period (in millisecond).
-       *
-       * Listening occurs for a minimum time, and beyond is bounded by
-       * listeningDuration is.  See the remainingTime property.  When
-       * listening for long durations, the actual sound capture should be
-       * configured to be intermitent.  See the isListening property.
-       * 
-       */
-      public long listeningDuration();
-      public void setListeningduration(long newListeningduration);
-
-      /**
-       *
-       * period is the duration of a listening/not listening cycle (in
-       * millisecond).  The duration of the listening part of the cycle is
-       * given by listeningDuration.
-       *
-       */
-      public long period();
-      public void setPeriod(long newPeriod);
-
-
-      /**
-       * minimumReliability code received with a reliability below this
-       * minimum will be ignored.
-       */
-      public double minimumReliability();
-      public void setMinimumreliability(double newMinimumreliability);
-
-      /**
-       * when an error occurs during detection, it is reported here.
-       */
-      public java.lang.Error error();
-
-
-
-
-
-      /**
-       * An utility method. 
-       */
-      public static java.util.List<java.lang.Byte> dataFromHexadecimalString(String string);
-
-
-
-      /**
-       *
-       * Inserts a UbuduUltrasoundArea in the list of areas.
-       *
-       * url must have "ubudu-geous" as scheme, and must have a parameterString
-       * containing the following parameters:
-       * 
-       * id: the regionId of the fence.
-       * code: the expected ultrasound code (in hexadecimal).
-       * url: the url to go to when the ultrasound code is detected.
-       * notification: (optional) the text of a notification for delayed url opening.
-       * 
-       */
-      public void expectAreaAtURL(java.lang.URL url);
-
-
-      /**
-       * set listeningDuration and minimumReliability and call start.
-       *
-       * Starts a background thread that listens to ultrasounds captured on
-       * the microphone, and detects in them a code. 
-       *
-       * If this message is send while remainingTime>0, then a new duration and
-       * minimumReliability are set, and the listening goes on.
-       *
-       */
-      public void startListeningForDurationWithinPeriodWithMinimumReliability(android.content.Context clientContext,
-                                                                              long listeningDuration,
-                                                                              long period,
-                                                                              double minimumReliability);
 
     }
 
