@@ -1,6 +1,6 @@
 // -*- mode:java;coding:utf-8 -*-
 //****************************************************************************
-//FILE:               BeaconFragment.java
+//FILE:               TextOutput.java
 //LANGUAGE:           java
 //SYSTEM:             Android
 //USER-INTERFACE:     Android
@@ -16,7 +16,7 @@
 //LEGAL
 //    ubudu-public
 //    
-//    Copyright (c) 2011-2014, UBUDU SAS
+//    Copyright (c) 2011-2015, UBUDU SAS
 //    All rights reserved.
 //    
 //    Redistribution and use in source and binary forms, with or without

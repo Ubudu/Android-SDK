@@ -16,7 +16,7 @@
 //LEGAL
 //    ubudu-public
 //    
-//    Copyright (c) 2011-2014, UBUDU SAS
+//    Copyright (c) 2011-2015, UBUDU SAS
 //    All rights reserved.
 //    
 //    Redistribution and use in source and binary forms, with or without
@@ -59,7 +59,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
-public class GeofenceFragment extends UbuduFragment implements View.OnClickListener {
+public class GeofenceFragment extends UbuduBaseFragment implements View.OnClickListener {
 
 	private RelativeLayout mActiveSpot;
 	private Map mMap;
@@ -72,16 +72,19 @@ public class GeofenceFragment extends UbuduFragment implements View.OnClickListe
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.geofence_fragment, container, false);
 
-		create((TextView) view.findViewById(R.id.startB), (TextView) view
-				.findViewById(R.id.infoLabel), ((MainActivity) getActivity()).getOutput());
+        MainActivity mainActivity = (MainActivity) getActivity();
+
+        super.create(mainActivity.getGeofenceManager(),
+                (TextView) view.findViewById(R.id.startB),
+                (TextView) view.findViewById(R.id.infoLabel),
+                mainActivity.getOutput());
 
 		mActiveSpot = (RelativeLayout) view.findViewById(R.id.activeSpot);
 		mActiveSpot.setOnClickListener(this);
-
-		mMap = new Map(getActivity(), R.id.map);
+		mMap = new Map(mainActivity, R.id.map);
 		mMap.updateLocationOnMap();
 
-		((MainActivity) getActivity()).setAreaDelegate(mMap);
+        mainActivity.getAreaDelegate().setMap(mMap);
 
 		return view;
 	}
@@ -98,23 +101,25 @@ public class GeofenceFragment extends UbuduFragment implements View.OnClickListe
 		return GEOFENCE;
 	}
 
+    @Override
+    public String getManagerAreasType() {
+        return "geofences";
+    }
+
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.activeSpot: {
-			if (!isGeofencesScanningActive()) {
-				if (!checkIsGpsEnabled()) {
-					showGpsAlertDialog();
-					return;
-				}
-				getTextOutput().printf("Start searching for geofences\n");
-				Error e = ((MainActivity) getActivity()).getGeofenceManager().start(getActivity());
-				startScanning(e);
-			} else {
-				((MainActivity) getActivity()).getGeofenceManager().stop(getActivity());
-				stopScanning();
-			}
-		}
+            case R.id.activeSpot: {
+                if (!isScanning()) {
+                    if (!checkIsGpsEnabled()) {
+                        showGpsAlertDialog();
+                        return;
+                    }
+                    startScanning();
+                } else {
+                    stopScanning();
+                }
+            }
 		}
 	}
 
@@ -148,13 +153,10 @@ public class GeofenceFragment extends UbuduFragment implements View.OnClickListe
 	 * @return true - when location is enabled
 	 */
 	private boolean checkIsGpsEnabled() {
-		LocationManager manager = (LocationManager) getActivity().getSystemService(
-				Context.LOCATION_SERVICE);
+		LocationManager manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
-		if (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-				&& manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-				|| (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-				&& manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+		if (manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) &&
+            (manager.isProviderEnabled(LocationManager.GPS_PROVIDER)|| !manager.isProviderEnabled(LocationManager.GPS_PROVIDER))) {
 			return true;
 		}
 		return false;
@@ -175,8 +177,7 @@ public class GeofenceFragment extends UbuduFragment implements View.OnClickListe
 	public void checkGooglePlayServices() {
 		int result = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
 		if (com.google.android.gms.common.ConnectionResult.SUCCESS != result) {
-			GooglePlayServicesUtil.getErrorDialog(result, getActivity(), 0,
-					new GooglePlayCancelListener(getActivity()));
+			GooglePlayServicesUtil.getErrorDialog(result, getActivity(), 0, new GooglePlayCancelListener(getActivity()));
 		}
 	}
 }
