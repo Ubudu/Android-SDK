@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.5.0
+`Ubudu SDK` Specifications - version 1.5.1
 ==========================================
 
 Introduction
@@ -247,6 +247,17 @@ Modifications
 <td align="left">2015-04-17</td>
 <td align="left">TZ</td>
 <td align="left">Stability improvements and bug fixes Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. Deep linking actions. Optimisation of user tags management tags management.</td>
+</tr>
+<tr class="even">
+<td align="left">1.5.1</td>
+<td align="left">2015-05-12</td>
+<td align="left">TZ</td>
+<td align="left"><ul>
+<li>Improve averaging rssi</li>
+<li>Fix for relative proximity</li>
+<li>Add API for resetting global event counter</li>
+<li>Fix bug while working with secured beacons</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
