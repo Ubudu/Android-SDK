@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.6.0
+`UbuduSDK` User Manual - version 1.7.0
 ======================================
 
 Introduction
@@ -17,9 +17,9 @@ Modifications
 <table>
 <colgroup>
 <col width="13%" />
-<col width="13%" />
-<col width="29%" />
-<col width="43%" />
+<col width="15%" />
+<col width="28%" />
+<col width="42%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -94,7 +94,7 @@ Modifications
 <td align="left">1.3.0</td>
 <td align="left">2014-11-06</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. Fix bug with user's tags.</td>
+<td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. Fix bug with user's tags</td>
 </tr>
 <tr class="even">
 <td align="left"><p>1.4.0</p>
@@ -228,6 +228,36 @@ Modifications
 <blockquote>
 <p>battery consumption</p>
 </blockquote></td>
+</tr>
+<tr class="odd">
+<td align="left"><dl>
+<dt>1.7.0</dt>
+<dd><p>|</p>
+<p>|</p>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-05-19</dt>
+<dd><p>|</p>
+<p>|</p>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>|</p>
+<p>|</p>
+<dl>
+<dt>|</dt>
+<dd><p>|Bug fix</p>
+</dd>
+</dl>
+</dd>
+</dl></td>
+<td align="left"><p>Multiline notifications</p>
+<p>Mesh (beta)</p>
+<p>Indoor location (beta)</p></td>
 </tr>
 </tbody>
 </table>
@@ -923,18 +953,7 @@ Ubudu SDK - Android API
 
 ###### UbuduEvent
 
-    package com.ubudu.sdk;
-
-    public interface UbuduEvent 
-    {
-      public static final int ENTERED=1;
-      public static final int EXITED=2;
-
-      public int eventKind();
-      public UbuduArea area();
-      public UbuduNotification notification();
-      public void setNotification(UbuduNotification newNotification);
-    }
+:
 
 ###### UbuduAreaDelegate
 
@@ -1149,149 +1168,15 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
 ###### UbuduGeofence
 
-    package com.ubudu.sdk;
-
-    public interface UbuduGeofence extends UbuduArea
-    ;
-
-      /**
-       *
-       * The latitude of the center of the geofence, in degree (-90.0° to +90.0°).
-       *
-       */
-      public double centerLatitude();
-
-      /**
-       *
-       * The longitude of the center of the geofence, in degree (-180.0° to +180.0°).
-       *
-       */
-      public double centerLongitude();
-
-      /**
-       *
-       * The radius of geofence, in meter (0.0 m to 40075017.0 m).
-       *
-       */
-      public double radius();
-
-
-      /**
-       *
-       * When the geofence is active (cf. UbuduManager.areaIsActive()),
-       * this method return the native geofence object.
-       *
-       */
-      public com.google.android.gms.location.Geofence nativeGeofence();
-
-    }
+:
 
 ###### UbuduGeofenceEvent
 
-    package com.ubudu.sdk;
-
-    public inteface UbuduGeofenceEvent extends UbuduEvent
-    {
-      /**
-       * Returns the event area in the right covariant class.
-       */
-      public UbuduGeofence geofence();
-    }
-
-    /*
-     Invariant:
-
-     ev.geofence()==ev.area()
-
-     */
+:
 
 ###### UbuduGeofenceDelegate
 
-    package com.ubudu.sdk;
-
-    import java.net.URL;
-
-
-    /**
-     *
-     * The UbuduSDK sends the application the following messages:
-     *
-     */
-    public interface UbuduGeofenceDelegate
-    {
-
-      /**
-      *
-      * When the manager fails to start, the delegate receives statusChanged(SERVICE_UNAVAILABLE)
-      * When it started successfully, the delegate receives statusChanged(SERVICE_STARTED)
-      * When it stops, the delegate receives statusChanged(SERVICE_STOPPED)
-      *
-      * If there is no delegate, if if the statusChanged method returns
-      * false, then a Toast message is displayed.
-      *
-      */
-      public static final int SERVICE_UNAVAILABLE=0;
-      public static final int SERVICE_STARTED=1;
-      public static final int SERVICE_STOPPED=2;
-      public boolean statusChanged(int change);
-
-      /**
-       *
-       * position changed (new position)
-       *
-       */
-      public void positionChanged(android.location.Location newPosition);
-
-      /**
-       *
-       * geofence entered event (area): This is a raw event.  An action
-       * may not be taken by the SDK according to the rules.
-       *
-       */
-      public void areaEntered(UbuduGeofence enteredArea);
-
-      /**
-       *
-       * geofence exited event (area): This is a raw event.  An action
-       * may not be taken by the SDK according to the rules.
-       *
-       */
-      public void areaExited(UbuduGeofence exitedArea);
-
-      /**
-       *
-       * server notification (url): when  automatic server notifications
-       * sending is disallowed, the SDK sends this message to the application
-       * to let it notify the server thru the given url.
-       *
-       */
-      public boolean notifyServer(URL notificationServerUrl);
-
-
-      /**
-       *
-       * This message is sent to the delegate when the rule antecedant are
-       * all fullfilled after the server notification has been sent, and
-       * before the actions are taken.  It is possible no action is taken
-       * (either because there's none, or because of other constraints
-       * preventing them to be taken).
-       * The event.notification is set, and event.notification.payload() contains the payload.
-       *
-       */
-      public void ruleFiredForEvent(UbuduGeofenceEvent event);
-
-      /**
-       *
-       * Area notification (notification)  when automatic user
-       * notification sending is disallowed, the SDK sends this message to
-       * the application, to let it send the _`notifications` or otherwise deal
-       * with it.
-       * The event.notification is set, and event.notification.payload() contains the payload.
-       *
-       */
-      public void notifyUserForEvent(UbuduGeofenceEvent event);
-
-    }
+:
 
 ###### UbuduGeofenceManager
 
@@ -1395,40 +1280,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
 ###### UbuduBeaconRegionEvent
 
-    package com.ubudu.sdk;
-
-    public interface UbuduBeaconRegionEvent extends UbuduEvent
-    {
-
-      /**
-       *
-       * For type.
-       * The beaconRegion is the area that has been activated or
-       * deactivated by this event.
-       *
-       */
-      public UbuduBeaconRegion beaconRegion();
-
-
-      /**
-       *
-       * The beacon object provides the specific data of the detected
-       * beacon.
-       *
-       */
-      public UbuduBeacon beacon();
-    }
-
-
-    /*
-     Invariant:
-
-     ((ev.beaconRegion()==ev.area())
-     && (ev.beaconRegion().proximityUUID().equals(ev.beacon().proximityUUID()))
-     && ((ev.beaconRegion().major()<0) || (ev.beaconRegion().major==ev.beacon().major()))
-     && ((ev.beaconRegion().minor()<0) || (ev.beaconRegion().minor==ev.beacon().minor())))
-
-     */
+:
 
 ###### UbuduBeaconRegionDelegate
 
