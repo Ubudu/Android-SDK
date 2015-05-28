@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.7.0
+`UbuduSDK` User Manual - version 1.7.1
 ======================================
 
 Introduction
@@ -258,6 +258,32 @@ Modifications
 <td align="left"><p>Multiline notifications</p>
 <p>Mesh (beta)</p>
 <p>Indoor location (beta)</p></td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.1</dt>
+<dd><p>|</p>
+<p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-05-29</dt>
+<dd><p>|</p>
+<p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>|</p>
+<p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><p>No toast from ubudu sdk</p>
+<p>custom alerTitle for notification</p>
+<p>minor fixes</p></td>
 </tr>
 </tbody>
 </table>

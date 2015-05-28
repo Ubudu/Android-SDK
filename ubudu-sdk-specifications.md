@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.7.0
+`Ubudu SDK` Specifications - version 1.7.1
 ==========================================
 
 Introduction
@@ -292,6 +292,25 @@ Modifications
 <p>Mesh (beta)</p>
 <p>Indoor location (beta)</p>
 <p>Bug fix</p></td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.1</dt>
+<dd><p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-05-29</dt>
+<dd><p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><p>TZ |</p>
+<p>|</p></td>
+<td align="left"><p>No toasts from ubudu sdk</p>
+<p>Custom alertTitle for notification</p>
+<p>minor fixes</p></td>
 </tr>
 </tbody>
 </table>
