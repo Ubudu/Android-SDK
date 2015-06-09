@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.7.1
+`Ubudu SDK` Specifications - version 1.7.3
 ==========================================
 
 Introduction
@@ -306,11 +306,44 @@ Modifications
 <p>|</p>
 </dd>
 </dl></td>
-<td align="left"><p>TZ |</p>
-<p>|</p></td>
+<td align="left"><dl>
+<dt>TZ</dt>
+<dd><p>|</p>
+</dd>
+</dl>
+|</td>
 <td align="left"><p>No toasts from ubudu sdk</p>
-<p>Custom alertTitle for notification</p>
-<p>minor fixes</p></td>
+<p>Custom alertTitl for notification</p>
+<p>Minor fixes</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.7.2</td>
+<td align="left">2015-05-29</td>
+<td align="left">TZ</td>
+<td align="left">Bug fixes</td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.3</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-06-09</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
+<blockquote>
+<h4>|</h4>
+</blockquote>
+</dd>
+</dl></td>
+<td align="left">TZ | |Restart Ubud |killing the | |Fix UI freez |beacon m |</td>
+<td align="left"><p>Fix for uuid bug</p>
+<p>u service after app</p>
+<p>e while starting anager</p>
+<p>Other bug fixes</p></td>
 </tr>
 </tbody>
 </table>
@@ -349,7 +382,7 @@ Table of Contents
 Areas
 -----
 
-### General Description
+##### General Description
 
 Ubudu Geofences and Ubudu Beacon Regions share a lot of attributes and behavior. They are generalized as Ubudu Areas. While internally the handling of geofences and beacons differ, most of the API is common for both.
 
@@ -537,7 +570,7 @@ Beacon Regions have additionnally those attributes:
 -   major (integer or empty), the major identification number of the region (bluetooth device class). If empty, then beacons with any major id are detected. empty major ⇒ empty minor.
 -   minor (integer or empty), the minor identification number of the region (bluetooth device class). If empty, then beacons with any minor id are detected.
 
-#### Dataflow
+###### Dataflow
 
     +------------------------------------------------+
     |                application                     |
@@ -583,13 +616,13 @@ The application configures the `Ubudu SDK` instance. The `Ubudu SDK` gets the ge
 -   it forwards the notification to the application which decides what to do.
 -   the application can get the list of monitored geofences and beacon regions, and can check the active geofences and beacons.
 
-#### Rules
+###### Rules
 
-##### Global rule
+####### Global rule
 
 -   When a day change (local time zone) is detected, the global number of notifications sent for the day is reset.
 
-##### \_Server Action Hook
+####### \_Server Action Hook
 
 When a rule fires, as specified in the following section, the actions may include a server notify url template. When this is the case, this url locates a JSON record that indicates what to do next.
 
@@ -633,7 +666,7 @@ If the server returns a JSON structure it should be a structure containing:
 
 `notify_user`, `open_url` and `open_pkb` are optional, and only used when `decision` is `"notify"`.
 
-##### Area rule
+####### Area rule
 
 The following rule applies for all area types (both geofences and beacon regions).
 
@@ -695,7 +728,7 @@ THEN:
     >     >     > • else send the delegate a notify user message with the  
     >     >     > notification data.
     >     >     >
-##### User Notification Delivery
+####### User Notification Delivery
 
 The user notification may be delivered immediately or be posted thru the OS user notification mechanism.
 
@@ -713,7 +746,7 @@ If there's no web page url, but there's a Passbook or Samsung Wallet url, then w
 
 This ensures that the application is activated and can process or filter the notification. The `Ubudu SDK` provides methods to help the applicaiton handle the web page displaying or Passbook or Samsung Wallet opening.
 
-##### Algorithm to determine if the current time is within open hours of the area schedule
+####### Algorithm to determine if the current time is within open hours of the area schedule
 
 The algorithm implemented in
 
@@ -758,23 +791,23 @@ must be followed. :
       end
     end
 
-##### Update of the geofences
+####### Update of the geofences
 
 -   A simple rules engine (which will be later complexified) decide if an update of the position is triggered and if a request is made to the server to update the geofences
 -   The logic here must be very accurate to minimize impact on battery.
 
 **\* TBD**\*
 
-#### Time
+###### Time
 
-##### Timezones
+####### Timezones
 
 -   legal or local timezone of the geofence (coordinates, at the current time).
 -   user timezone as configured on the mobile device.
 
 We specify the time zone of each area (geofence, beacon region area) in the data sent by the server.
 
-##### Time
+####### Time
 
 -   server time
 -   local time, in the geofence
@@ -782,7 +815,7 @@ We specify the time zone of each area (geofence, beacon region area) in the data
 
 It is expected that all times be approximatively the same. However, the timezone of the server, of a geofence and of the device may be different. Notably, different geofences may be in different timezones, or a given geofence may be at a different offset from UTC at different times (summer time/winter time shift).
 
-##### Opening hours
+####### Opening hours
 
 The schedules are given in a hybrid data structure, as opening and closing seconds since midnight for specific days, or for each day of the week, minus one break period, opening and closing seconds since midnight, applying in both cases.
 
@@ -790,7 +823,7 @@ The local time zone of the area is used to determine the time of midnight of the
 
 It is assumed that the device clock is approximately synchronous with Earth clock, even if the device time zone is different, so that the schedule maps to the real opening hours.
 
-#### Implementation API Design Rules
+###### Implementation API Design Rules
 
 Implementation specific API will use native data types as much as possible to let the application easily and efficiently access the OS specific frameworks (possibly wrapped in thin objects to provide additionnal features). For example, considering `CLLocation` and `CLRegion` on iOS and `android.location.Location` and `com.google.android.gms.location.Geofence`. `CLRegion` and `com.google.android.gms.location.Geofence` will have to be wrapped in a SDK specific Geofence class with the additionnal attributes we provide.
 
@@ -799,16 +832,16 @@ Otherwise, as much as possible the same class structure and behavior of the SDK 
 Geofences
 ---------
 
-### Use cases
+##### Use cases
 
-#### Setting the geofence - if user has enabled geofence capabilities
+###### Setting the geofence - if user has enabled geofence capabilities
 
 1.  Get current position for first update
 2.  Get geofences around given position
 3.  Server returns the list of geofences as json object
 4.  Geofences are stored in the phone and are actived in the background
 
-#### Geofences have been set and user has entered in a hot zone
+###### Geofences have been set and user has entered in a hot zone
 
 1.  The Ubudu SDK performs a local notification based on the actions associated with the triggered and display message
 2.  If the user clicks on the notification the app goes into foreground an action is performed. Actions that can be triggered:
@@ -818,7 +851,7 @@ Geofences
     > -   Notify the server that the user has entered into the zone
     > -   The local time when the user enters in the geofence is also used to decide if the notification what is triggered or not (i.e. no local notification message if the user enters the zone after business hours)
 
-#### Flow scheme - updating geofences list
+###### Flow scheme - updating geofences list
 
 -   The Ubudu SDK periodically checks the list of geofences based on:
 
@@ -829,7 +862,7 @@ Geofences
 -   A simple rules engine (which will be later complexified) decide if a update the position is triggered and if a request is made to the server to update the geofences
 -   The logic here must be very accurate to minimize impact on battery of the check
 
-### Deployment diagram
+##### Deployment diagram
 
 The Ubudu SDK is embedded in customer applications. It communicates with the ubudu server, to get the geofences defined by the customer. It selects the relevant geofences (time, position), and configures them into the geofence SDK of the OS. When the geofence SDK of the OS detects a fence event, it sends it to the corresponding application where the Ubudu SDK processes it, and posts the required notifications, and forwards to the application the required events. The application may react accordingly, or leave the Ubudu SDK implement the default behavior.
 
@@ -857,7 +890,7 @@ The Ubudu SDK is embedded in customer applications. It communicates with the ubu
     | Application CARREFOUR |
     +-----------------------+
 
-### Ubudu Geofence Web API
+##### Ubudu Geofence Web API
 
 This section documents the Geofence Web API as used by the Android SDK and the iOS SDK, with the purpose of allowing interoperability of the Ubudu SDK with alternate servers.
 
@@ -1239,7 +1272,7 @@ may return a JSON structure such as the following (note it's not up-to-date with
 Proximity Beacons
 -----------------
 
-### CONTEXT
+##### CONTEXT
 
 • Blueotooth 4.0 Low Energy offers un-preceded opportunities to  
 develop low costs proximity beacons that don’t require pairing.
@@ -1253,9 +1286,9 @@ to interact with proximity Beacons.
 • These technology progresses are an opportunity for Ubudu to expand  
 its technology stack and further reinforce its SDK and offering to brands that want to strengthen their loyalty and CRMs applications.
 
-### Use cases
+##### Use cases
 
-#### Example
+###### Example
 
 Similar to what we have done integrating the new geofence SDK with audio-watermarked ultra-sounds.
 
@@ -1263,7 +1296,7 @@ See You Tube link here :
 
 \_http://www.youtube.com/watch?v=6qxg6x41RMI
 
-#### Use Case \#1 – Detection of Presence
+###### Use Case \#1 – Detection of Presence
 
 • A small BLE proximity beacon is placed inside the shop (e.g. next  
 to the counter) of a retail brand.
@@ -1277,7 +1310,7 @@ background) detects the proximity beacon and a specific code.
 • The application handles specific actions following the detection of the  
 beacon (e.g. notify the server, show a special coupon, show a special coupon served by the server etc).
 
-##### Use Case \#1 – Information Flow
+####### Use Case \#1 – Information Flow
 
 1.  The beacon broadcasts a specific code (see code programming).
 2.  The application specifies the proximityUUID, and possibly a major and minor device classes, and a maximum distance class. The SDK detects the beacon with the same proximityUUID, and if given, major and minor, at the maximum distance class or less.
@@ -1292,7 +1325,7 @@ beacon (e.g. notify the server, show a special coupon, show a special coupon ser
 
 Response code – rules / actions parameters
 
-#### Use Case \#2 – Multiple Beacons
+###### Use Case \#2 – Multiple Beacons
 
 • Situation: same that use case \#1 but there are multiple Ubudu  
 beacons broadcasting codes.
@@ -1317,14 +1350,14 @@ networks vs. base stations.
 • In all case the application must keep a vector of Ubudu beacons in  
 range that must be accessible within the SDK.
 
-#### Use Case \#3 – Use of Phone as Beacon
+###### Use Case \#3 – Use of Phone as Beacon
 
 • Instead of using a BLE device, the shop sales uses his iPhone \>4S  
 as a BLE beacon by launching a specific application (different from the one used by the client).
 
 • This feature is also helpful for testing and demonstrating.
 
-#### Administration, Test & Configuration Application.
+###### Administration, Test & Configuration Application.
 
 • Basic UI.
 
@@ -1333,7 +1366,7 @@ as a BLE beacon by launching a specific application (different from the one used
 • Allow to test all the library code / i.e. train define values for  
 proximity / visualize beacons in presence and values advertized.
 
-#### Characteristics of the BLE Device
+###### Characteristics of the BLE Device
 
 Preliminary
 
@@ -1360,7 +1393,7 @@ Open Questions
 
 • CAD design for PCB and production assembly?
 
-### iBeacon Advertisement Messages
+##### iBeacon Advertisement Messages
 
 The Apple `iBeacon` compatible advertisement message format differs from the basic behavior of BLE modules. Usually you define a service which is advertised and then upon connection each characteristic can be read from the device (eg. proximityUUID, major, minor). In case of iBeacon compatible advertising message there is no information about the services available on the device but only a specific message containing the proximityUUID, major, minor values.
 
@@ -1392,7 +1425,7 @@ This can be done on android by the BluetoothAdapter.startLeScan method with a Le
 -   \_http://developer.android.com/reference/android/bluetooth/BluetoothAdapter.html\#startLeScan%28android.bluetooth.BluetoothAdapter.LeScanCallback%29
 -   \_http://developer.android.com/reference/android/bluetooth/BluetoothAdapter.LeScanCallback.html
 
-### Ubudu Beacon Web API
+##### Ubudu Beacon Web API
 
 This section documents the Beacon Web API as used buy the Android SDK and the iOS SDK, with the purpose of allowing interoperability of the Ubudu SDK with alternate servers.
 
@@ -1768,9 +1801,9 @@ may return a JSON structure such as the following (note it's not up-to-date with
 Ubudu SDK - Android API
 -----------------------
 
-### General Classes and Interfaces
+##### General Classes and Interfaces
 
-#### UbuduSDK
+###### UbuduSDK
 
     package com.ubudu.sdk;
 
@@ -1869,7 +1902,7 @@ Ubudu SDK - Android API
       public void openSamsungWallet(java.net.URL samsungWalletURL,android.content.Context clientContext){…}
     }
 
-#### UbuduUser
+###### UbuduUser
 
     package com.ubudu.sdk;
 
@@ -1928,7 +1961,7 @@ Ubudu SDK - Android API
 
     };
 
-#### UbuduOpenInterval
+###### UbuduOpenInterval
 
     package com.ubudu.sdk;
 
@@ -2047,7 +2080,7 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduRule
+###### UbuduRule
 
     package com.ubudu.sdk;
 
@@ -2112,7 +2145,7 @@ Ubudu SDK - Android API
       public Action action();
     }
 
-#### UbuduArea
+###### UbuduArea
 
     package com.ubudu.sdk;
 
@@ -2147,7 +2180,7 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduNotification
+###### UbuduNotification
 
     package com.ubudu.sdk;
 
@@ -2168,11 +2201,11 @@ Ubudu SDK - Android API
 
     }
 
-#### UbuduEvent
+###### UbuduEvent
 
 :
 
-#### UbuduAreaDelegate
+###### UbuduAreaDelegate
 
 The messages to the delegate can be sent from a different thread than the main thread.
 
@@ -2266,7 +2299,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduAreaManager
+###### UbuduAreaManager
 
     package com.ubudu.sdk;
 
@@ -2381,21 +2414,21 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Geofence Classes and Interfaces
+##### Geofence Classes and Interfaces
 
-#### UbuduGeofence
-
-:
-
-#### UbuduGeofenceEvent
+###### UbuduGeofence
 
 :
 
-#### UbuduGeofenceDelegate
+###### UbuduGeofenceEvent
 
 :
 
-#### UbuduGeofenceManager
+###### UbuduGeofenceDelegate
+
+:
+
+###### UbuduGeofenceManager
 
     package com.ubudu.sdk;
 
@@ -2420,9 +2453,9 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Proximity Beacon Classes and Interfaces
+##### Proximity Beacon Classes and Interfaces
 
-#### UbuduBeaconRegion
+###### UbuduBeaconRegion
 
     package com.ubudu.sdk;
 
@@ -2448,7 +2481,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeacon
+###### UbuduBeacon
 
     package com.ubudu.sdk;
 
@@ -2495,11 +2528,11 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeaconRegionEvent
+###### UbuduBeaconRegionEvent
 
 :
 
-#### UbuduBeaconRegionDelegate
+###### UbuduBeaconRegionDelegate
 
     package com.ubudu.sdk;
 
@@ -2587,7 +2620,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-#### UbuduBeaconManager
+###### UbuduBeaconManager
 
     package com.ubudu.sdk;
 
@@ -2618,7 +2651,7 @@ Note: Each manager can have also a specialized delegate with covariant argument 
 
     }
 
-### Class Diagram
+##### Class Diagram
 
 ![image](ubudu-sdk-class-diagram.png)
 

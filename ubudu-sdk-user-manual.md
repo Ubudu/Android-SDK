@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.7.1
+`UbuduSDK` User Manual - version 1.7.3
 ======================================
 
 Introduction
@@ -264,13 +264,11 @@ Modifications
 <dt>1.7.1</dt>
 <dd><p>|</p>
 <p>|</p>
-<p>|</p>
 </dd>
 </dl></td>
 <td align="left"><dl>
 <dt>2015-05-29</dt>
 <dd><p>|</p>
-<p>|</p>
 <p>|</p>
 </dd>
 </dl></td>
@@ -278,12 +276,42 @@ Modifications
 <dt>Tomasz Ziolkowski</dt>
 <dd><p>|</p>
 <p>|</p>
+</dd>
+</dl></td>
+<td align="left"><p>No toasts from ubudu sdk</p>
+<p>Custom alertTitl for notification</p>
+<p>Minor fixes</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.7.2</td>
+<td align="left">2015-05-29</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Bug fixes</td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.3</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
 <p>|</p>
 </dd>
 </dl></td>
-<td align="left"><p>No toast from ubudu sdk</p>
-<p>custom alerTitle for notification</p>
-<p>minor fixes</p></td>
+<td align="left"><dl>
+<dt>2015-06-09</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>| |Restart Ubud |killing the | |Fix UI freez |beacon m |</p>
+</dd>
+</dl></td>
+<td align="left"><p>Fix for uuid bug</p>
+<p>u service after app</p>
+<p>e while starting anager</p>
+<p>Other bug fixes</p></td>
 </tr>
 </tbody>
 </table>
