@@ -4,9 +4,9 @@
 
 
 For information on pricing, features, examples and our fantastic
-i-beacon compatible beacons please check our web-site
+iBeacon compatible beacons please check our web-site
 [http://www.ubudu.com](http://www.ubudu.com). It is totally free to
-develop with Ubudu SDKs and we only charge usage. 
+develop with Ubudu SDKs and we only charge usage... above a certain threshold.
 
 ### System and hardware requirements
 
