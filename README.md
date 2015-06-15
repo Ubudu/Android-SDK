@@ -42,11 +42,11 @@ Ubudu SDK is composed of the three following components :
 
 ### Instruction for Eclipse projects
 
-See [Android-SDK/eclipse/README.md](UbuduSDK/eclipse/README.md)
+See [UbuduSDK/eclipse/README.md](UbuduSDK/eclipse/README.md)
 
 ### Instruction for Android Studio projects
 
-See [Android-SDK/studio/README.md](UbuduSDK/studio/README.md)
+See [UbuduSDK/studio/README.md](UbuduSDK/studio/README.md)
 
 ### UbuduSDK contextual interactions
 See [Getting started contextual interaction SDK](UbuduSDK/README.md)
