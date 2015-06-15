@@ -37,8 +37,7 @@ Mesh is super easy to use. Just call:
 - **networkUUID** String with UUID of the mesh network UUID. ```meshId``` should be part of the network.
 
 #### Receiving status of the message
-```UbuduMeshDelegate``` interface must be implemented to get feedback from mesh manager. At the moment receiving status is possible by method: ```public void onSendMeshMessage(int status);
-```. This method is called by mesh manager after sending a message. status values can be:
+```UbuduMeshDelegate``` interface must be implemented to get feedback from mesh manager. At the moment receiving status is possible by method: ```public void onSendMeshMessage(int status);```. This method is called by mesh manager after sending a message. status values can be:
 
 ```
 MESH_MESSAGE_STATUS_OK = 0;				// Message sent with success
