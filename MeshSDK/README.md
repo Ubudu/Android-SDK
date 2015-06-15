@@ -14,21 +14,23 @@ Add Ubudu SDK to the project. If using Android Studio [check AS instructions](ht
 ### Usage instructions
 
 The UbuduSDK instance provides method to obtain the mesh manager.
-```UbuduMeshManager meshManager = sdk.getMeshManager()```.
+
+`UbuduMeshManager meshManager = sdk.getMeshManager()`.
+
 Note that mesh manager class doesn't inheritate from com.ubudu.sdk.UbuduAreaManager like Beacon or Geofence manager. 
 
 #### Start / Stop mesh manager
-To start using mesh ```UbuduMeshManager``` must be started. It may be done by calling:
-```meshManager.start()```
+To start using mesh `UbuduMeshManager` must be started. It may be done by calling:
+`meshManager.start()`.
 
-```start()```  method starts searching for connectable, mesh enabled beacons.
+`start()`  method starts searching for connectable, mesh enabled beacons.
 
-To stop mesh manager and prevent searching for mesh beacons call ```stop()``` nwthod.
+To stop mesh manager and prevent searching for mesh beacons call `stop()` nwthod.
 
 #### Sending message through mesh
 Mesh is super easy to use. Just call:
 
-```public void sendMeshMessage(String meshMessage, Integer meshId, String networkUUID);```
+`public void sendMeshMessage(String meshMessage, Integer meshId, String networkUUID);`
 
 - **MeshMessage** is a string with mesh message to be send. It should be no longer than 16 bytes.
 
@@ -37,7 +39,7 @@ Mesh is super easy to use. Just call:
 - **networkUUID** String with UUID of the mesh network UUID. ```meshId``` should be part of the network.
 
 #### Receiving status of the message
-```UbuduMeshDelegate``` interface must be implemented to get feedback from mesh manager. At the moment receiving status is possible by method: ```public void onSendMeshMessage(int status);```. This method is called by mesh manager after sending a message. status values can be:
+`UbuduMeshDelegate` interface must be implemented to get feedback from mesh manager. At the moment receiving status is possible by method: `public void onSendMeshMessage(int status);`. This method is called by mesh manager after sending a message. status values can be:
 
 ```
 MESH_MESSAGE_STATUS_OK = 0;				// Message sent with success
@@ -49,4 +51,5 @@ MESH_MESSAGE_STATUS_TOO_LONG = 5;		// Sending message failed because of too long
 ```
 
 #### Receiving feedback about nearby mesh nodes
-```UbuduMeshDelegate``` allows you to be notified about number of nearby availble mesh connectable nodes by ```public void onUpdateVisibleAndConnectableNodes(ArrayList<UbuduMeshNode>nodes);```.
+`UbuduMeshDelegate` allows you to be notified about number of nearby availble mesh connectable nodes by 
+`public void onUpdateVisibleAndConnectableNodes(ArrayList<UbuduMeshNode>nodes);`.
