@@ -1,6 +1,9 @@
 # MESH
 Ubudu mesh SDK for Android allows devices to establish a connection to a mesh network and to send messages through it.
 
+##API reference
+[http://www.ubudu.com/docs/android/mesh_sdk/index.html](http://www.ubudu.com/docs/android/mesh_sdk/index.html)
+
 ## System and hardware requirements
 Any Android device with Bluetooth 4.0 and Android 4.3 or higher.
 
