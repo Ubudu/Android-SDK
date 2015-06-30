@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.7.3
+`UbuduSDK` User Manual - version 1.8.0
 ======================================
 
 Introduction
@@ -312,6 +312,20 @@ Modifications
 <p>u service after app</p>
 <p>e while starting anager</p>
 <p>Other bug fixes</p></td>
+</tr>
+<tr class="odd">
+<td align="left"><dl>
+<dt>1.8.0 |2</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-06-30 |M</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left">ichal Gasztold Bug fixes</td>
+<td align="left">|Performance improvements</td>
 </tr>
 </tbody>
 </table>
