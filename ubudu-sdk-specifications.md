@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.8.0
+`Ubudu SDK` Specifications - version 1.8.1
 ==========================================
 
 Introduction
@@ -283,6 +283,12 @@ Modifications
 <td align="left">2015-06-30</td>
 <td align="left">MG</td>
 <td align="left"><p>Performance improvements for namespaces with high number of interaction rules.</p><p>Other bug fixes.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.8.1</td>
+<td align="left">2015-07-01</td>
+<td align="left">MG</td>
+<td align="left"><p>Fixed matching regions to beacon.</p></td>
 </tr>
 </tbody>
 </table>

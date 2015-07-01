@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ubudu.sdk"
-          android:versionCode="39"
-          android:versionName="1.8.0" >
+          android:versionCode="40"
+          android:versionName="1.8.1" >
 
 	<!-- UbuduSDK requires a minSdkVersion of 18 or above -->
 	<uses-sdk
