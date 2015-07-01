@@ -248,102 +248,41 @@ Modifications
 <td align="left">TZ</td>
 <td align="left">Stability improvements and bug fixes Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. Deep linking actions. Optimisation of user tags management tags management.</td>
 </tr>
-<tr class="even">
-<td align="left"><p>1.6.0</p>
-<blockquote>
-<p>|</p>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>2015-05-12</p>
-<blockquote>
-<p>|</p>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>TZ</p>
-<blockquote>
-<p>|- Add AP</p>
-</blockquote>
-<p>|- Reduced ba</p></td>
-<td align="left"><ul>
-<li>Improve averaging rssi</li>
-<li>Fix for relative proximity</li>
-</ul>
-- Add API for resetting global event counter I for setting period between logs - Fix bug while working with secured beacons ttery consumption</td>
+<tr class="odd">
+<td align="left">1.6.0</td>
+<td align="left">2015-05-12</td>
+<td align="left">TZ</td>
+<td align="left"><p>Fix bug while working with secured beacons.</p> <p>Add API for between log setting period events.</p><p>Improve rssi averaging.</p> <p>Fix for relative proximity.</p> <p>Add API for reseting global event counter.</p> <p>Reduced battery consumption.</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><dl>
-<dt>1.7.0</dt>
-<dd><p>|</p>
-<p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-05-19</dt>
-<dd><p>|</p>
-<p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><p>TZ |</p>
-<p>|</p>
-<p>|</p></td>
-<td align="left"><p>Multiline notifications</p>
-<p>Mesh (beta)</p>
-<p>Indoor location (beta)</p>
-<p>Bug fix</p></td>
+<td align="left">1.7.0</td>
+<td align="left">2015-05-19</td>
+<td align="left">TZ</td>
+<td align="left"><p>Multiline notifications.</p><p>Mesh (beta).</p><p>Indoor Location (beta).</p> <p>Bug fixes.</p></td>
 </tr>
-<tr class="even">
-<td align="left"><dl>
-<dt>1.7.1</dt>
-<dd><p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-05-29</dt>
-<dd><p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>TZ</dt>
-<dd><p>|</p>
-</dd>
-</dl>
-|</td>
-<td align="left"><p>No toasts from ubudu sdk</p>
-<p>Custom alertTitl for notification</p>
-<p>Minor fixes</p></td>
+<tr class="odd">
+<td align="left">1.7.1</td>
+<td align="left">2015-05-29</td>
+<td align="left">TZ</td>
+<td align="left"><p>No toasts from ubudu sdk.</p><p>Custom alertTitle for notification.</p><p>Minor fixes.</p></td>
 </tr>
 <tr class="odd">
 <td align="left">1.7.2</td>
 <td align="left">2015-05-29</td>
 <td align="left">TZ</td>
-<td align="left">Bug fixes</td>
+<td align="left"><p>Bug fixes.</p></td>
 </tr>
-<tr class="even">
-<td align="left"><dl>
-<dt>1.7.3</dt>
-<dd><h3>|</h3>
-<h4>|</h4>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-06-09</dt>
-<dd><h3>|</h3>
-<h4>|</h4>
-<blockquote>
-<h4>|</h4>
-</blockquote>
-</dd>
-</dl></td>
-<td align="left">TZ | |Restart Ubud |killing the | |Fix UI freez |beacon m |</td>
-<td align="left"><p>Fix for uuid bug</p>
-<p>u service after app</p>
-<p>e while starting anager</p>
-<p>Other bug fixes</p></td>
+<tr class="odd">
+<td align="left">1.7.3</td>
+<td align="left">2015-06-09</td>
+<td align="left">TZ</td>
+<td align="left"><p>Fix for uuid bug.</p><p>Restart Ubudu service after app killing.</p><p>Fix UI freeze while starting the beacon manager.</p><p>Other bug fixes.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.8.0</td>
+<td align="left">2015-06-30</td>
+<td align="left">MG</td>
+<td align="left"><p>Performance improvements for namespaces with high number of interaction rules.</p><p>Other bug fixes.</p></td>
 </tr>
 </tbody>
 </table>

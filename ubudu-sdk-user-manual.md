@@ -178,154 +178,46 @@ Modifications
 </dl></td>
 </tr>
 <tr class="odd">
-<td align="left"><p>1.5.0</p>
-<blockquote>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>2015-04-17</p>
-<blockquote>
-<p>|</p>
-</blockquote></td>
-<td align="left"><p>Tomasz Ziolkowski</p>
-<blockquote>
-<p>|Deep linking</p>
-</blockquote></td>
-<td align="left">Stability improvements and bug fixes. Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. actions. Optimisation of user tags management.</td>
-</tr>
-<tr class="even">
-<td align="left"><p>1.6.0</p>
-<blockquote>
-<p>|</p>
-<h3>|</h3>
-<p>|</p>
-<h4>|</h4>
-</blockquote></td>
-<td align="left"><p>2015-05-12</p>
-<blockquote>
-<p>|</p>
-<h3>|</h3>
-<p>|</p>
-<h4>|</h4>
-</blockquote></td>
-<td align="left"><p>Tomasz Ziolkowski</p>
-<blockquote>
-<p>|</p>
-<p>| |Add API for |between log |</p>
-<dl>
-<dt>|secured beac</dt>
-<dd><p>|</p>
-</dd>
-</dl>
-<blockquote>
-<p>|Reduced</p>
-</blockquote>
-</blockquote></td>
-<td align="left"><p>Improve averaging rssi</p>
-<p>Fix for relative proximity</p>
-<p>Add API for reseting global event counter</p>
-<p>setting period events</p>
-<p>Fix bug while working with ons.</p>
-<blockquote>
-<p>battery consumption</p>
-</blockquote></td>
+<td align="left">1.5.0</td>
+<td align="left">2015-04-17</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left">Deep linking. Stability improvements and bug fixes. Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. actions. Optimisation of user tags management.</td>
 </tr>
 <tr class="odd">
-<td align="left"><dl>
-<dt>1.7.0</dt>
-<dd><p>|</p>
-<p>|</p>
-<h4>|</h4>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-05-19</dt>
-<dd><p>|</p>
-<p>|</p>
-<h4>|</h4>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>Tomasz Ziolkowski</dt>
-<dd><p>|</p>
-<p>|</p>
-<dl>
-<dt>|</dt>
-<dd><p>|Bug fix</p>
-</dd>
-</dl>
-</dd>
-</dl></td>
-<td align="left"><p>Multiline notifications</p>
-<p>Mesh (beta)</p>
-<p>Indoor location (beta)</p></td>
+<td align="left">1.6.0</td>
+<td align="left">2015-05-12</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>Fix bug while working with secured beacons.</p> <p>Add API for between log setting period events.</p><p>Improve rssi averaging.</p> <p>Fix for relative proximity.</p> <p>Add API for reseting global event counter.</p> <p>Reduced battery consumption.</p></td>
 </tr>
-<tr class="even">
-<td align="left"><dl>
-<dt>1.7.1</dt>
-<dd><p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-05-29</dt>
-<dd><p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>Tomasz Ziolkowski</dt>
-<dd><p>|</p>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><p>No toasts from ubudu sdk</p>
-<p>Custom alertTitl for notification</p>
-<p>Minor fixes</p></td>
+<tr class="odd">
+<td align="left">1.7.0</td>
+<td align="left">2015-05-19</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>Multiline notifications.</p><p>Mesh (beta).</p><p>Indoor Location (beta).</p> <p>Bug fixes.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.7.1</td>
+<td align="left">2015-05-29</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>No toasts from ubudu sdk.</p><p>Custom alertTitle for notification.</p><p>Minor fixes.</p></td>
 </tr>
 <tr class="odd">
 <td align="left">1.7.2</td>
 <td align="left">2015-05-29</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left">Bug fixes</td>
-</tr>
-<tr class="even">
-<td align="left"><dl>
-<dt>1.7.3</dt>
-<dd><h3>|</h3>
-<h4>|</h4>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>2015-06-09</dt>
-<dd><h3>|</h3>
-<h4>|</h4>
-<p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>Tomasz Ziolkowski</dt>
-<dd><p>| |Restart Ubud |killing the | |Fix UI freez |beacon m |</p>
-</dd>
-</dl></td>
-<td align="left"><p>Fix for uuid bug</p>
-<p>u service after app</p>
-<p>e while starting anager</p>
-<p>Other bug fixes</p></td>
+<td align="left"><p>Bug fixes.</p></td>
 </tr>
 <tr class="odd">
-<td align="left"><dl>
-<dt>1.8.0 |2</dt>
-<dd><p>|</p>
-</dd>
-</dl></td>
-<td align="left"><dl>
-<dt>015-06-30 |M</dt>
-<dd><p>|</p>
-</dd>
-</dl></td>
-<td align="left">ichal Gasztold Bug fixes</td>
-<td align="left">|Performance improvements</td>
+<td align="left">1.7.3</td>
+<td align="left">2015-06-09</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>Fix for uuid bug.</p><p>Restart Ubudu service after app killing.</p><p>Fix UI freeze while starting the beacon manager.</p><p>Other bug fixes.</p></td>
+</tr>
+<tr class="odd">
+<td align="left">1.8.0</td>
+<td align="left">2015-06-30</td>
+<td align="left">Michal Gasztold</td>
+<td align="left"><p>Performance improvements for namespaces with high number of interaction rules.</p><p>Other bug fixes.</p></td>
 </tr>
 </tbody>
 </table>
