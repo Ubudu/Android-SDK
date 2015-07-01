@@ -175,8 +175,8 @@ Modifications
 <tr class="odd">
 <td align="left">1.4.0</td>
 <td align="left">2014-11-13</td>
-<td align="left">TZ</td>
-<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region Regions are defined by proximiy UUID. That means all beacons with the same proximityUUID and different major/minor belongs to the shame region.</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region.</p> Regions are defined by proximiy UUID. That means all beacons with the same proximityUUID and different major/minor belongs to same region.</p></td>
 </tr>
 <tr class="even">
 <td align="left">1.4.1</td>

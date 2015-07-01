@@ -96,22 +96,11 @@ Modifications
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. Fix bug with user's tags</td>
 </tr>
-<tr class="even">
-<td align="left"><p>1.4.0</p>
-<blockquote>
-<h3>|</h3>
-<h4>|</h4>
-</blockquote></td>
-<td align="left"><p>2014-11-13</p>
-<blockquote>
-<h3>|</h3>
-<h4>|</h4>
-</blockquote></td>
-<td align="left"><p>Tomasz Ziolkowski</p>
-<blockquote>
-<p>|Regi |UUID |the |diff |the</p>
-</blockquote></td>
-<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region ons are defined by proximiy . That means all beacons with same proximityUUID and erent major/minor belongs to shame region.</td>
+<tr class="odd">
+<td align="left">1.4.0</td>
+<td align="left">2014-11-13</td>
+<td align="left">Tomasz Ziolkowski</td>
+<td align="left"><p>Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region.</p> Regions are defined by proximiy UUID. That means all beacons with the same proximityUUID and different major/minor belongs to same region.</p></td>
 </tr>
 <tr class="odd">
 <td align="left">1.4.1</td>
