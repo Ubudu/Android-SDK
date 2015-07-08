@@ -290,6 +290,14 @@ Modifications
 <td align="left">MG</td>
 <td align="left"><p>Fixed matching regions to beacon.</p></td>
 </tr>
+<tr class="odd">
+<td align="left">1.8.2</td>
+<td align="left">2015-07-08</td>
+<td align="left">MG</td>
+<td align="left"><p>Fix scanning periods custom settings</p>
+<p>Added methods to customize rules fetching period</p>
+<p>Fixed custom notification mechanism after app is killed</p></td>
+</tr>
 </tbody>
 </table>
 
