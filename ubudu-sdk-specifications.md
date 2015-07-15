@@ -298,6 +298,13 @@ Modifications
 <p>Added methods to customize rules fetching period</p>
 <p>Fixed custom notification mechanism after app is killed</p></td>
 </tr>
+<tr class="odd">
+<td align="left">1.8.3</td>
+<td align="left">2015-07-14</td>
+<td align="left">MG</td>
+<td align="left"><p>Custom notification fix when the app is killed</p>
+<p>Minor API update for indoor location and mesh</p></td>
+</tr>
 </tbody>
 </table>
 
