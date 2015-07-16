@@ -52,6 +52,7 @@ import com.ubudu.sdk.UbuduBeaconRegionEvent;
 import com.ubudu.sdk.UbuduEvent;
 import com.ubudu.sdk.UbuduGeofence;
 import com.ubudu.sdk.UbuduGeofenceEvent;
+import com.ubudu.sdk.implementation.UbuduSDK;
 
 public class DemoAreaDelegate implements UbuduAreaDelegate {
     
@@ -60,6 +61,10 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
 
     TextOutput mOutput;
     Map mMap;
+
+    public DemoAreaDelegate(){
+        this(null);
+    };
 
     public DemoAreaDelegate(TextOutput output) {
         mOutput = output;
@@ -70,9 +75,11 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
     }
 
     public boolean statusChanged(int change){
-        mOutput.printf("service %s\n", ((change == 0) ? "unavailable"
-                : (change == 1) ? "activated"
-                : "shut down"));
+        if(mOutput != null) {
+            mOutput.printf("service %s\n", ((change == 0) ? "unavailable"
+                    : (change == 1) ? "activated"
+                    : "shut down"));
+        }
         return true;
     }
 
@@ -92,8 +99,10 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
                 Handler refresh = new Handler(Looper.getMainLooper());
                 refresh.post(new Runnable() {
                     public void run() {
+                        if(mOutput != null) {
                         mOutput.printf("device moved lat=%11.7f lng=%11.7f\n",newLatitude,newLongitude);
-                        mMap.setLocationOnMap(newLatitude,newLongitude);
+                        mMap.setLocationOnMap(newLatitude, newLongitude);
+                        }
                     }
                 });
             }
@@ -103,9 +112,9 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
 
     public void areaEntered(UbuduArea area) {
         if (area instanceof UbuduGeofence){
-            areaEntered((UbuduGeofence)area);
+            areaEntered((UbuduGeofence) area);
         } else if(area instanceof UbuduBeaconRegion){
-            areaEntered((UbuduBeaconRegion)area);
+            areaEntered((UbuduBeaconRegion) area);
         }
     }
 
@@ -121,6 +130,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("geofence entered id=%3s lat=%11.7f lng=%11.7f radius=%5.2f\n  name=\"%s\"\n",
                              fence.id(),
                              fence.centerLatitude(), fence.centerLongitude(),
@@ -129,6 +139,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
                 mMap.updateCircle(fence.id(), fence.name(),
                                 fence.centerLatitude(), fence.centerLongitude(),
                                 fence.radius(), Map.INSIDE);
+                }
             }
         });
     }
@@ -137,6 +148,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("geofence exited  id=%3s lat=%11.7f lng=%11.7f radius=%5.2f\n  name=\"%s\"\n",
                              fence.id(),
                              fence.centerLatitude(), fence.centerLongitude(),
@@ -145,6 +157,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
                 mMap.updateCircle(fence.id(), fence.name(),
                                 fence.centerLatitude(), fence.centerLongitude(),
                                 fence.radius(), Map.OUTSIDE);
+                }
             }
         });
     }
@@ -153,10 +166,12 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("beacon detected   in   region id=%3s \n  UUID=%s\n  major=%s minor=%s\n  name=\"%s\" \n",
                              beacon.id(),
                              beacon.proximityUUID(), beacon.major(), beacon.minor(),
                              beacon.name());
+                }
             }
         });
     }
@@ -165,10 +180,12 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("beacon disappeared from region id=%3s \n  UUID=%s\n  major=%s minor=%s\n  name=\"%s\" \n",
                              beacon.id(),
                              beacon.proximityUUID(), beacon.major(), beacon.minor(),
                              beacon.name());
+                }
             }
         });
     }
@@ -177,7 +194,9 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("notifyServer %s\n",notificationServerUrl);
+                }
             }
         });
         return true;
@@ -195,11 +214,13 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("geofence rule fired %-7s id=%3s \n  name=\"%s\")\n",
                         ((event.eventKind()==UbuduEvent.ENTERED)?"entered":"exited"),
                         event.area().id(),
                         event.area().name());
                 mOutput.printf("payload=%s\n",event.notification().payload().optJSONObject("payload").toString());
+                }
             }
         });
     }
@@ -208,11 +229,13 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("beacon  rule fired %-7s id=%3s \n  name=\"%s\")\n",
                         ((event.eventKind()==UbuduEvent.ENTERED)?"entered":"exited"),
                         event.area().id(),
                         event.area().name());
                 mOutput.printf("payload=%s\n",event.notification().payload().optJSONObject("payload").toString());
+                }
             }
         });
     }
@@ -229,25 +252,42 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
+                if(mOutput != null) {
                 mOutput.printf("geofence notify user for event %7s id=%3s\n  name=\"%s\"\n",
                         ((event.eventKind() == UbuduEvent.ENTERED)?"entered":"exited"),
                         event.area().id(),
                         event.area().name());
                 mOutput.printf("payload=%s\n",event.notification().payload().optJSONObject("payload").toString());
+                }
             }
         });
         return true;
     }
 
     public boolean notifyUserForEvent(final UbuduBeaconRegionEvent event) {
+
+        UbuduSDK mSdk = null;
+        try {
+            mSdk = UbuduSDK.getSharedInstance();
+
+            if (mSdk != null) {
+                mSdk.displayWebPage(event.notification().webPageUrl());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
-                mOutput.printf("beacon notify user for event %7s id=%3s\n name=\"%s\"\n",
-                        ((event.eventKind() == UbuduEvent.ENTERED) ? "entered" : "exited"),
-                        event.area().id(),
-                        event.area().name());
-                mOutput.printf("payload=%s\n", event.notification().payload().optJSONObject("payload").toString());
+                if (mOutput != null) {
+                    mOutput.printf("beacon notify user for event %7s id=%3s\n name=\"%s\"\n",
+                            ((event.eventKind() == UbuduEvent.ENTERED) ? "entered" : "exited"),
+                            event.area().id(),
+                            event.area().name());
+                    mOutput.printf("payload=%s\n", event.notification().payload().optJSONObject("payload").toString());
+                }
             }
         });
         return true;

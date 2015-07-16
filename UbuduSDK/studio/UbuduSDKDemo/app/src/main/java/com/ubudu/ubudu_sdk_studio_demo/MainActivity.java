@@ -74,8 +74,8 @@ public class MainActivity extends FragmentActivity implements TextOutput {
 
 	@Override
 	protected void onCreate(Bundle arg0) {
-		super.onCreate(arg0);
-		setContentView(R.layout.activity_main);
+        super.onCreate(arg0);
+        setContentView(R.layout.activity_main);
 
         mUbuduPagerAdapter = new UbuduPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -93,7 +93,9 @@ public class MainActivity extends FragmentActivity implements TextOutput {
         mGeofenceManager.setAreaDelegate(mAreaDelegate);
 
 		mBeaconManager = mUbuduSdk.getBeaconManager();
-		mBeaconManager.setAreaDelegate(mAreaDelegate);
+        mBeaconManager.setEnableAutomaticUserNotificationSending(true);
+        mBeaconManager.setAreaDelegate(mAreaDelegate);
+
 
 	}
 

@@ -43,6 +43,12 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name="com.ubudu.ubudu_sdk_studio_demo.UbuduServiceRestartedReceiver" >
+            <intent-filter>
+                <action android:name="com.ubudu.sdk.service.UbuduService.action.ACTION_SERVICE_RESTARTED" />
+            </intent-filter>
+        </receiver>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
