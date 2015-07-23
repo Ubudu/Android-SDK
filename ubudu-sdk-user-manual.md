@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.8.1
+`UbuduSDK` User Manual - version 1.8.4
 ======================================
 
 Introduction
@@ -96,11 +96,22 @@ Modifications
 <td align="left">Tomasz Ziolkowski</td>
 <td align="left">Added setWifiBleFixDisabled for disabling fix for wifi &amp; ble ble issue. Fix bug with user's tags</td>
 </tr>
-<tr class="odd">
-<td align="left">1.4.0</td>
-<td align="left">2014-11-13</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region.</p> Regions are defined by proximiy UUID. That means all beacons with the same proximityUUID and different major/minor belongs to same region.</p></td>
+<tr class="even">
+<td align="left"><p>1.4.0</p>
+<blockquote>
+<h3>|</h3>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>2014-11-13</p>
+<blockquote>
+<h3>|</h3>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|Regi |UUID |the |diff |the</p>
+</blockquote></td>
+<td align="left">Add setRegionExitMinDelay setter to set delay after which delegate get notified about exiting region ons are defined by proximiy . That means all beacons with same proximityUUID and erent major/minor belongs to shame region.</td>
 </tr>
 <tr class="odd">
 <td align="left">1.4.1</td>
@@ -167,67 +178,251 @@ Modifications
 </dl></td>
 </tr>
 <tr class="odd">
-<td align="left">1.5.0</td>
-<td align="left">2015-04-17</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left">Deep linking. Stability improvements and bug fixes. Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. actions. Optimisation of user tags management.</td>
+<td align="left"><p>1.5.0</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>2015-04-17</p>
+<blockquote>
+<p>|</p>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|Deep linking</p>
+</blockquote></td>
+<td align="left">Stability improvements and bug fixes. Reduced verbosity of logcat/logs. Lower frequency to send async logged event to server. actions. Optimisation of user tags management.</td>
+</tr>
+<tr class="even">
+<td align="left"><p>1.6.0</p>
+<blockquote>
+<p>|</p>
+<h3>|</h3>
+<p>|</p>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>2015-05-12</p>
+<blockquote>
+<p>|</p>
+<h3>|</h3>
+<p>|</p>
+<h4>|</h4>
+</blockquote></td>
+<td align="left"><p>Tomasz Ziolkowski</p>
+<blockquote>
+<p>|</p>
+<p>| |Add API for |between log |</p>
+<dl>
+<dt>|secured beac</dt>
+<dd><p>|</p>
+</dd>
+</dl>
+<blockquote>
+<p>|Reduced</p>
+</blockquote>
+</blockquote></td>
+<td align="left"><p>Improve averaging rssi</p>
+<p>Fix for relative proximity</p>
+<p>Add API for reseting global event counter</p>
+<p>setting period events</p>
+<p>Fix bug while working with ons.</p>
+<blockquote>
+<p>battery consumption</p>
+</blockquote></td>
 </tr>
 <tr class="odd">
-<td align="left">1.6.0</td>
-<td align="left">2015-05-12</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>Fix bug while working with secured beacons.</p> <p>Add API for between log setting period events.</p><p>Improve rssi averaging.</p> <p>Fix for relative proximity.</p> <p>Add API for reseting global event counter.</p> <p>Reduced battery consumption.</p></td>
+<td align="left"><dl>
+<dt>1.7.0</dt>
+<dd><p>|</p>
+<p>|</p>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-05-19</dt>
+<dd><p>|</p>
+<p>|</p>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>|</p>
+<p>|</p>
+<dl>
+<dt>|</dt>
+<dd><p>|Bug fix</p>
+</dd>
+</dl>
+</dd>
+</dl></td>
+<td align="left"><p>Multiline notifications</p>
+<p>Mesh (beta)</p>
+<p>Indoor location (beta)</p></td>
 </tr>
-<tr class="odd">
-<td align="left">1.7.0</td>
-<td align="left">2015-05-19</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>Multiline notifications.</p><p>Mesh (beta).</p><p>Indoor Location (beta).</p> <p>Bug fixes.</p></td>
-</tr>
-<tr class="odd">
-<td align="left">1.7.1</td>
-<td align="left">2015-05-29</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>No toasts from ubudu sdk.</p><p>Custom alertTitle for notification.</p><p>Minor fixes.</p></td>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.1</dt>
+<dd><p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-05-29</dt>
+<dd><p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>|</p>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><p>No toasts from ubudu sdk</p>
+<p>Custom alertTitl for notification</p>
+<p>Minor fixes</p></td>
 </tr>
 <tr class="odd">
 <td align="left">1.7.2</td>
 <td align="left">2015-05-29</td>
 <td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>Bug fixes.</p></td>
+<td align="left">Bug fixes</td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.7.3</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>2015-06-09</dt>
+<dd><h3>|</h3>
+<h4>|</h4>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>| |Restart Ubud |killing the | |Fix UI freez |beacon m |</p>
+</dd>
+</dl></td>
+<td align="left"><p>Fix for uuid bug</p>
+<p>u service after app</p>
+<p>e while starting anager</p>
+<p>Other bug fixes</p></td>
 </tr>
 <tr class="odd">
-<td align="left">1.7.3</td>
-<td align="left">2015-06-09</td>
-<td align="left">Tomasz Ziolkowski</td>
-<td align="left"><p>Fix for uuid bug.</p><p>Restart Ubudu service after app killing.</p><p>Fix UI freeze while starting the beacon manager.</p><p>Other bug fixes.</p></td>
+<td align="left"><dl>
+<dt>1.8.0 |2</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-06-30</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Michal Gasztold</dt>
+<dd><p>|Bug fixes</p>
+</dd>
+</dl></td>
+<td align="left">Performance improvements</td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.8.1 |2</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-07-01</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Michal Gasztold</dt>
+<dd><p>|</p>
+</dd>
+</dl></td>
+<td align="left">Fix matching regions to beacon</td>
 </tr>
 <tr class="odd">
-<td align="left">1.8.0</td>
-<td align="left">2015-06-30</td>
-<td align="left">Michal Gasztold</td>
-<td align="left"><p>Performance improvements for namespaces with high number of interaction rules.</p><p>Other bug fixes.</p></td>
+<td align="left"><dl>
+<dt>1.8.2 |2</dt>
+<dd><h3>|</h3>
+<h3>|</h3>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-07-08</dt>
+<dd><h3>|</h3>
+<h3>|</h3>
+<p>|</p>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Michal Gasztold</dt>
+<dd><p>|custom settings | |Added methods to |rules fetching p | |Fixed custom not |mechanism after</p>
+</dd>
+</dl></td>
+<td align="left"><p>Fix scanning periods</p>
+<blockquote>
+<p>customize</p>
+</blockquote>
+<p>eriod</p>
+<p>ification app is killed</p></td>
+</tr>
+<tr class="even">
+<td align="left"><dl>
+<dt>1.8.3 |2</dt>
+<dd><h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-07-14</dt>
+<dd><h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Michal Gasztold</dt>
+<dd><p>| |Mino</p>
+</dd>
+</dl></td>
+<td align="left"><p>Custom notification fix</p>
+<p>r API updates</p></td>
 </tr>
 <tr class="odd">
-<td align="left">1.8.1</td>
-<td align="left">2015-07-01</td>
-<td align="left">Michal Gasztold</td>
-<td align="left"><p>Fixed matching regions to beacon.</p></td>
-</tr>
-<tr class="odd">
-<td align="left">1.8.2</td>
-<td align="left">2015-07-08</td>
-<td align="left">Michal Gasztold</td>
-<td align="left"><p>Fix scanning periods custom settings</p>
-<p>Added methods to customize rules fetching period</p>
-<p>Fixed custom notification mechanism after app is killed</p></td>
-</tr>
-<tr class="odd">
-<td align="left">1.8.3</td>
-<td align="left">2015-07-14</td>
-<td align="left">Michal Gasztold</td>
-<td align="left"><p>Custom notification fix when the app is killed</p>
-<p>Minor API update for indoor location and mesh</p></td>
+<td align="left"><dl>
+<dt>1.8.4 |2</dt>
+<dd><dl>
+<dt>|</dt>
+<dd><h3>|</h3>
+<p>|</p>
+</dd>
+</dl>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>015-07-23</dt>
+<dd><p>|</p>
+<h4>|</h4>
+</dd>
+</dl></td>
+<td align="left"><dl>
+<dt>Tomasz Ziolkowski</dt>
+<dd><p>|rule</p>
+<p>| |Mino</p>
+</dd>
+</dl></td>
+<td align="left"><p>Fix for rare issue with fetching s</p>
+<p>Fix stopping a beacon manager</p>
+<p>Minor IndoorLocation improvements</p>
+<p>r API updates</p></td>
 </tr>
 </tbody>
 </table>
