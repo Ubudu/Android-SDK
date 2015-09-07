@@ -245,6 +245,15 @@ Modifications
 <td align="left"><p>Fix of Indoor Location not always starting</p>
 <p>Stability improvements</p></td>
 </tr>
+<tr class="odd">
+<td align="left">1.9.0</td>
+<td align="left">2015-09-07</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>New beacon service updated for Lollipop</p><p>Updated indoor location delegate</p><p>Geofences updated for Google Play Services v7.8</p><p>Improved and updated ubudu mesh</p><p>Enhance manager logs handling</p><p>Improved rules triggering after latch time</p><p>Fixed bug of rules not always being fetched when Ubudu SDK was initially started in offline mode</p><p>Bug fixes and stability improvements</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 
