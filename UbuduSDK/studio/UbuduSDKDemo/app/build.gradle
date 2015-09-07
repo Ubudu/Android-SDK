@@ -5,11 +5,6 @@ repositories {
     maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
 }
 
-configurations.all {
-    // check for updates every build
-    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-}
-
 dependencies {
     compile('com.android.support:support-v4:20.0.0') {
         transitive = true
@@ -24,12 +19,12 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion '20.0.0'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId 'com.ubudu.sdk.studiodemo'
         minSdkVersion 18
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode 1
         versionName '1.0'
     }
