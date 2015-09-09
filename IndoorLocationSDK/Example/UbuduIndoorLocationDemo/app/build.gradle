@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.ubudu.ubuduindoorlocationdemo"
+        minSdkVersion 18
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile('com.ubudu.sdk:ubudu-sdk:1.9.1@aar') {
+        transitive = true
+    }
+    compile('com.google.android.gms:play-services:7.8.+') {
+        transitive = true
+    }
+}
