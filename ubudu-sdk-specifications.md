@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.9.1
+`Ubudu SDK` Specifications - version 1.9.2
 ==========================================
 
 Introduction
@@ -339,6 +339,15 @@ Modifications
 <p>Bug fixes and stability improvements</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">1.9.2</td>
+<td align="left">2015-09-10</td>
+<td align="left">TZ</td>
+<td align="left">
+<p>Mesh fix while for sending message without ACK</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 
