@@ -76,17 +76,18 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
     protected Activity mActivity;
 
     GroundOverlayOptions mapOptions;
+    LatLng lastLocation;
+    float bearing = 0;
+    float[] orientation;
     private Canvas canvas;
     private Bitmap.Config conf;
     private Paint color;
     private Bitmap bmp;
-
     private int zoom = 18;
     private Marker mCurrentLocationMarker;
     private float mDeclination;
-
-    LatLng middle = new LatLng(52.2205744679, 21.0099331142);
-    LatLngBounds mapBounds;
+    private List<Polyline> polylines = new ArrayList<Polyline>();
+    private float[] mRotationMatrix = new float[16];
 
     public Map(Activity activity, int fragmentId) {
         mActivity = activity;
@@ -95,10 +96,10 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
     }
 
     public void setMapImageBounds(LatLng southWest, LatLng northEast){
-        mapBounds = new LatLngBounds(
+        LatLngBounds mapBounds = new LatLngBounds(
                 southWest,       // South west image corner
                 northEast);      // North east image corner
-        middle = new LatLng(southWest.latitude+(northEast.latitude-southWest.latitude)/2, southWest.longitude+ (northEast.longitude-southWest.longitude)/2);
+        LatLng middle = new LatLng(southWest.latitude+(northEast.latitude-southWest.latitude)/2, southWest.longitude+ (northEast.longitude-southWest.longitude)/2);
 
         mapOptions = new GroundOverlayOptions()
                 .image(BitmapDescriptorFactory.fromAsset("ggrecttransparent.png"))
@@ -129,7 +130,6 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
         canvas.drawCircle(20, 20, 16, color);
     }
 
-    LatLng lastLocation;
     public void setLocationOnMap(double latitude, double longitude) {
         if (mMap != null) {
             lastLocation = new LatLng(latitude, longitude);
@@ -153,7 +153,6 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
         mDeclination = field.getDeclination();
     }
 
-    private List<Polyline> polylines = new ArrayList<Polyline>();
     public void highlightZone(LatLng southWest, LatLng northEast, String name) {
         // Instantiates a new Polyline object and adds points to define a rectangle
         PolylineOptions rectOptions = new PolylineOptions()
@@ -164,14 +163,10 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                 .add(new LatLng(northEast.latitude, southWest.longitude))
                 .add(new LatLng(southWest.latitude, southWest.longitude)); // Closes the polyline.
 
-// Get back the mutable Polyline
+        // Get back the mutable Polyline
         polylines.add(mMap.addPolyline(rectOptions));
     }
 
-    private float[] mRotationMatrix = new float[16];
-
-    float bearing = 0;
-    float[] orientation;
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (mCurrentLocationMarker != null) {
