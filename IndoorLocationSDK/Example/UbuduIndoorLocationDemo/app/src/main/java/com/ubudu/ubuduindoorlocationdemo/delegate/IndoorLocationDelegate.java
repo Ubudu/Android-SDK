@@ -1,6 +1,6 @@
 // -*- mode:java;coding:utf-8 -*-
 //****************************************************************************
-//FILE:               DemoAreaDelegate.java
+//FILE:               IndoorLocationDelegate.java
 //LANGUAGE:           java
 //SYSTEM:             Android
 //USER-INTERFACE:     Android

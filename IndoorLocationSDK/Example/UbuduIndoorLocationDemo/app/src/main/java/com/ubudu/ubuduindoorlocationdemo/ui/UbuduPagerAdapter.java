@@ -1,6 +1,6 @@
 // -*- mode:java;coding:utf-8 -*-
 //****************************************************************************
-//FILE:               MainActivity.java
+//FILE:               UbuduPagerAdapter.java
 //LANGUAGE:           java
 //SYSTEM:             Android
 //USER-INTERFACE:     Android

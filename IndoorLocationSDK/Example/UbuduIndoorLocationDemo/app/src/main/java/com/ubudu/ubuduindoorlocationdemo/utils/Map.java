@@ -1,6 +1,6 @@
 // -*- mode:java;coding:utf-8 -*-
 //****************************************************************************
-//FILE:               GeofenceFragment.java
+//FILE:               Map.java
 //LANGUAGE:           java
 //SYSTEM:             Android
 //USER-INTERFACE:     Android
