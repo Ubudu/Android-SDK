@@ -55,4 +55,5 @@ public interface DelegateAppInterface {
 	void tellAppILStartFailed();
 
 	void highlightZones(List<UbuduZone> list);
+
 }

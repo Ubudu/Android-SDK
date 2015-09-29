@@ -57,10 +57,15 @@ import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
 import com.ubudu.ubuduindoorlocationdemo.delegate.IndoorLocationDelegate;
 import com.ubudu.ubuduindoorlocationdemo.R;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity implements DelegateAppInterface {
+
+    private static final int MAX_LINE_COUNT = 100;
+
+    List<String> logs = new ArrayList<String>();
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
@@ -86,7 +91,8 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
 
         mIndoorLocationManager = UbuduSDK.getSharedInstance(getApplicationContext()).getIndoorLocationManager();
         mIndoorLocationManager.setIndoorLocationDelegate(mIndoorLocationDelegate);
-        mIndoorLocationManager.loadMapWithKey("e55e79c03849013362a51ec7cc7aaf9f");
+        mIndoorLocationManager.loadMapFromFile("map.json");
+        //mIndoorLocationManager.loadMapWithK00ey("00ed3ff044c10133cee11ad861f40fb6");
 	}
 
     public UbuduIndoorLocationManager getmIndoorLocationManager(){return mIndoorLocationManager;}
@@ -102,9 +108,19 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
     @Override
     public void printf(String formatControl, Object... arguments) {
         final String newText = String.format(formatControl + "\n", arguments);
+        Date d = new Date();
+        String log = "[" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "] " + newText;
+        logs.add(log);
+
+        if(logs.size()>MAX_LINE_COUNT) logs.remove(0);
+
+        String logString = "";
+        for (String str : logs) {
+            logString += str + "\n";
+        }
+
         synchronized (mOutputText) {
-            Date d = new Date();
-            mOutputText.append("["+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()+"] "+newText);
+            mOutputText.setText(logString);
             final Layout layout = mOutputText.getLayout();
             if (layout != null) {
                 final int scrollAmount = layout.getLineTop(mOutputText.getLineCount()) - mOutputText.getHeight();
@@ -133,5 +149,9 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
     @Override
     public void highlightZones(List<UbuduZone> list) {
         IndoorLocationFragment.getInstance().highlightZones(list);
+    }
+
+    public void notifyMapOverlayFetched() {
+        IndoorLocationFragment.dismissDialog();
     }
 }

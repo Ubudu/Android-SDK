@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 repositories {
     mavenCentral()
     maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+    maven { url "https://jitpack.io" }
 }
 
 android {
@@ -24,12 +25,21 @@ android {
     }
 }
 
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile('com.ubudu.sdk:ubudu-sdk:1.9.2@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:1.9.3@aar') {
         transitive = true
     }
     compile('com.google.android.gms:play-services:7.8.+') {
+        transitive = true
+    }
+
+    compile('com.afollestad.material-dialogs:core:0.8.0.1@aar') {
         transitive = true
     }
 }

@@ -53,9 +53,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.model.LatLng;
 import com.ubudu.indoorlocation.UbuduCoordinates2D;
@@ -66,6 +69,8 @@ import com.ubudu.ubuduindoorlocationdemo.R;
 import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
 import com.ubudu.ubuduindoorlocationdemo.utils.Map;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -132,11 +137,11 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 		if (requestCode == REQUEST_ENABLE_BT_FOR_IL) {
 			if (BluetoothAdapter.getDefaultAdapter().getState() == BluetoothAdapter.STATE_ON) {
 				if (getTextOutput() != null)
-					getTextOutput().printf("Bluetooth enabled.");
+					getTextOutput().printf(getResources().getString(R.string.bt_enabled));
 				startScanning();
 			} else{
 				if (getTextOutput() != null)
-					getTextOutput().printf("Bluetooth is turned off.");
+					getTextOutput().printf(getResources().getString(R.string.bt_turned_off));
 			}
 		}
 	}
@@ -145,15 +150,33 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 		if (BluetoothAdapter.getDefaultAdapter().getState() != BluetoothAdapter.STATE_ON) {
 			this.activateBluetooth(REQUEST_ENABLE_BT_FOR_IL);
 		} else {
-			getTextOutput().printf("Start Indoor Location");
+			getTextOutput().printf(getResources().getString(R.string.start_il));
 			getIndoorLocationManager().start();
 			mScanning = true;
 			refreshActionButtonState();
+			startLoadingDialog();
 		}
 	}
 
+	private static MaterialDialog mB;
+
+	private void startLoadingDialog() {
+
+		mB = new MaterialDialog.Builder(getActivity())
+				.content(getResources().getString(R.string.fetching_map))
+				.progress(true, 0)
+				.autoDismiss(false)
+				.cancelable(false)
+				.show();
+	}
+
+	protected static void dismissDialog() {
+		if(mB!=null)
+			mB.dismiss();
+	}
+
 	public void stopScanning() {
-		getTextOutput().printf("Indoor Location stopped");
+		getTextOutput().printf(getResources().getString(R.string.il_stopped));
 		getIndoorLocationManager().stop();
 		mScanning = false;
 		refreshActionButtonState();
@@ -162,10 +185,12 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 	public void started(){
 		mScanning = true;
 		refreshActionButtonState();
-		mMap.setMapImageBounds(new LatLng(mIndoorLocationManager.map().bottomRightAnchorCoordinates().latitude() * 180 / Math.PI,
-						mIndoorLocationManager.map().topLeftAnchorCoordinates().longitude() * 180 / Math.PI),
-				new LatLng(mIndoorLocationManager.map().topLeftAnchorCoordinates().latitude() * 180 / Math.PI,
-						mIndoorLocationManager.map().bottomRightAnchorCoordinates().longitude() * 180 / Math.PI));
+		mMap.setMapImageBounds(new LatLng(mIndoorLocationManager.map().bottomRightAnchorCoordinates().toDeg().latitude(),
+						mIndoorLocationManager.map().topLeftAnchorCoordinates().toDeg().longitude()),
+				new LatLng(mIndoorLocationManager.map().topLeftAnchorCoordinates().toDeg().latitude(),
+						mIndoorLocationManager.map().bottomRightAnchorCoordinates().toDeg().longitude()));
+		mB.setContent(getResources().getString(R.string.fetching_map_overlay));
+		mMap.initMapOverlay(mIndoorLocationManager.map().imageUrl());
 	}
 
 	public void stopped(){
@@ -175,11 +200,11 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 
 	private void refreshActionButtonState() {
 		if (!isScanning()) {
-			mInfoLabel.setText("Press button to start Indoor Location");
-			mActionButtonStatus.setText("Start");
+			mInfoLabel.setText(getResources().getString(R.string.press_button_to_start));
+			mActionButtonStatus.setText(getResources().getString(R.string.button_start));
 		} else {
-			mInfoLabel.setText("Press button to stop Indoor Location");
-			mActionButtonStatus.setText("Stop");
+			mInfoLabel.setText(getResources().getString(R.string.press_button_to_stop));
+			mActionButtonStatus.setText(getResources().getString(R.string.button_stop));
 		}
 	}
 
@@ -240,16 +265,19 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 		}
 	}
 
-	public void highlightZones(List<UbuduZone> list) {
+	public synchronized void highlightZones(List<UbuduZone> list) {
 		mMap.clearHighlightedZones();
 		Iterator<UbuduZone> iter = list.iterator();
 		while(iter.hasNext()) {
 			UbuduZone zone = iter.next();
-			UbuduCoordinates2D northEast = mIndoorLocationManager.geoCoordinates(new UbuduPoint(zone.origin().x() + zone.size().width(), zone.origin().y()));
-			UbuduCoordinates2D southWest = mIndoorLocationManager.geoCoordinates(new UbuduPoint(zone.origin().x(), zone.origin().y() + zone.size().height()));
-			String name = zone.name();
-			mMap.highlightZone(new LatLng(northEast.latitude() * 180.0 / Math.PI,northEast.longitude() * 180.0 / Math.PI),
-					new LatLng(southWest.latitude() * 180.0 / Math.PI,southWest.longitude() * 180.0 / Math.PI),name);
+			List<LatLng> coords = new ArrayList<LatLng>();
+			Iterator<UbuduPoint> iter1 = zone.coordinates().iterator();
+			while(iter1.hasNext()){
+				UbuduPoint p = iter1.next();
+				UbuduCoordinates2D c = mIndoorLocationManager.geoCoordinates(p);
+				coords.add(new LatLng(c.latitude(),c.longitude()));
+			}
+			mMap.highlightZone(coords,zone.name());
 		}
 	}
 
