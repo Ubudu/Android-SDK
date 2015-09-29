@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.9.3
+`UbuduSDK` User Manual - version 1.9.4
 ======================================
 
 Introduction
@@ -276,6 +276,16 @@ Modifications
 <p>* map overlay image url is available from within json</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">1.9.4</td>
+<td align="left">2015-09-29</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Indoor Location:</p>
+<p>* polygon distance calculation fix</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 
