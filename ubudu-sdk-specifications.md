@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.9.2
+`Ubudu SDK` Specifications - version 1.9.3
 ==========================================
 
 Introduction
@@ -347,7 +347,19 @@ Modifications
 <p>Mesh fix while for sending message without ACK</p>
 </td>
 </tr>
-
+<tr class="odd">
+<td align="left">1.9.3</td>
+<td align="left">2015-09-29</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Indoor Location:</p>
+<p>* polygon zones handling</p>
+<p>* public path finding method</p>
+<p>* enhanced location accuracy and stability</p>
+<p>* geographical coordinates are now returned in degrees</p>
+<p>* map overlay image url is available from within json</p>
+</td>
+</tr>
 </tbody>
 </table>
 
