@@ -107,13 +107,6 @@ public class IndoorLocationDelegate implements UbuduIndoorLocationDelegate {
 
             UbuduCoordinates2D geoCoords = UbuduSDK.getSharedInstance(mContext).getIndoorLocationManager().geoCoordinates(lastPosition);
             mMap.setLocationOnMap(geoCoords.latitude(), geoCoords.longitude());
-
-            UbuduIndoorLocationManager man = UbuduSDK.getSharedInstance(mContext).getIndoorLocationManager();
-            UbuduMap map = man.map();
-
-            android.util.Log.e("", "maps size in meters: width: "
-                    +man.convertPixelDistanceToMeters(map.size().width())
-                    +", height: "+man.convertPixelDistanceToMeters(map.size().height()));
         }
     }
 

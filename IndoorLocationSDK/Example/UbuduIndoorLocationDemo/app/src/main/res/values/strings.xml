@@ -19,4 +19,7 @@
 
     <string name="button_start">Start</string>
     <string name="button_stop">Stop</string>
+
+    <string name="map_overaly_oom">Map overlay bitmap defined in the back office is too large for this device and is causing out of memory exception.</string>
+    <string name="ok">OK</string>
 </resources>
