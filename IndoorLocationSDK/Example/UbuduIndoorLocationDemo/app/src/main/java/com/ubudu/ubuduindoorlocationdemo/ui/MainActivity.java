@@ -141,6 +141,7 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
 
     @Override
     public void tellAppILStartFailed() {
+        IndoorLocationFragment.dismissDialog();
         IndoorLocationFragment.getInstance().stopped();
         printf("Indoor Location failed to start. Check the internet connection and bluetooth settings");
     }

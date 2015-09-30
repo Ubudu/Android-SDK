@@ -58,7 +58,7 @@ public class UbuduPagerAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int arg0) {
 		switch (arg0) {
 		case 0:
-			return IndoorLocationFragment.newInstance();
+			return IndoorLocationFragment.getInstance();
 		default:
 			return null;
 		}

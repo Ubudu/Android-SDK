@@ -49,7 +49,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.ubudu.indoorlocation.UbuduBeacon;
 import com.ubudu.indoorlocation.UbuduCoordinates2D;
 import com.ubudu.indoorlocation.UbuduIndoorLocationDelegate;
-import com.ubudu.indoorlocation.UbuduIndoorLocationManager;
 import com.ubudu.indoorlocation.UbuduMap;
 import com.ubudu.indoorlocation.UbuduPoint;
 import com.ubudu.indoorlocation.UbuduPositionUpdate;

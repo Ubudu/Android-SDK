@@ -53,9 +53,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -69,7 +67,6 @@ import com.ubudu.ubuduindoorlocationdemo.R;
 import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
 import com.ubudu.ubuduindoorlocationdemo.utils.Map;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -92,14 +89,11 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 	SensorManager mSensorManager;
 	Sensor mSensor;
 
-	public static IndoorLocationFragment newInstance() {
-		instance = new IndoorLocationFragment();
-		return instance;
-	}
-
 	private static IndoorLocationFragment instance = null;
 
 	public static IndoorLocationFragment getInstance(){
+		if(instance==null)
+			instance = new IndoorLocationFragment();
 		return instance;
 	}
 
