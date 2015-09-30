@@ -49,6 +49,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.ubudu.indoorlocation.UbuduBeacon;
 import com.ubudu.indoorlocation.UbuduCoordinates2D;
 import com.ubudu.indoorlocation.UbuduIndoorLocationDelegate;
+import com.ubudu.indoorlocation.UbuduIndoorLocationManager;
 import com.ubudu.indoorlocation.UbuduMap;
 import com.ubudu.indoorlocation.UbuduPoint;
 import com.ubudu.indoorlocation.UbuduPositionUpdate;
@@ -106,6 +107,13 @@ public class IndoorLocationDelegate implements UbuduIndoorLocationDelegate {
 
             UbuduCoordinates2D geoCoords = UbuduSDK.getSharedInstance(mContext).getIndoorLocationManager().geoCoordinates(lastPosition);
             mMap.setLocationOnMap(geoCoords.latitude(), geoCoords.longitude());
+
+            UbuduIndoorLocationManager man = UbuduSDK.getSharedInstance(mContext).getIndoorLocationManager();
+            UbuduMap map = man.map();
+
+            android.util.Log.e("", "maps size in meters: width: "
+                    +man.convertPixelDistanceToMeters(map.size().width())
+                    +", height: "+man.convertPixelDistanceToMeters(map.size().height()));
         }
     }
 

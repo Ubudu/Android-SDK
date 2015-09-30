@@ -148,24 +148,24 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             return null;
         }
 
-        private void saveBitmapToFile(Bitmap bitmap) {
-            try {
-                File inputFile = new File(mActivity.getApplicationContext().getFilesDir(), OVERLAY_FILE_NAME);
-                inputFile.delete();
-
-                FileOutputStream outputStream = mActivity.getApplicationContext().openFileOutput(OVERLAY_FILE_NAME, Context.MODE_APPEND);
-                bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), false);
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-                outputStream.flush();
-                outputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
         @Override
         protected void onPostExecute(Void result) {
             processMapOverlay();
+        }
+    }
+
+    private void saveBitmapToFile(Bitmap bitmap) {
+        try {
+            File inputFile = new File(mActivity.getApplicationContext().getFilesDir(), OVERLAY_FILE_NAME);
+            inputFile.delete();
+
+            FileOutputStream outputStream = mActivity.getApplicationContext().openFileOutput(OVERLAY_FILE_NAME, Context.MODE_APPEND);
+            //bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), false);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -180,11 +180,14 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                 Bitmap overlayBitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath());
                 if (overlayBitmap != null) {
                     while (!overlaySuccess) {
-                        overlayBitmap = Bitmap.createScaledBitmap(overlayBitmap
-                                , (int) (overlayBitmap.getWidth() * 0.5)
-                                , (int) (overlayBitmap.getHeight() * 0.5)
-                                , false);
-                        putMapOverlay(overlayBitmap);
+                        if(overlayBitmap.getWidth()>0 && overlayBitmap.getHeight()>0) {
+                            overlayBitmap = Bitmap.createScaledBitmap(overlayBitmap
+                                    , (int) (overlayBitmap.getWidth() * 0.8)
+                                    , (int) (overlayBitmap.getHeight() * 0.8)
+                                    , false);
+                            saveBitmapToFile(overlayBitmap);
+                            putMapOverlay(overlayBitmap);
+                        }
                     }
                 }
             }
@@ -214,7 +217,7 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             });
 
         } catch (java.lang.OutOfMemoryError e) {
-
+            processMapOverlay();
         }
     }
 
