@@ -68,6 +68,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.GroundOverlay;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -92,14 +93,19 @@ import java.util.List;
 public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
 
     private static final String OVERLAY_FILE_NAME = "mapOverlayBitmap";
+    private static final long OVERLAY_VALID_TIMEOUT_MILLIS = 30*60*1000;
+    private static final double OVERLAY_DOWNSCALE_FACTOR = 0.6;
 
     protected GoogleMap mMap;
+
+    private long mapOverlayTimeStamp=-1;
+
+    private GroundOverlay mGroundOverlay=null;
 
     protected Activity mActivity;
 
     private LatLng lastLocation;
     private float bearing = 0;
-    private float[] orientation;
 
     private int defaultZoom = 16;
     private Marker mCurrentLocationMarker;
@@ -137,118 +143,143 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
     }
 
     private class LoadMapOverlayFromUrlTask extends AsyncTask<String, Void, Void> {
-        Bitmap bitmap;
 
         @Override
         protected Void doInBackground(String... params) {
             String mapUrl = params[0];
+            File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
+            if (inputFile.exists() && mapOverlayTimeStamp > System.currentTimeMillis()- Map.OVERLAY_VALID_TIMEOUT_MILLIS) {
+                putMapOverlay();
+            } else {
+                boolean fileDownloadSuccess = downloadAndSaveBitmapFile(mapUrl);
+                if (fileDownloadSuccess) {
+                    mapOverlayTimeStamp = System.currentTimeMillis();
+                    putMapOverlay();
+                }
+            }
+            return null;
+        }
+
+        private boolean downloadAndSaveBitmapFile(String mapUrl) {
             try {
                 URL url = new URL(mapUrl);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoInput(true);
                 connection.connect();
                 InputStream input = connection.getInputStream();
-                bitmap = BitmapFactory.decodeStream(input);
+                Bitmap bitmap = BitmapFactory.decodeStream(input);
                 saveBitmapToFile(bitmap);
                 input.close();
                 connection.disconnect();
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        private void saveBitmapToFile(Bitmap bitmap) {
+            try {
+                File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
+                inputFile.delete();
+                FileOutputStream outputStream = mActivity.getApplicationContext().openFileOutput( Map.OVERLAY_FILE_NAME, Context.MODE_APPEND);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                outputStream.flush();
+                outputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return null;
         }
 
-        @Override
-        protected void onPostExecute(Void result) {
-            processMapOverlay();
-        }
-    }
-
-    private void saveBitmapToFile(Bitmap bitmap) {
-        try {
-            File inputFile = new File(mActivity.getApplicationContext().getFilesDir(), OVERLAY_FILE_NAME);
-            inputFile.delete();
-
-            FileOutputStream outputStream = mActivity.getApplicationContext().openFileOutput(OVERLAY_FILE_NAME, Context.MODE_APPEND);
-            //bitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), false);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-            outputStream.flush();
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    boolean overlaySuccess = false;
-    private void processMapOverlay() {
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    File inputFile = new File(mActivity.getApplicationContext().getFilesDir(), OVERLAY_FILE_NAME);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                    Bitmap overlayBitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath());
-                    if (overlayBitmap != null) {
-                        while (!overlaySuccess) {
-                            if (overlayBitmap.getWidth() > 0 && overlayBitmap.getHeight() > 0) {
-                                overlayBitmap = Bitmap.createScaledBitmap(overlayBitmap
-                                        , (int) (overlayBitmap.getWidth() * 0.8)
-                                        , (int) (overlayBitmap.getHeight() * 0.8)
-                                        , false);
-                                saveBitmapToFile(overlayBitmap);
-                                putMapOverlay(overlayBitmap);
-                            }
-                        }
+        private void compressMapOverlayAndTryAgain() {
+            try {
+                File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap overlayBitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath());
+                if (overlayBitmap != null) {
+                    int width = overlayBitmap.getWidth();
+                    int height = overlayBitmap.getHeight();
+                    if (width > 0 && height > 0) {
+                        overlayBitmap = Bitmap.createScaledBitmap(overlayBitmap
+                                , (int) (width * Map.OVERLAY_DOWNSCALE_FACTOR)
+                                , (int) (height *  Map.OVERLAY_DOWNSCALE_FACTOR)
+                                , false);
+                        saveBitmapToFile(overlayBitmap);
+                        putMapOverlay();
+                    } else {
+                        notifyOOM();
                     }
-                } catch(java.lang.OutOfMemoryError e){
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            ((MainActivity) mActivity).notifyMapOverlayOutOfMemoryException();
-                        }
-                    });
                 }
+            } catch (java.lang.OutOfMemoryError e) {
+                notifyOOM();
             }
-        });
-        t.start();
-    }
+        }
 
-    private void putMapOverlay(final Bitmap bitmap) {
-        try {
-            final GroundOverlayOptions mapOptions = new GroundOverlayOptions()
-                    .image(BitmapDescriptorFactory.fromBitmap(bitmap))
-                    .positionFromBounds(mapBounds)
-                    .transparency(0.2f);
-
+        private void notifyOOM(){
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    try {
-                        mMap.addGroundOverlay(mapOptions);
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(middle, defaultZoom));
-                        overlaySuccess = true;
-                        ((MainActivity) mActivity).notifyMapOverlayFetched();
-                    } catch (java.lang.OutOfMemoryError e) {
-                    }
+                    ((MainActivity) mActivity).notifyMapOverlayOutOfMemoryException();
                 }
             });
+        }
 
-        } catch (java.lang.OutOfMemoryError e) {
-            processMapOverlay();
+        private void notifyRescalingImage(){
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    ((MainActivity) mActivity).rescalingOverlay();
+                }
+            });
+        }
+
+        private void notifySuccess(){
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    ((MainActivity) mActivity).notifyMapOverlayFetched();
+                }
+            });
+        }
+
+        private void putMapOverlay() {
+            try {
+                File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                Bitmap bitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath());
+                final GroundOverlayOptions mapOptions = new GroundOverlayOptions()
+                        .image(BitmapDescriptorFactory.fromBitmap(bitmap))
+                        .positionFromBounds(mapBounds)
+                        .transparency(0.2f);
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            if(mGroundOverlay!=null)
+                                mGroundOverlay.remove();
+                            mGroundOverlay = mMap.addGroundOverlay(mapOptions);
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(middle, defaultZoom));
+                        } catch (java.lang.OutOfMemoryError e) {
+                        }
+                    }
+                });
+                notifySuccess();
+            } catch (java.lang.OutOfMemoryError e) {
+                notifyRescalingImage();
+                compressMapOverlayAndTryAgain();
+
+            }
         }
     }
 
     public void initMapOverlay(String mapUrl) {
-        File inputFile = new File(mActivity.getApplicationContext().getFilesDir(), OVERLAY_FILE_NAME);
-        if (inputFile.exists()) {
-            processMapOverlay();
-            ((MainActivity) mActivity).notifyMapOverlayFetched();
-        } else {
-            new LoadMapOverlayFromUrlTask().execute(mapUrl);
-        }
+        new LoadMapOverlayFromUrlTask().execute(mapUrl);
     }
 
     @Override
@@ -360,7 +391,7 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             if (event.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
                 SensorManager.getRotationMatrixFromVector(
                         mRotationMatrix, event.values);
-                orientation = new float[3];
+                float[] orientation = new float[3];
                 SensorManager.getOrientation(mRotationMatrix, orientation);
                 bearing = (float) Math.toDegrees(orientation[0]) + mDeclination;
             }

@@ -7,6 +7,7 @@
 
     <string name="fetching_map">Fetching map data...</string>
     <string name="fetching_map_overlay">Fetching map\'s overlay image...</string>
+    <string name="rescaling_overlay">Rescaling the overlay image...</string>
 
     <string name="bt_enabled">Bluetooth enabled</string>
     <string name="bt_turned_off">Bluetooth is turned off</string>
@@ -22,4 +23,6 @@
 
     <string name="map_overaly_oom">Map overlay bitmap defined in the back office is too large for this device and is causing out of memory exception.</string>
     <string name="ok">OK</string>
+
+
 </resources>

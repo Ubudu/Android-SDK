@@ -275,6 +275,11 @@ public class IndoorLocationFragment extends Fragment implements View.OnClickList
 		}
 	}
 
+	public void rescalingOverlay() {
+		if(mB!=null)
+			mB.setContent(getResources().getString(R.string.rescaling_overlay));
+	}
+
 	private class GooglePlayCancelListener implements DialogInterface.OnCancelListener {
 		protected Activity activity;
 
