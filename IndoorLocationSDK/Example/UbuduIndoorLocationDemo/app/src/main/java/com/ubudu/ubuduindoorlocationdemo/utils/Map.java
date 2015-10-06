@@ -167,8 +167,7 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                 connection.setDoInput(true);
                 connection.connect();
                 InputStream input = connection.getInputStream();
-                Bitmap bitmap = BitmapFactory.decodeStream(input);
-                saveBitmapToFile(bitmap);
+                writeInputStreamToFile(input);
                 input.close();
                 connection.disconnect();
                 return true;
@@ -178,7 +177,32 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             }
         }
 
-        private void saveBitmapToFile(Bitmap bitmap) {
+        private void writeInputStreamToFile(InputStream inputStream) {
+            FileOutputStream outputStream = null;
+            try {
+                File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
+                inputFile.delete();
+                outputStream = mActivity.getApplicationContext().openFileOutput(Map.OVERLAY_FILE_NAME, Context.MODE_APPEND);
+
+                int read = 0;
+                byte[] bytes = new byte[1024];
+
+                while ((read = inputStream.read(bytes)) != -1)
+                    outputStream.write(bytes, 0, read);
+
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally{
+                if(outputStream!=null) try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        private void writeBitmapToFile(Bitmap bitmap) {
             try {
                 File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
                 inputFile.delete();
@@ -191,12 +215,18 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             }
         }
 
+        int inSampleSize_ = 1;
         private void compressMapOverlayAndTryAgain() {
             try {
                 File inputFile = new File(mActivity.getApplicationContext().getFilesDir(),  Map.OVERLAY_FILE_NAME);
                 BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = inSampleSize_;
                 options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                Bitmap overlayBitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath());
+
+                Bitmap overlayBitmap = BitmapFactory.decodeFile(inputFile.getAbsolutePath(), options);
+
+                //bitmap is good (no OOM) so let' save it to file like that.
+                writeBitmapToFile(overlayBitmap);
                 if (overlayBitmap != null) {
                     int width = overlayBitmap.getWidth();
                     int height = overlayBitmap.getHeight();
@@ -205,25 +235,17 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                                 , (int) (width * Map.OVERLAY_DOWNSCALE_FACTOR)
                                 , (int) (height *  Map.OVERLAY_DOWNSCALE_FACTOR)
                                 , false);
-                        saveBitmapToFile(overlayBitmap);
+                        writeBitmapToFile(overlayBitmap);
                         putMapOverlay();
                     } else {
-                        notifyOOM();
+                        inSampleSize_++;
+                        compressMapOverlayAndTryAgain();
                     }
                 }
             } catch (java.lang.OutOfMemoryError e) {
-                notifyOOM();
+                inSampleSize_++;
+                compressMapOverlayAndTryAgain();
             }
-        }
-
-        private void notifyOOM(){
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    ((MainActivity) mActivity).notifyMapOverlayOutOfMemoryException();
-                }
-            });
         }
 
         private void notifyRescalingImage(){
@@ -273,7 +295,6 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
             } catch (java.lang.OutOfMemoryError e) {
                 notifyRescalingImage();
                 compressMapOverlayAndTryAgain();
-
             }
         }
     }

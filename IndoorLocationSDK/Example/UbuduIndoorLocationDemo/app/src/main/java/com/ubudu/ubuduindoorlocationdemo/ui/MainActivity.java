@@ -50,13 +50,12 @@ import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.ubudu.indoorlocation.UbuduIndoorLocationManager;
 import com.ubudu.indoorlocation.UbuduZone;
 import com.ubudu.sdk.UbuduSDK;
-import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
-import com.ubudu.ubuduindoorlocationdemo.delegate.IndoorLocationDelegate;
 import com.ubudu.ubuduindoorlocationdemo.R;
+import com.ubudu.ubuduindoorlocationdemo.delegate.IndoorLocationDelegate;
+import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -153,27 +152,6 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
 
     public void notifyMapOverlayFetched() {
         IndoorLocationFragment.dismissDialog();
-    }
-
-    public void notifyMapOverlayOutOfMemoryException() {
-        IndoorLocationFragment.dismissDialog();
-        MaterialDialog dialog;
-        dialog = new MaterialDialog.Builder(this)
-                .content(getResources().getString(R.string.map_overaly_oom))
-                .autoDismiss(false)
-                .cancelable(false)
-                .positiveText(getResources().getString(R.string.ok))
-                .callback(new MaterialDialog.ButtonCallback() {
-                    @Override
-                    public void onPositive(MaterialDialog dialog) {
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void onNegative(MaterialDialog dialog) {
-                    }
-                })
-                .show();
     }
 
     public void rescalingOverlay() {
