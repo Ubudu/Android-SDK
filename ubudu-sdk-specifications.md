@@ -369,6 +369,18 @@ Modifications
 <p>* polygon distance calculation fix</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">1.9.5</td>
+<td align="left">2015-10-19</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Added motion filtering for indoor location stability</p>
+<p>Added ranged beacon notifier API method for both proximity and indoor location that allows to see beacons currently being ranged by the SDK</p>
+<p>Added API method allowing to get a JSONObject of indoor location map for saving purpose</p>
+<p>Added API methods for customizing ranging/monitoring scan periods within indoor location manager</p>
+<p>Bug fixes and stability improvements</p>
+</td>
+</tr>
 </tbody>
 </table>
 

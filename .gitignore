@@ -53,3 +53,27 @@ proguard/
 
 # Log Files
 *.log
+
+IndoorLocationSDK/Example/UbuduIndoorLocationDemo/.idea/misc.xml
+
+IndoorLocationSDK/Example/UbuduIndoorLocationDemo/app/app.iml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/modules.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/compiler.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/encodings.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/misc.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/modules.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/scopes/scope_settings.xml
+
+UbuduSDK/studio/UbuduSDKDemo/.idea/vcs.xml
+
+UbuduSDK/studio/UbuduSDKDemo/app/app.iml
+
+IndoorLocationSDK/Example/UbuduIndoorLocationDemo/app/app.iml
+
+IndoorLocationSDK/Example/UbuduIndoorLocationDemo/.idea/misc.xml

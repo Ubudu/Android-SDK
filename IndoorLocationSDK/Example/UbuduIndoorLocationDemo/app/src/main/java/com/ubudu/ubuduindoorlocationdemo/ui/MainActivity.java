@@ -91,6 +91,8 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
         mIndoorLocationManager = UbuduSDK.getSharedInstance(getApplicationContext()).getIndoorLocationManager();
         mIndoorLocationManager.setIndoorLocationDelegate(mIndoorLocationDelegate);
         mIndoorLocationManager.loadMapWithKey("00ed3ff044c10133cee11ad861f40fb6");
+
+        mIndoorLocationManager.setRangingBetweenScanPeriods(1000, 1000);
 	}
 
     public UbuduIndoorLocationManager getmIndoorLocationManager(){return mIndoorLocationManager;}

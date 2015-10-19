@@ -42,23 +42,28 @@
 //****************************************************************************
 package com.ubudu.ubudu_sdk_studio_demo;
 
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
-import com.ubudu.sdk.UbuduAreaDelegate;
+import com.ubudu.sdk.UbuduBeacon;
 import com.ubudu.sdk.UbuduBeaconManager;
 import com.ubudu.sdk.UbuduGeofenceManager;
+import com.ubudu.sdk.UbuduRangedBeaconsNotifier;
 import com.ubudu.sdk.UbuduSDK;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// Set your own app namespace here
-   	private static final String NAMESPACE = "ed2f594c2eb20f3a1213e387af53cd86fa1f70e0";
+   	private static final String NAMESPACE = "2aa646df699c0fd89d2edb862e9ed2f47fde6251";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
@@ -96,8 +101,26 @@ public class MainActivity extends FragmentActivity implements TextOutput {
         mBeaconManager.setEnableAutomaticUserNotificationSending(true);
         mBeaconManager.setAreaDelegate(mAreaDelegate);
 
+        mBeaconManager.setRangedBeaconsNotifier(new UbuduRangedBeaconsNotifier() {
 
-	}
+            @Override
+            public void didRangeBeacons(final List<UbuduBeacon> rangedBeacons) {
+                Handler refresh = new Handler(Looper.getMainLooper());
+                refresh.post(new Runnable() {
+                    public void run() {
+                        android.util.Log.e("", "beacons ranged: " + rangedBeacons.size());
+                        Iterator<UbuduBeacon> iter = rangedBeacons.iterator();
+                        while (iter.hasNext()) {
+                            UbuduBeacon b = iter.next();
+                            printf("name: " + b.name() + ", rssi: " + b.rssi() + ", minor: " + b.minor() + ", major: " + b.major());
+                        }
+                    }
+                });
+            }
+        });
+
+
+    }
 
     public UbuduSDK getUbuduSDK() {
         return mUbuduSdk;

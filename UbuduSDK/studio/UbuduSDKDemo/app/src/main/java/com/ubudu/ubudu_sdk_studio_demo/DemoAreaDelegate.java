@@ -52,7 +52,7 @@ import com.ubudu.sdk.UbuduBeaconRegionEvent;
 import com.ubudu.sdk.UbuduEvent;
 import com.ubudu.sdk.UbuduGeofence;
 import com.ubudu.sdk.UbuduGeofenceEvent;
-import com.ubudu.sdk.implementation.UbuduSDK;
+import com.ubudu.sdk.UbuduSDK;
 
 public class DemoAreaDelegate implements UbuduAreaDelegate {
     
@@ -268,7 +268,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
 
         UbuduSDK mSdk = null;
         try {
-            mSdk = UbuduSDK.getSharedInstance();
+            mSdk = UbuduSDK.instance;
 
             if (mSdk != null) {
                 mSdk.displayWebPage(event.notification().webPageUrl());
