@@ -49,47 +49,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- BEGIN UbuduSDK stuff -->
-
-        <receiver android:name="com.ubudu.sdk.service.UbuduBootReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <activity android:name="com.ubudu.sdk.WebActivity" />
-
-        <service
-            android:name="com.ubudu.sdk.service.UbuduService"
-            android:enabled="true"
-            android:exported="false" >
-            <intent-filter>
-                <action android:name="com.ubudu.sdk.service.UbuduService.action.DISPLAY_WEB_PAGE" />
-                <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_SAMSUNG_WALLET" />
-                <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_DEEP_LINK" />
-            </intent-filter>
-        </service>
-
-        <service
-            android:name="com.ubudu.ibeacon.service.UbuduBeaconService"
-            android:enabled="true"
-            android:exported="false"
-            android:isolatedProcess="false" />
-        <service
-            android:name="com.ubudu.ibeacon.IBeaconIntentProcessor"
-            android:enabled="true"
-            android:exported="false"
-            android:isolatedProcess="false" >
-            <meta-data
-                android:name="background"
-                android:value="true" />
-
-            <intent-filter android:priority="1" >
-                <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
-            </intent-filter>
-        </service>
-        <!-- END UbuduSDK stuff -->
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ubudu.sdk"
-          android:versionCode="50"
-          android:versionName="1.9.5" >
+          android:versionCode="51"
+          android:versionName="1.9.6" >
 
 	<!-- UbuduSDK requires a minSdkVersion of 18 or above -->
 	<uses-sdk
@@ -43,24 +43,24 @@
 	    </service>
 	
 	    <!-- the others should be coallesced in the above service... -->
-	
-	    <service
-	        android:name="com.ubudu.network.ibeacon.service.IBeaconService"
-	        android:enabled="true"
-	        android:exported="false"
-	        android:isolatedProcess="false" />
-	
-	    <service
-	        android:name="com.ubudu.network.ibeacon.IBeaconIntentProcessor"
-	        android:enabled="true" 
-	        android:exported="false"
-	        android:isolatedProcess="false">
-			<meta-data android:name="background" android:value="true" />
-			<intent-filter android:priority="1">
-				<action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor"/>
-			</intent-filter>
-	    </service>
-	    <!-- END UbuduSDK stuff -->
+			<service
+			    android:name="com.ubudu.ibeacon.service.UbuduBeaconService"
+			    android:enabled="true"
+			    android:exported="false"
+			    android:isolatedProcess="false" />
+			<service
+			    android:name="com.ubudu.ibeacon.IBeaconIntentProcessor"
+			    android:enabled="true"
+			    android:exported="false"
+			    android:isolatedProcess="false" >
+			    <meta-data
+			        android:name="background"
+			        android:value="true" />
+			    <intent-filter android:priority="1" >
+			        <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
+			    </intent-filter>
+			</service>
+ 		<!-- END UbuduSDK stuff -->
 
 	</application>
 

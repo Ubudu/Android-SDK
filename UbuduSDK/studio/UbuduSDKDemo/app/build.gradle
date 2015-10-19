@@ -12,7 +12,7 @@ dependencies {
     compile('com.google.android.gms:play-services:7.8.+') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:1.9.5@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:1.9.6@aar') {
         transitive = true
     }
     compile fileTree(dir: 'libs', include: ['*.jar'])

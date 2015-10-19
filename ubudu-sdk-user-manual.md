@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.9.4
+`UbuduSDK` User Manual - version 1.9.6
 ======================================
 
 Introduction
@@ -297,6 +297,15 @@ Modifications
 <p>Bug fixes and stability improvements</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">1.9.6</td>
+<td align="left">2015-10-19</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Android manifest fix</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 

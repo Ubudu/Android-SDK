@@ -39,28 +39,6 @@
             </intent-filter>
         </activity>
 
-        <!-- BEGIN UbuduSDK stuff -->
-
-        <service
-            android:name="com.ubudu.ibeacon.service.UbuduBeaconService"
-            android:enabled="true"
-            android:exported="false"
-            android:isolatedProcess="false" />
-        <service
-            android:name="com.ubudu.ibeacon.IBeaconIntentProcessor"
-            android:enabled="true"
-            android:exported="false"
-            android:isolatedProcess="false" >
-            <meta-data
-                android:name="background"
-                android:value="true" />
-
-            <intent-filter android:priority="1" >
-                <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
-            </intent-filter>
-        </service>
-        <!-- END UbuduSDK stuff -->
-
         <!-- Use here your Google Map API v2 key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.9.4
+`Ubudu SDK` Specifications - version 1.9.6
 ==========================================
 
 Introduction
@@ -379,6 +379,14 @@ Modifications
 <p>Added API method allowing to get a JSONObject of indoor location map for saving purpose</p>
 <p>Added API methods for customizing ranging/monitoring scan periods within indoor location manager</p>
 <p>Bug fixes and stability improvements</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">1.9.6</td>
+<td align="left">2015-10-19</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Android manifest fix</p>
 </td>
 </tr>
 </tbody>
