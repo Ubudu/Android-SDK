@@ -50,7 +50,9 @@ import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
+import com.ubudu.indoorlocation.UbuduBeacon;
 import com.ubudu.indoorlocation.UbuduIndoorLocationManager;
+import com.ubudu.indoorlocation.UbuduRangedBeaconsNotifier;
 import com.ubudu.indoorlocation.UbuduZone;
 import com.ubudu.sdk.UbuduSDK;
 import com.ubudu.ubuduindoorlocationdemo.R;
@@ -59,6 +61,7 @@ import com.ubudu.ubuduindoorlocationdemo.utils.DelegateAppInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity implements DelegateAppInterface {
@@ -90,7 +93,21 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
 
         mIndoorLocationManager = UbuduSDK.getSharedInstance(getApplicationContext()).getIndoorLocationManager();
         mIndoorLocationManager.setIndoorLocationDelegate(mIndoorLocationDelegate);
-        mIndoorLocationManager.loadMapWithKey("00ed3ff044c10133cee11ad861f40fb6");
+        mIndoorLocationManager.loadMapWithKey("57762f604fc10133d36c1ec7cc7aaf9f");
+
+        //mIndoorLocationManager.loadMapFromAssetsFile("map.json");
+
+        mIndoorLocationManager.setRangedBeaconsNotifier(new UbuduRangedBeaconsNotifier() {
+            @Override
+            public void didRangeBeacons(List<UbuduBeacon> list) {
+                String output = "i see minors: ";
+                Iterator<UbuduBeacon> iter = list.iterator();
+                while(iter.hasNext()){
+                    output += iter.next().minor() + " ";
+                }
+                android.util.Log.e("IndoorLocationDemo", output);
+            }
+        });
 
         mIndoorLocationManager.setRangingBetweenScanPeriods(1000, 1000);
 	}
@@ -158,5 +175,9 @@ public class MainActivity extends FragmentActivity implements DelegateAppInterfa
 
     public void rescalingOverlay() {
         IndoorLocationFragment.getInstance().rescalingOverlay();
+    }
+
+    public void notifyMapOverlayNotFetched() {
+        IndoorLocationFragment.dismissDialog();
     }
 }

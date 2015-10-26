@@ -55,6 +55,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
@@ -155,26 +157,38 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                 if (fileDownloadSuccess) {
                     mapOverlayTimeStamp = System.currentTimeMillis();
                     putMapOverlay();
+                } else {
+                    notifyImageDownloadFail();
                 }
             }
             return null;
         }
 
+        private boolean isNetworkAvailable() {
+            ConnectivityManager connectivityManager
+                    = (ConnectivityManager) mActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
+
         private boolean downloadAndSaveBitmapFile(String mapUrl) {
-            try {
-                URL url = new URL(mapUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoInput(true);
-                connection.connect();
-                InputStream input = connection.getInputStream();
-                writeInputStreamToFile(input);
-                input.close();
-                connection.disconnect();
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
+            if(isNetworkAvailable()) {
+                try {
+                    URL url = new URL(mapUrl);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setDoInput(true);
+                    connection.connect();
+                    InputStream input = connection.getInputStream();
+                    writeInputStreamToFile(input);
+                    input.close();
+                    connection.disconnect();
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                }
             }
+            return false;
         }
 
         private void writeInputStreamToFile(InputStream inputStream) {
@@ -264,6 +278,16 @@ public class Map implements SensorEventListener,GoogleMap.OnMapLoadedCallback {
                 @Override
                 public void run() {
                     ((MainActivity) mActivity).notifyMapOverlayFetched();
+                }
+            });
+        }
+
+        private void notifyImageDownloadFail(){
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    ((MainActivity) mActivity).notifyMapOverlayNotFetched();
                 }
             });
         }
