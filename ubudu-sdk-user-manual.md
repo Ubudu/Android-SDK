@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.9.6
+`UbuduSDK` User Manual - version 1.9.7
 ======================================
 
 Introduction
@@ -305,7 +305,23 @@ Modifications
 <p>Android manifest fix</p>
 </td>
 </tr>
-
+<tr class="odd">
+<td align="left">1.9.7</td>
+<td align="left">2015-11-06</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Contextual Interactions SDK:</p>
+<p>* added support for new maximum distance medium-far feature available in the manager platform</p>
+<p>* active regions are now cleared after SDK has been stopped</p>
+<p>* added public method `com.ubudu.sdk.UbuduSDK.resetAllEventsCounters()` that allows to reset all events counters</p>
+<p>Indoor Location SDK:</p>
+<p>* indoor location map data processing before start is now much faster</p>
+<p>* delegate methods are called also after the very first position calculation</p>
+<p>Other:</p>
+<p>* fixed release .pom file notes</p>
+<p>* bugs and stability improvements</p>
+</td>
+</tr>
 </tbody>
 </table>
 
