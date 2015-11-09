@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.9.7
+`Ubudu SDK` Specifications - version 1.9.8
 ==========================================
 
 Introduction
@@ -404,6 +404,14 @@ Modifications
 <p>Other:</p>
 <p>* fixed release .pom file notes</p>
 <p>* bugs and stability improvements</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">1.9.8</td>
+<td align="left">2015-11-09</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Fixed an issue of Contextual Interactions SDK start being delayed in case when Indoor Location SDK has been started short moment before</p>
 </td>
 </tr>
 </tbody>
