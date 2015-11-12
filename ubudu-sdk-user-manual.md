@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 1.9.9
+`UbuduSDK` User Manual - version 1.9.10
 ======================================
 
 Introduction
@@ -337,6 +337,14 @@ Modifications
 <td align="left">
 <p>Indoor Location:</p>
 <p>* Fixed a bug of map fetching retry mechanism</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">1.9.10</td>
+<td align="left">2015-11-12</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Fixed an issue of server notification title not being overriden.</p>
 </td>
 </tr>
 </tbody>
