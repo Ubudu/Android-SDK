@@ -20,7 +20,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 ```gradle
     repositories {
         mavenCentral()
-        maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+        maven { url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' }
     }
 ```
 
@@ -28,7 +28,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```gradle
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:1.4.8@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:1.9.10@aar') {
             transitive = true
         }
         // …
@@ -36,7 +36,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 ```
 
   You may browse the
-  [Ubudu Nexus Repository](http://5.135.82.92:8081/nexus/content/groups/public/com/ubudu/sdk/ubudu-sdk/)
+  [Ubudu Nexus Repository](http://nexus.ubudu.com:8081/nexus/content/groups/public//com/ubudu/sdk/ubudu-sdk/)
   to see the most recent version available.
   
 3. That's it.  In Android Studio, click on the "Sync Project with
@@ -52,16 +52,70 @@ Your first need to specify the dependency on the Ubudu SDK:
     [UbuduSDKDemo]$ ./gradlew :app:dependencies
     # …
     compile - Classpath for compiling the main sources.
-    +--- com.android.support:support-v4:20.0.0
-    |    \--- com.android.support:support-annotations:20.0.0
-    +--- com.google.android.gms:play-services:5.2.08
-    |    \--- com.android.support:support-v4:19.1.0 -> 20.0.0 (*)
-    \--- com.ubudu.sdk:ubudu-sdk:1.4.8
+    +--- com.android.support:support-v4:20.0.0 -> 22.2.0
+    |    \--- com.android.support:support-annotations:22.2.0
+    +--- com.google.android.gms:play-services:7.8.+ -> 7.8.0
+    |    +--- com.google.android.gms:play-services-ads:7.8.0
+    |    |    +--- com.google.android.gms:play-services-base:7.8.0
+    |    |    |    \--- com.android.support:support-v4:22.2.0 (*)
+    |    |    +--- com.google.android.gms:play-services-analytics:7.8.0
+    |    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |    \--- com.google.android.gms:play-services-appindexing:7.8.0
+    |    |         \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-analytics:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-appindexing:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-appinvite:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-appstate:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-cast:7.8.0
+    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |    \--- com.android.support:mediarouter-v7:22.2.0
+    |    |         \--- com.android.support:appcompat-v7:22.2.0
+    |    |              \--- com.android.support:support-v4:22.2.0 (*)
+    |    +--- com.google.android.gms:play-services-drive:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-fitness:7.8.0
+    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |    \--- com.google.android.gms:play-services-location:7.8.0
+    |    |         +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |         \--- com.google.android.gms:play-services-maps:7.8.0
+    |    |              \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-games:7.8.0
+    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |    \--- com.google.android.gms:play-services-drive:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-gcm:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-identity:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-location:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-maps:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-nearby:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-panorama:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-plus:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-safetynet:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-vision:7.8.0
+    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    +--- com.google.android.gms:play-services-wallet:7.8.0
+    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
+    |    |    +--- com.google.android.gms:play-services-identity:7.8.0 (*)
+    |    |    \--- com.google.android.gms:play-services-maps:7.8.0 (*)
+    |    \--- com.google.android.gms:play-services-wearable:7.8.0
+    |         \--- com.google.android.gms:play-services-base:7.8.0 (*)
+    \--- com.ubudu.sdk:ubudu-sdk:1.9.10
          +--- com.ubudu:volley:4.5.0
-         +--- com.google.android.gms:play-services:5.2.08 (*)
+         +--- com.ubudu:jfuzzylite:1.1.0
+         +--- com.google.android.gms:play-services:7.8 -> 7.8.0 (*)
          +--- com.google.code.gson:gson:2.3
          \--- com.j256.ormlite:ormlite-android:4.48
               \--- com.j256.ormlite:ormlite-core:4.48
+
+
     # …
 ```
 
