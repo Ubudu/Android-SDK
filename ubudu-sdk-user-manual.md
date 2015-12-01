@@ -356,6 +356,8 @@ Modifications
 <p>* doubled contextual rules fetching</p>
 <p>* server notification title not being set</p>
 <p>* receiving double mesh messages</p>
+<p>Improvements:</p>
+<p>* removed `com.google.android.gms.permission.ACTIVITY_RECOGNITION` from the manifest. If developer wants to take advantage of the additional motion sensor filtering within the Indoor Location SDK (improves position stability) this permission must be manually added to the app's manifest.</p>
 <p>Features added:</p>
 <p>* new API method for decrementing and reseting rule counter when the developer does not want to perform action to the user during custom event handling</p>
 <p>* logic alignments with the new features related to contextual rules introduced in the manager platform</p>
