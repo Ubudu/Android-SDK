@@ -1,67 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ubudu.sdk"
-          android:versionCode="55"
-          android:versionName="1.9.10" >
+    package="com.ubudu.sdk"
+    android:versionCode="57"
+    android:versionName="1.10.0">
 
-	<!-- UbuduSDK requires a minSdkVersion of 18 or above -->
-	<uses-sdk
-		android:minSdkVersion="18"
-	    android:targetSdkVersion="23" />
-	
-	<!-- BEGIN UbuduSDK stuff -->
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-	<uses-permission android:name="android.permission.BLUETOOTH"/>
-	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-	<uses-permission android:name="android.permission.WAKE_LOCK"/>
-	<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
-	<!-- END UbuduSDK stuff -->
-  
-	<application android:allowBackup="true">
+    <!-- UbuduSDK requires a minSdkVersion of 18 or above -->
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="23" />
 
-	    <!-- BEGIN UbuduSDK stuff -->
-	    <activity android:name="com.ubudu.sdk.WebActivity" />
-	    
-	    <receiver android:name="com.ubudu.sdk.service.UbuduBootReceiver">
-	        <intent-filter>
-	            <action android:name="android.intent.action.BOOT_COMPLETED"/>
-	        </intent-filter>
-	    </receiver>
-	
-	    <service
-	        android:name="com.ubudu.sdk.service.UbuduService"
-	        android:enabled="true"
-	        android:exported="false">
-	      <intent-filter>
-	        <action android:name="com.ubudu.sdk.service.UbuduService.action.DISPLAY_WEB_PAGE" />
-	        <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_SAMSUNG_WALLET" />
-        	<action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_DEEP_LINK" />
-	      </intent-filter>
-	    </service>
-	
-	    <!-- the others should be coallesced in the above service... -->
-			<service
-			    android:name="com.ubudu.ibeacon.service.UbuduBeaconService"
-			    android:enabled="true"
-			    android:exported="false"
-			    android:isolatedProcess="false" />
-			<service
-			    android:name="com.ubudu.ibeacon.IBeaconIntentProcessor"
-			    android:enabled="true"
-			    android:exported="false"
-			    android:isolatedProcess="false" >
-			    <meta-data
-			        android:name="background"
-			        android:value="true" />
-			    <intent-filter android:priority="1" >
-			        <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
-			    </intent-filter>
-			</service>
- 		<!-- END UbuduSDK stuff -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-	</application>
+    <application android:allowBackup="true">
+
+        <activity android:name="com.ubudu.sdk.WebActivity" />
+
+        <receiver android:name="com.ubudu.sdk.service.UbuduBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.ubudu.sdk.service.UbuduService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ubudu.sdk.service.UbuduService.action.DISPLAY_WEB_PAGE" />
+                <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_SAMSUNG_WALLET" />
+                <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_DEEP_LINK" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.ubudu.ibeacon.service.UbuduBeaconService"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false" />
+        <service
+            android:name="com.ubudu.ibeacon.IBeaconIntentProcessor"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false">
+            <meta-data
+                android:name="background"
+                android:value="true" />
+            <intent-filter android:priority="1">
+                <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor" />
+            </intent-filter>
+        </service>
+
+    </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.9.10
+`Ubudu SDK` Specifications - version 1.10.0
 ==========================================
 
 Introduction
@@ -429,6 +429,22 @@ Modifications
 <td align="left">MG</td>
 <td align="left">
 <p>Fixed an issue of server notification title not being overriden.</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">1.10.0</td>
+<td align="left">2015-12-01</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues fixed:</p>
+<p>* doubled contextual rules fetching</p>
+<p>* server notification title not being set</p>
+<p>* receiving double mesh messages</p>
+<p>Features added:</p>
+<p>* new API method for decrementing and reseting rule counter when the developer does not want to perform action to the user during custom event handling</p>
+<p>* logic alignments with the new features related to contextual rules introduced in the manager platform</p>
+<p>* Changed `UbuduAreaDelegate` method `notifyUserForEvent(UbuduEvent event)` from void type to boolean.</p>
+<p>* Added new `UbuduAreaDelegate` method `void notifyUserForEvent(UbuduEvent event, UbuduAreaDelegateEventHandlingResponseListener responseListener)` for custom event handling in which the decision about performing action to the user is to be delayed.</p>
 </td>
 </tr>
 </tbody>
