@@ -47,6 +47,7 @@ import android.os.Looper;
 
 import com.ubudu.sdk.UbuduArea;
 import com.ubudu.sdk.UbuduAreaDelegate;
+import com.ubudu.sdk.UbuduAreaDelegateEventHandlingResponseListener;
 import com.ubudu.sdk.UbuduBeaconRegion;
 import com.ubudu.sdk.UbuduBeaconRegionEvent;
 import com.ubudu.sdk.UbuduEvent;
@@ -240,12 +241,18 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         });
     }
 
-    public void notifyUserForEvent(UbuduEvent event) {
+    public boolean notifyUserForEvent(UbuduEvent event) {
         if (event instanceof UbuduGeofenceEvent) {
             notifyUserForEvent((UbuduGeofenceEvent)event);
         } else if (event instanceof UbuduBeaconRegionEvent) {
             notifyUserForEvent((UbuduBeaconRegionEvent)event);
         }
+        return true;
+    }
+
+    @Override
+    public void notifyUserForEvent(UbuduEvent ubuduEvent, UbuduAreaDelegateEventHandlingResponseListener ubuduAreaDelegateEventHandlingResponseListener) {
+
     }
 
     public boolean notifyUserForEvent(final UbuduGeofenceEvent event) {
