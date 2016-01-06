@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 1.10.0
+`Ubudu SDK` Specifications - version 2.0.0
 ==========================================
 
 Introduction
@@ -447,6 +447,18 @@ Modifications
 <p>* logic alignments with the new features related to contextual rules introduced in the manager platform</p>
 <p>* Changed `UbuduAreaDelegate` method `notifyUserForEvent(UbuduEvent event)` from void type to boolean.</p>
 <p>* Added new `UbuduAreaDelegate` method `void notifyUserForEvent(UbuduEvent event, UbuduAreaDelegateEventHandlingResponseListener responseListener)` for custom event handling in which the decision about performing action to the user is to be delayed.</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0.0</td>
+<td align="left">2016-01-06</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* greatly improved SDK init time</p>
+<p>* bug fixes and stability improvements</p>
+<p>Features added:</p>
+<p>* removed Indoor Location API and Mesh API. These packages are now available at separate repositories</p>
 </td>
 </tr>
 </tbody>
