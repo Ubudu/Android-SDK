@@ -77,8 +77,9 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
 
     public boolean statusChanged(int change){
         if(mOutput != null) {
-            mOutput.printf("service %s\n", ((change == 0) ? "unavailable"
-                    : (change == 1) ? "activated"
+            mOutput.printf("service %s\n", ((change == UbuduAreaDelegate.SERVICE_UNAVAILABLE) ? "unavailable"
+                    : (change == UbuduAreaDelegate.SERVICE_STARTED) ? "activated"
+                    : (change == UbuduAreaDelegate.SERVICE_STARTING) ? "starting..."
                     : "shut down"));
         }
         return true;
