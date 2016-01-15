@@ -468,7 +468,7 @@ Modifications
 <td align="left">
 <p>Features added:</p>
 <p>* changed public API pattern so the methods parameters names are understandable,</p>
-<p>* added API for adding custom http request headers to server notification</p>
+<p>* added API for adding custom http request headers for server notification</p>
 <p>Issues addressed:</p>
 <p>* UbuduService is now properly destroyed and removed from the application processes when stop is called from beacon/geofence managers</p>
 </td>
