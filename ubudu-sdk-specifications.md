@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 2.0.0
+`Ubudu SDK` Specifications - version 2.0.1
 ==========================================
 
 Introduction
@@ -459,6 +459,18 @@ Modifications
 <p>* bug fixes and stability improvements</p>
 <p>Features added:</p>
 <p>* removed Indoor Location API and Mesh API. These packages are now available at separate repositories</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0.1</td>
+<td align="left">2016-01-15</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* changed public API pattern so the methods parameters names are understandable,</p>
+<p>* added API for adding custom http request headers to server notification</p>
+<p>Issues addressed:</p>
+<p>* UbuduService is now properly destroyed and removed from the application processes when stop is called from beacon/geofence managers</p>
 </td>
 </tr>
 </tbody>

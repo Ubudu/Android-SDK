@@ -53,7 +53,6 @@ import com.ubudu.sdk.UbuduBeaconRegionEvent;
 import com.ubudu.sdk.UbuduEvent;
 import com.ubudu.sdk.UbuduGeofence;
 import com.ubudu.sdk.UbuduGeofenceEvent;
-import com.ubudu.sdk.UbuduSDK;
 
 public class DemoAreaDelegate implements UbuduAreaDelegate {
     
@@ -273,19 +272,6 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
     }
 
     public boolean notifyUserForEvent(final UbuduBeaconRegionEvent event) {
-
-        UbuduSDK mSdk = null;
-        try {
-            mSdk = UbuduSDK.instance;
-
-            if (mSdk != null) {
-                mSdk.displayWebPage(event.notification().webPageUrl());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
             public void run() {
@@ -294,7 +280,8 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
                             ((event.eventKind() == UbuduEvent.ENTERED) ? "entered" : "exited"),
                             event.area().id(),
                             event.area().name());
-                    mOutput.printf("payload=%s\n", event.notification().payload().optJSONObject("payload").toString());
+                    mOutput.printf("payload=%s\n web page url=%s\n", event.notification().payload().optJSONObject("payload").toString(),event.notification().webPageUrl());
+
                 }
             }
         });

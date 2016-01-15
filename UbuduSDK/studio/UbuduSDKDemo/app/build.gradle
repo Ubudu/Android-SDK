@@ -9,7 +9,7 @@ dependencies {
     compile('com.android.support:support-v4:20.0.0') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:2.0.0@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:2.0.1@aar') {
         transitive = true
     }
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -17,7 +17,7 @@ dependencies {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId 'com.ubudu.sdk.studiodemo'
         minSdkVersion 18
