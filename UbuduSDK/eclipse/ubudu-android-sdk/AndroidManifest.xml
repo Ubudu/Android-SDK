@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ubudu.sdk"
-    android:versionCode="62"
-    android:versionName="2.0.1">
+    package="com.ubudu.sdk">
 
     <!-- UbuduSDK requires a minSdkVersion of 18 or above -->
     <uses-sdk
@@ -17,7 +15,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <application android:allowBackup="true">
+    <application>
 
         <activity android:name="com.ubudu.sdk.WebActivity" />
 

@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.0.1
+`UbuduSDK` User Manual - version 2.0.2
 ======================================
 
 Introduction
@@ -387,6 +387,19 @@ Modifications
 <p>* added API for adding custom http request headers for server notification</p>
 <p>Issues addressed:</p>
 <p>* UbuduService is now properly destroyed and removed from the application processes when stop is called from beacon/geofence managers</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0.2</td>
+<td align="left">2016-02-10</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Issues addressed:</p>
+<p>* fixed db issues when migrating from version 1.9.+ to version >=2.0.0</p>
+<p>* fixed ANR when calling resetAllEventsCounters() method</p>
+<p>* fixed rare crash when using a dump json log file feature</p>
+<p>* fixed rare issue when beacon monitoring was not started when another scanning Ubudu library was working in paralel</p>
+<p>* fixed issue when log "uBeacon monitoring started." was shown after asking manager to stop</p>
 </td>
 </tr>
 </tbody>
