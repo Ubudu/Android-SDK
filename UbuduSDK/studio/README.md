@@ -8,8 +8,6 @@ For general information and usage, see Android-SDK/README.md
 
 ### Adding the Ubudu SDK framework to your Android Studio project
 
-#### Instruction for Android Studio projects:
-
 Starting to use the Ubudu SDK with an Android Studio app is very simple.
 Have a look at the UbuduSDKDemo project in the directory for a complete example.
 
@@ -17,7 +15,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 1. In the build.gradle file of your application module, add the Ubudu nexus repository:
 
-```gradle
+```
     repositories {
         mavenCentral()
         maven { url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' }
@@ -26,9 +24,9 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 2. In the build.gradle file of your application module, add the Ubudu SDK dependency:
 
-```gradle
+```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:1.9.10@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.0.3@aar') {
             transitive = true
         }
         // …
@@ -42,82 +40,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 3. That's it.  In Android Studio, click on the "Sync Project with
    Gradle Files" button, and select "Rebuild Project"  in the Build
    menu, and it should download the Ubudu SDK and its dependencies,
-   and compile them with your application. See
-   [Android-SDK/README.md](/README.md) for an introduction on how to
-   use the SDK.
-
-4. You may use the gradle dependencies command to see them:
-
-```shell
-    [UbuduSDKDemo]$ ./gradlew :app:dependencies
-    # …
-    compile - Classpath for compiling the main sources.
-    +--- com.android.support:support-v4:20.0.0 -> 22.2.0
-    |    \--- com.android.support:support-annotations:22.2.0
-    +--- com.google.android.gms:play-services:7.8.+ -> 7.8.0
-    |    +--- com.google.android.gms:play-services-ads:7.8.0
-    |    |    +--- com.google.android.gms:play-services-base:7.8.0
-    |    |    |    \--- com.android.support:support-v4:22.2.0 (*)
-    |    |    +--- com.google.android.gms:play-services-analytics:7.8.0
-    |    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |    \--- com.google.android.gms:play-services-appindexing:7.8.0
-    |    |         \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-analytics:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-appindexing:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-appinvite:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-appstate:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-cast:7.8.0
-    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |    \--- com.android.support:mediarouter-v7:22.2.0
-    |    |         \--- com.android.support:appcompat-v7:22.2.0
-    |    |              \--- com.android.support:support-v4:22.2.0 (*)
-    |    +--- com.google.android.gms:play-services-drive:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-fitness:7.8.0
-    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |    \--- com.google.android.gms:play-services-location:7.8.0
-    |    |         +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |         \--- com.google.android.gms:play-services-maps:7.8.0
-    |    |              \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-games:7.8.0
-    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |    \--- com.google.android.gms:play-services-drive:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-gcm:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-identity:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-location:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-maps:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-nearby:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-panorama:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-plus:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-safetynet:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-vision:7.8.0
-    |    |    \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    +--- com.google.android.gms:play-services-wallet:7.8.0
-    |    |    +--- com.google.android.gms:play-services-base:7.8.0 (*)
-    |    |    +--- com.google.android.gms:play-services-identity:7.8.0 (*)
-    |    |    \--- com.google.android.gms:play-services-maps:7.8.0 (*)
-    |    \--- com.google.android.gms:play-services-wearable:7.8.0
-    |         \--- com.google.android.gms:play-services-base:7.8.0 (*)
-    \--- com.ubudu.sdk:ubudu-sdk:1.9.10
-         +--- com.ubudu:volley:4.5.0
-         +--- com.ubudu:jfuzzylite:1.1.0
-         +--- com.google.android.gms:play-services:7.8 -> 7.8.0 (*)
-         +--- com.google.code.gson:gson:2.3
-         \--- com.j256.ormlite:ormlite-android:4.48
-              \--- com.j256.ormlite:ormlite-core:4.48
-
-
-    # …
-```
+   and compile them with your application.
 
 ### The Android Manifest File.
 
@@ -126,7 +49,7 @@ services.  They're added automatically by the Gradle AndroidManifest
 merging feature.  You can find the AndroidManifest.xml file in the
 ubudu-sdk-*.aar zip archive, which you can find in the local maven
 cache in ~/.m2/caches/modules-2/ or in the
-[Ubudu Nexus Repository](http://5.135.82.92:8081/nexus/content/groups/public/com/ubudu/sdk/ubudu-sdk/).
+[Ubudu Nexus Repository](http://nexus.ubudu.com:8081/nexus/content/groups/public//com/ubudu/sdk/ubudu-sdk/).
 
 ## Ubudu SDK Demo 
 
