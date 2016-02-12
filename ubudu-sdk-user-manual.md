@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.0.2
+`UbuduSDK` User Manual - version 2.0.3
 ======================================
 
 Introduction
@@ -400,6 +400,17 @@ Modifications
 <p>* fixed rare crash when using a dump json log file feature</p>
 <p>* fixed rare issue when beacon monitoring was not started when another scanning Ubudu library was working in paralel</p>
 <p>* fixed issue when log "uBeacon monitoring started." was shown after asking manager to stop</p>
+</td>
+</tr>
+<tr class="odd">
+<td align="left">2.0.3</td>
+<td align="left">2016-02-12</td>
+<td align="left">Michal Gasztold</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* stripped down google-play-services dependency</p>
+<p>Issues addressed:</p>
+<p>* fixed some migration issues</p>
 </td>
 </tr>
 </tbody>
