@@ -484,6 +484,18 @@ Ubudu-SDK Changelog:
 <p>* fixed some migration issues</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.0.6</td>
+<td align="left">2016-02-17</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* Got rid of unnecessary permissions</p>
+<p>Issues addressed:</p>
+<p>* minor bug fixes related to switching between applications (namespaces)</p>
+<p>* minor fixes related to BLE scanning</p>
+</td>
+</tr>
 </tbody>
 </table>
 
