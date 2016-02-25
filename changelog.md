@@ -496,6 +496,18 @@ Ubudu-SDK Changelog:
 <p>* minor fixes related to BLE scanning</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.0.7</td>
+<td align="left">2016-02-25</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* added big icon style automatic notifications handling ( http://developer.android.com/reference/android/app/Notification.BigPictureStyle.html ). Big icon url must be defined in the rule in the Ubudu Manager Platform</p>
+<p>Issues addressed:</p>
+<p>* fix few NPE crashes</p>
+<p>* fix lack of permissions related crashes on Android M</p>
+</td>
+</tr>
 </tbody>
 </table>
 

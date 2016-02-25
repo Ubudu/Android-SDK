@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.0.3
+`UbuduSDK` User Manual - version 2.0.7
 ======================================
 
 Introduction
