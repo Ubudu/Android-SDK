@@ -502,7 +502,7 @@ Ubudu-SDK Changelog:
 <td align="left">MG</td>
 <td align="left">
 <p>Features added:</p>
-<p>* added big icon style automatic notifications handling ( http://developer.android.com/reference/android/app/Notification.BigPictureStyle.html ). Big icon url must be defined in the rule in the Ubudu Manager Platform</p>
+<p>* added big icon style automatic notifications handling ( http://developer.android.com/reference/android/app/Notification.BigPictureStyle.html ). Big icon url must be defined in the rule in the Ubudu Manager Platform. Example: <img src="bigIconNotificationExample.png" height="400" /></p>
 <p>Issues addressed:</p>
 <p>* fix few NPE crashes</p>
 <p>* fix lack of permissions related crashes on Android M</p>
