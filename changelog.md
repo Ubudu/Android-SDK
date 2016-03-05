@@ -508,6 +508,19 @@ Ubudu-SDK Changelog:
 <p>* fix lack of permissions related crashes on Android M</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.0.10</td>
+<td align="left">2016-03-05</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* added timestamp to UbuduBeacon object</p>
+<p>Improvements:</p>
+<p>* stabilized ranged beacon notifier output. Beacons do not dissapear immediately if they are not detected in a single scan</p>
+<p>Issues addressed:</p>
+<p>* fixed issue with switching between namespaces when sometimes the SDK stopped responding and could not be restarted</p>
+</td>
+</tr>
 </tbody>
 </table>
 
