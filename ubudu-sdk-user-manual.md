@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.0.10
+`UbuduSDK` User Manual - version 2.1.2
 ======================================
 
 Introduction
@@ -23,78 +23,24 @@ This section will contain information regarding adding the `UbuduSDK` to any hos
 
 ###### Add the dependencies
 
-The `UbuduSDK` requires the following dependent libraries:
+To use `Ubudu-SDK` add the following repository to your app's `build.gradle`:
 
--   google-play-services\_lib (4.0.30),
--   volley (1.0)
+	repositories {
+		maven { 
+			url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' 
+		}
+	}
 
-###### Add the `UbuduSDK` jar file
+Then add the following dependency:
 
-Add the `ubudu-sdk-|VERSION|.jar` file to your project libs/ subdirectory.
-
-###### Define permissions to your `AndroidManifest.xml` file.
-
-Add following permisssions to manifest file of your project: :
-
-    <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="18" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
-###### Add activities, receivers and services to your `AndroidManifest.xml` file.
-
-Add following services and activities to the `AndroidManifest.xml` file of your application: :
-
-    <receiver android:name=".service.UbuduBootReceiver">
-        <intent-filter>
-            <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        </intent-filter>
-    </receiver>
-
-    <!-- BEGIN UbuduSDK stuff -->
-
-    <activity
-        android:name="com.ubudu.sdk.WebActivity"
-        />   
-
-    <service
-        android:name="com.ubudu.sdk.service.UbuduService"
-        android:enabled="true"
-        android:exported="true" >
-      <intent-filter>
-        <action android:name="com.ubudu.sdk.service.UbuduService.action.DISPLAY_WEB_PAGE" />
-        <action android:name="com.ubudu.sdk.service.UbuduService.action.OPEN_SAMSUNG_WALLET" />
-      </intent-filter>
-    </service>
-
-    <!-- the following should be coallesced eventually into the above service... -->
-
-    <service
-        android:name="com.ubudu.network.ibeacon.service.IBeaconService"
-        android:enabled="true"
-        android:exported="false"
-        android:isolatedProcess="false"
-        />
-
-    <service
-        android:name="com.ubudu.network.ibeacon.IBeaconIntentProcessor"
-        android:enabled="true" 
-        android:exported="false"
-        android:isolatedProcess="false"
-        >
-            <meta-data android:name="background" android:value="true" />
-      <intent-filter 
-          android:priority="1" >
-        <action android:name="com.ubudu.sdk.beacon.internal.action.IBeaconIntentProcessor"/>
-      </intent-filter>
-    </service>  
-
-    <!-- END UbuduSDK stuff -->
+	dependencies {
+	
+		// ... other dependencies here
+		
+		compile('com.ubudu.sdk:ubudu-sdk:2.1.2@aar') {
+			transitive = true
+		}
+	}
 
 ##### Usage instructions
 

@@ -521,6 +521,19 @@ Ubudu-SDK Changelog:
 <p>* fixed issue with switching between namespaces when sometimes the SDK stopped responding and could not be restarted</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.1.2</td>
+<td align="left">2016-03-17</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* model specific distance estimation that improves the accuracy of device-beacon distance estimation</p>
+<p>Improvements:</p>
+<p>* improved custom event handling by adding additional UbuduCustomEventHandlingAreaDelegate interface that is an extension of the default UbuduAreaDelegate</p>
+<p>Issues addressed:</p>
+<p>* fixed triggering rules at medium-far and high-far proximities with custom distance treshold</p>
+</td>
+</tr>
 </tbody>
 </table>
 
