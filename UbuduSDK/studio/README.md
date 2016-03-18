@@ -26,7 +26,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:2.0.7@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.1.2@aar') {
             transitive = true
         }
         // …

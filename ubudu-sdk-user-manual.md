@@ -23,24 +23,39 @@ This section will contain information regarding adding the `UbuduSDK` to any hos
 
 ###### Add the dependencies
 
-To use `Ubudu-SDK` add the following repository to your app's `build.gradle`:
+Starting to use the Ubudu SDK with an Android Studio app is very simple.
+Have a look at the UbuduSDKDemo project in the directory for a complete example.
 
-	repositories {
-		maven { 
-			url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' 
-		}
-	}
+Your first need to specify the dependency on the Ubudu SDK:
 
-Then add the following dependency:
+1) In the build.gradle file of your application module, add the Ubudu nexus repository:
 
-	dependencies {
-	
-		// ... other dependencies here
-		
-		compile('com.ubudu.sdk:ubudu-sdk:2.1.2@aar') {
-			transitive = true
-		}
-	}
+```
+    repositories {
+        mavenCentral()
+        maven { url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' }
+    }
+```
+
+2) In the build.gradle file of your application module, add the Ubudu SDK dependency:
+
+```
+    dependencies {
+        compile('com.ubudu.sdk:ubudu-sdk:2.1.2@aar') {
+            transitive = true
+        }
+        // …
+    }
+```
+
+  You may browse the
+  [Ubudu Nexus Repository](http://nexus.ubudu.com:8081/nexus/content/groups/public//com/ubudu/sdk/ubudu-sdk/)
+  to see the most recent version available.
+  
+3) That's it.  In Android Studio, click on the "Sync Project with
+   Gradle Files" button, and select "Rebuild Project"  in the Build
+   menu, and it should download the Ubudu SDK and its dependencies,
+   and compile them with your application.
 
 ##### Usage instructions
 
