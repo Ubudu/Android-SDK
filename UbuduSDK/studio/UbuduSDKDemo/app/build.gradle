@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
-    maven { url 'http://5.135.82.92:8081/nexus/content/groups/public/' }
+    maven { url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' }
 }
 
 dependencies {
     compile('com.android.support:support-v4:20.0.0') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:2.1.2@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:2.2.0@aar') {
         transitive = true
     }
     compile fileTree(dir: 'libs', include: ['*.jar'])

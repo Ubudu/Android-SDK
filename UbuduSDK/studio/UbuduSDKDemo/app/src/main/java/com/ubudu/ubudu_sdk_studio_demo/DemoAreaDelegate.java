@@ -1,45 +1,3 @@
-// -*- mode:java;coding:utf-8 -*-
-//****************************************************************************
-//FILE:               DemoAreaDelegate.java
-//LANGUAGE:           java
-//SYSTEM:             Android
-//USER-INTERFACE:     Android
-//DESCRIPTION
-//    
-//    This is the ubudu area delegate.
-//    
-//AUTHORS
-//    <PJB> Pascal J. Bourguignon <pjb@informatimago.com>
-//MODIFICATIONS
-//    2014-08-27 <PJB> Added this header.
-//BUGS
-//LEGAL
-//    ubudu-public
-//    
-//    Copyright (c) 2011-2015, UBUDU SAS
-//    All rights reserved.
-//    
-//    Redistribution and use in source and binary forms, with or without
-//    modification, are permitted provided that the following conditions are met:
-//    
-//    * Redistributions of source code must retain the above copyright notice, this
-//      list of conditions and the following disclaimer.
-//    
-//    * Redistributions in binary form must reproduce the above copyright notice,
-//      this list of conditions and the following disclaimer in the documentation
-//      and/or other materials provided with the distribution.
-//    
-//    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-//    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-//    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-//    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-//    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-//    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-//    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-//    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-//    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//****************************************************************************
 package com.ubudu.ubudu_sdk_studio_demo;
 
 import android.os.Handler;
@@ -47,7 +5,6 @@ import android.os.Looper;
 
 import com.ubudu.sdk.UbuduArea;
 import com.ubudu.sdk.UbuduAreaDelegate;
-import com.ubudu.sdk.UbuduAreaDelegateEventHandlingResponseListener;
 import com.ubudu.sdk.UbuduBeaconRegion;
 import com.ubudu.sdk.UbuduBeaconRegionEvent;
 import com.ubudu.sdk.UbuduEvent;
@@ -156,8 +113,8 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
                              fence.radius(),
                              fence.name());
                 mMap.updateCircle(fence.id(), fence.name(),
-                                fence.centerLatitude(), fence.centerLongitude(),
-                                fence.radius(), Map.OUTSIDE);
+                        fence.centerLatitude(), fence.centerLongitude(),
+                        fence.radius(), Map.OUTSIDE);
                 }
             }
         });
@@ -203,6 +160,11 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         return true;
     }
 
+    @Override
+    public boolean shouldNotifyUserForEvent(UbuduEvent ubuduEvent) {
+        return true;
+    }
+
     public void ruleFiredForEvent(UbuduEvent event) {
         if (event instanceof UbuduGeofenceEvent) {
             ruleFiredForEvent((UbuduGeofenceEvent)event);
@@ -241,18 +203,12 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         });
     }
 
-    public boolean notifyUserForEvent(UbuduEvent event) {
+    public void notifyUserForEvent(UbuduEvent event) {
         if (event instanceof UbuduGeofenceEvent) {
             notifyUserForEvent((UbuduGeofenceEvent)event);
         } else if (event instanceof UbuduBeaconRegionEvent) {
             notifyUserForEvent((UbuduBeaconRegionEvent)event);
         }
-        return true;
-    }
-
-    @Override
-    public void notifyUserForEvent(UbuduEvent ubuduEvent, UbuduAreaDelegateEventHandlingResponseListener ubuduAreaDelegateEventHandlingResponseListener) {
-
     }
 
     public boolean notifyUserForEvent(final UbuduGeofenceEvent event) {

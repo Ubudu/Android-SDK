@@ -25,8 +25,6 @@ public class UbuduServiceRestartedReceiver extends BroadcastReceiver{
         mBeaconManager.setAreaDelegate(delegate);
         mBeaconManager.setEnableAutomaticUserNotificationSending(false);
 
-        android.util.Log.e(TAG, "UbuduServiceRestartedReceiver task completed. Delegate: "+delegate.toString());
-
     }
 
 }

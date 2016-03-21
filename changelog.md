@@ -534,6 +534,21 @@ Ubudu-SDK Changelog:
 <p>* fixed triggering rules at medium-far and high-far proximities with custom distance treshold</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.0</td>
+<td align="left">2016-03-22</td>
+<td align="left">MG</td>
+<td align="left">
+<p>API changes (details can be found in the updated <a href="ubudu-sdk-user-manual.md">manual</a>) :</p>
+<p>* Changed the API for custom handling the events.</p>
+<p>* removed UbuduGeofenceDelegate interface. UbuduAreaDelegate is the interface to be used both for geofences and beacons.</p>
+<p>Improvements:</p>
+<p>* updated documentation and JavaDoc</p>
+<p>Issues addressed:</p>
+<p>* fixed geofences not triggering events</p>
+<p>* open_notif type logs missing in the application statistics when custom handling the events</p>
+</td>
+</tr>
 </tbody>
 </table>
 

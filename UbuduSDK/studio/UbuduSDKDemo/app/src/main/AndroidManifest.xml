@@ -56,7 +56,7 @@
         <!-- Use here your Google Map API v2 key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyB_x2b2Sun_YeFbzpZHoWl8gHagmYdp7mE" />
+            android:value="AIzaSyBiKPu4P0b1dnE8sRM4Nkrz77I0D3Ic3Kc" />
     </application>
 
 </manifest>
