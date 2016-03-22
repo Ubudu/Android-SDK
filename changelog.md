@@ -313,7 +313,13 @@ Ubudu-SDK Changelog:
 <td align="left">2015-09-07</td>
 <td align="left">MG</td>
 <td align="left">
-<p>New beacon service updated for Lollipop</p><p>Updated indoor location delegate</p><p>Geofences updated for Google Play Services v7.8</p><p>Improved and updated ubudu mesh</p><p>Enhance manager logs handling</p><p>Improved rules triggering after latch time</p><p>Fixed bug of rules not always being fetched when Ubudu SDK was initially started in offline mode</p><p>Bug fixes and stability improvements</p>
+<p>New beacon service updated for Lollipop</p>
+<p>Updated indoor location delegate</p>
+<p>Geofences updated for Google Play Services v7.8</p><p>Improved and updated ubudu mesh</p>
+<p>Enhance manager logs handling</p>
+<p>Improved rules triggering after latch time</p>
+<p>Fixed bug of rules not always being fetched when Ubudu SDK was initially started in offline mode</p>
+<p>Bug fixes and stability improvements</p>
 </td>
 </tr>
 <tr class="odd">
@@ -542,6 +548,7 @@ Ubudu-SDK Changelog:
 <p>API changes (details can be found in the updated <a href="ubudu-sdk-user-manual.md">manual</a>) :</p>
 <p>* Changed the API for custom handling the events.</p>
 <p>* removed UbuduGeofenceDelegate interface. UbuduAreaDelegate is the interface to be used both for geofences and beacons.</p>
+<p>* removed context argument from area managers start/stop methods</p>
 <p>Improvements:</p>
 <p>* updated documentation and JavaDoc</p>
 <p>Issues addressed:</p>
