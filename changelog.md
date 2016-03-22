@@ -556,6 +556,16 @@ Ubudu-SDK Changelog:
 <p>* open_notif type logs missing in the application statistics when custom handling the events</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.1</td>
+<td align="left">2016-03-22</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* UbuduEvent and few other API interfaces are now parcelable to improve the event custom handling in an Android app (from one activity to another etc)</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 
