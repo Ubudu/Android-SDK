@@ -565,6 +565,15 @@ Ubudu-SDK Changelog:
 <p>* UbuduEvent and few other API interfaces are now parcelable to improve the event custom handling in an Android app (from one activity to another etc)</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.2</td>
+<td align="left">2016-04-13</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<p>* Fixed beacon distance calculation when distance was sometimes < 0m</p>
+</td>
+</tr>
 
 </tbody>
 </table>
