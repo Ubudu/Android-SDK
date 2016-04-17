@@ -59,11 +59,11 @@ public abstract class UbuduBaseFragment extends Fragment {
 
 	public void startScanning() {
         getTextOutput().printf("Start searching for " + getManagerAreasType());
-        Error e = getAreaManager().start();
+        boolean started = getAreaManager().start();
         mScanning = true;
         refreshActionButtonState();
-		if (e != null) {
-			getTextOutput().printf("Error: %s\n", e.toString());
+		if (!started) {
+			getTextOutput().printf("Start error");
 		}
 	}
 

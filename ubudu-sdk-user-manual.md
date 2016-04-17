@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.2.2
+`UbuduSDK` User Manual - version 2.2.3
 ======================================
 
 Introduction
@@ -41,7 +41,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:2.2.2@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.2.3@aar') {
             transitive = true
         }
         // …
@@ -181,12 +181,17 @@ When `true` is returned then SDK will call `void notifyUserForEvent(UbuduEvent e
   public void openSamsungWallet(String samsungWalletURL);
 ```
 
-When event actions should be eventually performed it is necessary to call `com.ubudu.sdk.UbuduSDK#executeActions(UbuduEvent event)`. The SDK will then perform actions (like opening web page, deeplink, samsung wallet) if any are defined. Also the `open_notif` log type will be send to server to keep statistics consistent. This log indicates that the user really opened the notification and its content was presented. 
+When event actions should be eventually performed one of the following methods has to be to called:
 
-** Note: `com.ubudu.sdk.UbuduSDK#executeActions(UbuduEvent event)` method should be always called when performing event action to the user even if there are no web url, deepling, samsung wallet actions defined!
-**
+	- `com.ubudu.sdk.UbuduAreaManager#executeActionsForEvent(UbuduEvent event)`
+	
+or
+	
+	- `com.ubudu.sdk.UbuduAreaManager#actionsCustomExecutedForEvent(UbuduEvent event)`.
+	
+The first method will immediately execute the actions (e.g. pop the default WebView with the web page pointed by the web url of the event's rule) and post proper statistic log to the back office (manager platform). The second method will not execute actions but just post proper statistics logs assuming presenting the actions to the user were handled on the app's side.
 
-If there is a need to delay performing the action to the user (e.g. wait for the user to accept the action etc) then an extended delegate interface must be implemented:
+If there is a need to delay notifying to the user about event (e.g. wait for the user to accept the action etc) then an extended delegate interface must be implemented:
 
 	com.ududu.sdk.UbuduDelayedCustomEventHandlingAreaDelegate extends UbuduAreaDelegate
 	

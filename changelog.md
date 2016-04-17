@@ -574,6 +574,17 @@ Ubudu-SDK Changelog:
 <p>* Fixed beacon distance calculation when distance was sometimes < 0m</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.3</td>
+<td align="left">2016-04-17</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* added new methods to beacon/geofence manager which allow to execute actions of a particular event (like opening a web url in the default WebView) or just notify the SDK about event being custom handled on the app's side so proper statistic logs are posted to the back office. Please check the manual for details.</p>
+<p>Issues addressed:</p>
+<p>* Fixed SDK crashing on init because of an java.lang.NoClassDefFoundError</p>
+</td>
+</tr>
 
 </tbody>
 </table>
