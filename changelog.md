@@ -585,7 +585,15 @@ Ubudu-SDK Changelog:
 <p>* Fixed SDK crashing on init because of an java.lang.NoClassDefFoundError</p>
 </td>
 </tr>
-
+<tr class="odd">
+<td align="left">2.2.4</td>
+<td align="left">2016-04-22</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<p>* Fixed a very serious bug that caused a significant growth of the app's total usage of internal memory over time</p>
+</td>
+</tr>
 </tbody>
 </table>
 
