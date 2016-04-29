@@ -594,6 +594,23 @@ Ubudu-SDK Changelog:
 <p>* Fixed a very serious bug that caused a significant growth of the app's total usage of internal memory over time</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.5</td>
+<td align="left">2016-04-29</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<p>* added Advertising ID support</p>
+<p>* added support for new analytics logs related to device bluetooth state and location/notifications permissions</p>
+<p>Improvements:</p>
+<p>* removed Context argument from SDK's release method</p>
+<p>* changed the deprecated `android.text.format.Time` class to java.util.Date object in the UbuduSDK `nextFetchTime()` and `setNextFetchTime` methods</p>
+<p>* minor fixes and improvements</p>
+<p>Issues addressed:</p>
+<p>* fixed an issue with Ormlite's OpenHelperManager that could not be used in the app using Ubudu SDK</p>
+<p>* fixed crashes occuring when app using Ubudu SDK is installed on pre API 18 devices</p>
+</td>
+</tr>
 </tbody>
 </table>
 

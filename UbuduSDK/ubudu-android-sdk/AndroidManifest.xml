@@ -22,6 +22,21 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".helper.UbuduLocationServicesStateReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".helper.BluetoothStateChangedBroadcastReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
         <service
             android:name="com.ubudu.sdk.service.UbuduService"
             android:enabled="true"
