@@ -146,7 +146,7 @@ or open a Samsung Wallet ticket, the action is performed if the
 application is active, or a notification is posted if it is in the
 background.
 
-###### Custom event handling
+#### Custom event handling
 
 It is possible for the eveloper to implement a custom event handling. One might want to perform some custom actions before performing the event's actions to the user like displaying web page, opening deep link or samsung wallet. Developer might also want to maybe pop some custom dialog to ask user for permission to perform action. There is a solution for such need in the `Ubudu SDK`. 
 
