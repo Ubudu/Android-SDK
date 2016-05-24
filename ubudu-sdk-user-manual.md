@@ -12,7 +12,7 @@
 	
 	2.2. [Proguard configuration](#proguard)
 	
-3. [Integration](#Integration)
+3. [Integration](#integration)
 
 	3.1. [Design principle of the UbuduSDK API](#design)
 	
