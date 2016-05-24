@@ -1,27 +1,51 @@
 `UbuduSDK` User Manual - version 2.2.6
 ======================================
 
-Introduction
-------------
 
-This is the user manual of the `UbuduSDK`.
 
-This SDK contains several components:
+# Table of Contents
+1. [Introduction](#introduction)
+
+2. [Getting started](#getstarted)
+
+	2.1. [Add the dependencies](#dependencies)
+	
+	2.2. [Proguard configuration](#proguard)
+	
+3. [Integration](#Integration)
+
+	3.1. [Design principle of the UbuduSDK API](#design)
+	
+	3.2. [Getting core SDK objects instances](#instances)
+	
+	3.3. [User settings](#user)
+	
+	3.4. [Delegate implementation](#delegate)
+	
+	3.5. [Triggering rules](#triggering)
+	
+	3.6. [Custom event handling](#custom)
+	
+	3.7. [Operation modes](#modes)
+
+
+<a name="introduction"></a>
+## Introduction
+
+This is the user manual of the `UbuduSDK`. This SDK contains several components:
 
 -   Ubudu Geofence SDK,
 -   Ubudu Proxmity Beacon SDK (Bluetooth).
 
-
-`UbuduSDK` for Android
-----------------------
-
 The `UbuduSDK` library to use in all applications connecting to Ubudu geofences and bluetooth LE beacons for geomarketing services for Android platform.
 
-##### Getting started
+<a name="getstarted"></a>
+## Getting started
 
-This section will contain information regarding adding the `UbuduSDK` to any host application along with necessary project configuration which are required by the `UbuduSDK`.
+This section contains information regarding adding the `UbuduSDK` to any host application along with necessary project configuration which are required by the `UbuduSDK`.
 
-###### Add the dependencies
+<a name="dependencies"></a>
+### Add the dependencies
 
 Starting to use the Ubudu SDK with an Android Studio app is very simple.
 Have a look at the UbuduSDKDemo project in the directory for a complete example.
@@ -57,11 +81,68 @@ Your first need to specify the dependency on the Ubudu SDK:
    menu, and it should download the Ubudu SDK and its dependencies,
    and compile them with your application.
 
-##### Usage instructions
+<a name="proguard"></a>
+### Proguard configuration
 
-To start using `UbuduSDK` use following code:
+To build the app with proguard please add the following code to your proguard config file:
 
-First get instance of `UbuduSDK`. We use singleton as there is no need of many instances of this class. :
+```
+
+	##---------------Begin: proguard configuration for Ubudu  ----------
+	-keep class com.ubudu.**
+	-keepclassmembers class com.ubudu.** { *; }
+	-keep enum com.ubudu.**
+	-keepclassmembers enum com.ubudu.** { *; }
+	-keep interface com.ubudu.**
+	-keepclassmembers interface com.ubudu.** { *; }
+	##---------------Begin: proguard configuration for Ubudu  ----------
+
+
+	##---------------Begin: proguard configuration for Ormlite  ----------
+	-keepattributes *DatabaseField*
+	-keepattributes *DatabaseTable*
+	-keepattributes *SerializedName*
+	-keep class com.j256.**
+	-keepclassmembers class com.j256.** { *; }
+	-keep enum com.j256.**
+	-keepclassmembers enum com.j256.** { *; }
+	-keep interface com.j256.**
+	-keepclassmembers interface com.j256.** { *; }
+	##---------------End: proguard configuration for Ormlite  ----------
+
+
+	##---------------Begin: proguard configuration for Gson  ----------
+	# Gson uses generic type information stored in a class file when working with fields. Proguard
+	# removes such information by default, so configure it to keep all of it.
+	-keepattributes Signature
+
+	# For using GSON @Expose annotation
+	-keepattributes *Annotation*
+
+	# Gson specific classes
+	-keep class sun.misc.Unsafe { *; }
+	#-keep class com.google.gson.stream.** { *; }
+
+	# Application classes that will be serialized/deserialized over Gson
+	-keep class com.google.gson.examples.android.model.** { *; }
+	##---------------End: proguard configuration for Gson  ----------
+
+
+```
+<a name="integration"></a>
+## Integration
+
+<a name="design"></a>
+### Design principle of the `UbuduSDK` API
+
+The `com.ubudu.sdk.UbuduSDK` class has a shared instance that is the root of the API. It provides methods to obtain the *managers*, each of which deals with a different kind of areas: geofences and bluetooth LE beacons areas. If the kind of areas is not available on the device, then `null` is returned instead of a manager.
+
+The manager classes share a common superclass, `com.ubudu.sdk.UbuduAreaManager`, and each deal with covariant subclasses. You can find details in the [JavaDoc](JavaDoc/index.html).
+
+<a name="instances"></a>
+### Getting core SDK objects instances
+
+To start using `UbuduSDK` first get instance of it. We use singleton as there is no need of many instances of this class. :
 
     UbuduSDK sdk=UbuduSDK.getSharedInstance(context);
 
@@ -89,15 +170,8 @@ From this moment application will start receiving geofences and beacons events a
 
 Starting these commands will first remove tracking any geofences and scanning for beacons and then will also stop the service taking care of all interactions.
 
-##### Design principle of the `UbuduSDK` API
-
-The `com.ubudu.sdk.UbuduSDK` class has a shared instance that is the root of the API. It provides methods to obtain the *managers*, each of which deals with a different kind of areas: geofences and bluetooth LE beacons areas. If the kind of areas is not available on the device, then `null` is returned instead of a manager.
-
-The three manager classes share a common superclass, `com.ubudu.sdk.UbuduAreaManager`, and each deal with covariant subclasses. You can find details in the [JavaDoc](JavaDoc/index.html).
-
-###### Settings
-
-####### `com.ubudu.sdk.UbuduUser` settings
+<a name="user"></a>
+### User settings
 
 The application may send to the server a user information, which allows the server to filter geofences and beacons on user properties and tags.
 
@@ -115,7 +189,8 @@ The application may send to the server a user information, which allows the serv
     ApplicationUserInformation user=new ApplicationUserInformation(…);
     UbuduSDK.getSharedInstance(context).setUserInformation(user);
 
-###### Delegate
+<a name="delegate"></a>
+### Delegate implementation
 
 The application may implement a delegate object to intercept the processing and notifications upon area entered or exited events.
 
@@ -125,10 +200,10 @@ There is one delegate interface:
 
 An `UbuduAreaDelegate` can be configured with the `com.ubudu.sdk.UbuduAreaManager#setAreaDelegate` method, for all the managers. Then this delegate will receive generic `com.ubudu.sdk.UbuduArea` classes which can be casted to `UbuduBeaconRegion` or `UbuduGeofence`.
 
-###### Rule fired
+<a name="triggering"></a>
+### Triggering rules
 
-When it is determined that an area entry or exit is valid, the
-delegate is informed with this method:
+When it is determined that an area entry or exit is valid, the delegate is informed with this method:
 
 ```java
   /**
@@ -146,7 +221,8 @@ or open a Samsung Wallet ticket, the action is performed if the
 application is active, or a notification is posted if it is in the
 background.
 
-#### Custom event handling
+<a name="custom"></a>
+### Custom event handling
 
 It is possible for the eveloper to implement a custom event handling. One might want to perform some custom actions before performing the event's actions to the user like displaying web page, opening deep link or samsung wallet. Developer might also want to maybe pop some custom dialog to ask user for permission to perform action. There is a solution for such need in the `Ubudu SDK`. 
 
@@ -205,7 +281,8 @@ This delegate interface provides an additional method:
 
 When user implements the `UbuduDelayedCustomEventHandlingAreaDelegate` instead of the default `UbuduAreaDelegate` the SDK will always call `void shouldNotifyUserForEvent(UbuduEvent event, UbuduAreaDelegateNotifyUserForEventCallback callback);` before calling `void notifyUserForEvent(UbuduEvent event)` which will happen only after calling the `UbuduAreaDelegateNotifyUserForEventCallback callback#shouldNotifyUser(boolean shouldNotify);` callback method.
 
-###### Operation modes
+<a name="modes"></a>
+### Operation modes
 
 <table>
 <colgroup>
