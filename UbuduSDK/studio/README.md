@@ -22,7 +22,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:2.2.5@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.2.6@aar') {
             transitive = true
         }
         // …
