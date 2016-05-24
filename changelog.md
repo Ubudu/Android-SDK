@@ -611,6 +611,15 @@ Ubudu-SDK Changelog:
 <p>* fixed crashes occuring when app using Ubudu SDK is installed on pre API 18 devices</p>
 </td>
 </tr>
+<tr class="odd">
+<td align="left">2.2.6</td>
+<td align="left">2016-05-24</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<p>* fixed issues causing problems when building the final app with proguard</p>
+</td>
+</tr>
 </tbody>
 </table>
 
