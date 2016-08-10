@@ -620,6 +620,17 @@ Ubudu-SDK Changelog:
 <p>* fixed issues causing problems when building the final app with proguard</p>
 </td>
 </tr>
+
+<tr class="odd">
+<td align="left">2.2.7</td>
+<td align="left">2016-08-09</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<p>* fixed ANRs happening on Android M when scanning is triggered while app does not have geolocation permissions</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 

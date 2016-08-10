@@ -1,14 +1,19 @@
 package com.ubudu.ubudu_sdk_studio_demo;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +23,8 @@ import android.widget.TextView;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 public class GeofenceFragment extends UbuduBaseFragment implements View.OnClickListener {
+
+	private static final int ASK_GEOLOCATION_PERMISSION_REQUEST = 0;
 
 	private RelativeLayout mActiveSpot;
 	private Map mMap;
@@ -39,12 +46,31 @@ public class GeofenceFragment extends UbuduBaseFragment implements View.OnClickL
 
 		mActiveSpot = (RelativeLayout) view.findViewById(R.id.activeSpot);
 		mActiveSpot.setOnClickListener(this);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+				&& ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ASK_GEOLOCATION_PERMISSION_REQUEST);
+			return view;
+		}
+		initMapView();
+		return view;
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+		switch (requestCode) {
+			case ASK_GEOLOCATION_PERMISSION_REQUEST: {
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+					initMapView();
+			}
+		}
+	}
+
+	private void initMapView() {
+		MainActivity mainActivity = (MainActivity) getActivity();
 		mMap = new Map(mainActivity, R.id.map);
 		mMap.updateLocationOnMap();
-
-        mainActivity.getAreaDelegate().setMap(mMap);
-
-		return view;
+		mainActivity.getAreaDelegate().setMap(mMap);
 	}
 
 	@Override

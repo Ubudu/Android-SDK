@@ -2,12 +2,15 @@ package com.ubudu.ubudu_sdk_studio_demo;
 
 import java.util.Hashtable;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,32 +21,31 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map 
-{
+public class Map {
   protected GoogleMap mMap;
   protected Activity mActivity;
-  protected Hashtable<String,Circle> mCircles;
+  protected Hashtable<String, Circle> mCircles;
 
-  public Map(Activity activity,int fragmentId) {
+  public Map(Activity activity, int fragmentId) {
     mActivity = activity;
-    mMap = ((MapFragment)(mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
+    mMap = ((MapFragment) (mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
     if (mMap != null) {
       mMap.setMyLocationEnabled(true);
       mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
       mMap.setIndoorEnabled(true);
       updateLocationOnMap();
     }
-    mCircles=new Hashtable<String,Circle>();
+    mCircles = new Hashtable<String, Circle>();
   }
 
   public Location getLastKnownLocation() {
-    LocationManager locationManager=(LocationManager)(mActivity.getSystemService(Context.LOCATION_SERVICE));
+    LocationManager locationManager = (LocationManager) (mActivity.getSystemService(Context.LOCATION_SERVICE));
     Criteria criteria = new Criteria();
     criteria.setAltitudeRequired(false);
     criteria.setBearingRequired(false);
     // criteria.setAccuracy(Criteria.ACCURACY_FINE);
     // criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-    String provider = locationManager.getBestProvider(criteria,true);
+    String provider = locationManager.getBestProvider(criteria, true);
     if (provider == null) {
       provider = LocationManager.GPS_PROVIDER;
     }
