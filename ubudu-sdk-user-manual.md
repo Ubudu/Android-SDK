@@ -1,4 +1,4 @@
-`UbuduSDK` User Manual - version 2.2.7
+`UbuduSDK` User Manual - version 2.2.8
 ======================================
 
 
@@ -65,7 +65,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:2.2.7@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.2.8@aar') {
             transitive = true
         }
         // …

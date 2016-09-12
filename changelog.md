@@ -631,6 +631,23 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.2.8</td>
+<td align="left">2016-09-12</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* added callback to com.ubudu.sdk.UbuduSDK#setUserInformation method so the app can be notified about the result</p>
+<p>* full UbuduArea object is passed into areaEntered delegate method</p>
+<p>* WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE is now added to the SDK's default WebView so the pages with mixed content are properly displayed</p>
+<p>Issues addressed:</p>
+<p>* fixed crash occuring when com.ubudu.sdk.UbuduBeaconRegion toString() method was called</p>
+<p>* fixed user tags not being properly passed to web api</p>
+<p>* fixed rare crash happening on some Samsung devices related to lack of android.permission.BLUETOOTH permission</p>
+<p>* delegate's methods areaEnterd and areaExited are now called on a main thread (now there is no need to create separate Handler on the app's side)</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 

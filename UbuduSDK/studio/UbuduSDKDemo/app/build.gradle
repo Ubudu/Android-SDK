@@ -9,11 +9,17 @@ dependencies {
     compile('com.android.support:support-v4:20.0.0') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:2.2.7@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:2.2.8@aar') {
         transitive = true
     }
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
 
 android {
     compileSdkVersion 23
