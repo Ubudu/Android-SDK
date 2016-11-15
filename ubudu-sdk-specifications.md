@@ -1,4 +1,4 @@
-`Ubudu SDK` Specifications - version 2.2.8
+`Ubudu SDK` Specifications - version 2.3.0
 ==========================================
 
 Introduction

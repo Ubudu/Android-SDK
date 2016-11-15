@@ -82,7 +82,7 @@ Your first need to specify the dependency on the Ubudu SDK:
 
 ```
     dependencies {
-        compile('com.ubudu.sdk:ubudu-sdk:2.2.8@aar') {
+        compile('com.ubudu.sdk:ubudu-sdk:2.3.0@aar') {
             transitive = true
         }
         // …

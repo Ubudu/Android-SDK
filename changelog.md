@@ -648,6 +648,20 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.3.0</td>
+<td align="left">2016-11-15</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<p>* updated REST API library </p>
+<p>* replace palceholders also in alertTitle and custom payload</p>
+<p>* updated Google Play Location Services to version 9.8.0</p>
+<p>API changes:</p>
+<p>* UbuduRegisteringUserCallback renamed to UbuduCompletionCallback</p>
+</td>
+</tr>
+
 </tbody>
 </table>
 
