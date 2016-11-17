@@ -12,6 +12,7 @@ dependencies {
     compile('com.ubudu.sdk:ubudu-sdk:2.3.0@aar') {
         transitive = true
     }
+    compile('com.google.android.gms:play-services-maps:9.8.0')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
