@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ubudu.ubudu_sdk_studio_demo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- UbuduSDK requires a minSdkVersion of 18 or above -->
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <!-- for Google Maps Android API -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- For testing -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="com.ubudu.ubudu_sdk_studio_demo.permission.MAPS_RECEIVE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ubudu_ico"
+        android:label="Debug"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.ubudu.ubudu_sdk_studio_demo.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="com.ubudu.ubudu_sdk_studio_demo.UbuduServiceRestartedReceiver" >
+            <intent-filter>
+                <action android:name="com.ubudu.sdk.service.UbuduService.action.ACTION_SERVICE_RESTARTED" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- Use here your Google Map API v2 key -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyC30GXjc8Mep_tPYglfzA0UXBM5UYdUmmU" />
+    </application>
+
+</manifest>
