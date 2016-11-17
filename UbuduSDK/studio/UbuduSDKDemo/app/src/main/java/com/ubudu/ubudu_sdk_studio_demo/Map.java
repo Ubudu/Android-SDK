@@ -12,10 +12,12 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -91,8 +93,9 @@ public class Map {
           mCurrentLocationMarker.setPosition(location);
         }
       }
-      mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-      mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+      CameraPosition.Builder cameraPositionBuilder = new CameraPosition.Builder().target(location).zoom(15);
+      CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPositionBuilder.build());
+      mMap.animateCamera(cameraUpdate);
     }
   }
 
