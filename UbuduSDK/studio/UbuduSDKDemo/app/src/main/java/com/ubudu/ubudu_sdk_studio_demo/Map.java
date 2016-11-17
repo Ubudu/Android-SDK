@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -28,14 +29,24 @@ public class Map {
 
   public Map(Activity activity, int fragmentId) {
     mActivity = activity;
-    mMap = ((MapFragment) (mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
-    if (mMap != null) {
-      mMap.setMyLocationEnabled(true);
-      mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-      mMap.setIndoorEnabled(true);
-      updateLocationOnMap();
-    }
-    mCircles = new Hashtable<String, Circle>();
+    ((MapFragment) (mActivity.getFragmentManager().findFragmentById(fragmentId))).getMapAsync(new OnMapReadyCallback() {
+      @Override
+      public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        if (mMap != null) {
+          if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                  && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+          }
+          mMap.setMyLocationEnabled(true);
+          mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+          mMap.setIndoorEnabled(true);
+          updateLocationOnMap();
+        }
+        mCircles = new Hashtable<String, Circle>();
+      }
+    });
+
   }
 
   public Location getLastKnownLocation() {
@@ -48,6 +59,10 @@ public class Map {
     String provider = locationManager.getBestProvider(criteria, true);
     if (provider == null) {
       provider = LocationManager.GPS_PROVIDER;
+    }
+    if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      return null;
     }
     return locationManager.getLastKnownLocation(provider);
   }
