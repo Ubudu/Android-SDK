@@ -30,7 +30,7 @@ public class Map {
   protected Activity mActivity;
   protected Hashtable<String, Circle> mCircles;
 
-  public Map(final Activity activity, int fragmentId) {
+  public Map(Activity activity, int fragmentId) {
     mActivity = activity;
     ((MapFragment) (mActivity.getFragmentManager().findFragmentById(fragmentId))).getMapAsync(new OnMapReadyCallback() {
       @Override
@@ -38,14 +38,8 @@ public class Map {
         mMap = googleMap;
 
         if (mMap != null) {
-          if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+          if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // ACCESS_FINE_LOCATION permission has not been granted
             return;
           }
           mMap.setMyLocationEnabled(true);
@@ -71,13 +65,7 @@ public class Map {
       provider = LocationManager.GPS_PROVIDER;
     }
     if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-      // TODO: Consider calling
-      //    ActivityCompat#requestPermissions
-      // here to request the missing permissions, and then overriding
-      //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-      //                                          int[] grantResults)
-      // to handle the case where the user grants the permission. See the documentation
-      // for ActivityCompat#requestPermissions for more details.
+      // ACCESS_FINE_LOCATION permission has not been granted. Cannot return location
       return null;
     }
     return locationManager.getLastKnownLocation(provider);
