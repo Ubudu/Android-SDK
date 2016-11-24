@@ -2,50 +2,69 @@ package com.ubudu.ubudu_sdk_eclipse_demo;
 
 import java.util.Hashtable;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Map 
-{
+public class Map {
   protected GoogleMap mMap;
   protected Activity mActivity;
-  protected Hashtable<String,Circle> mCircles;
+  protected Hashtable<String, Circle> mCircles;
 
-  public Map(Activity activity,int fragmentId) {
+  public Map(Activity activity, int fragmentId) {
     mActivity = activity;
-    mMap = ((MapFragment)(mActivity.getFragmentManager().findFragmentById(fragmentId))).getMap();
-    if (mMap != null) {
-      mMap.setMyLocationEnabled(true);
-      mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-      mMap.setIndoorEnabled(true);
-      updateLocationOnMap();
-    }
-    mCircles=new Hashtable<String,Circle>();
+    ((MapFragment) (mActivity.getFragmentManager().findFragmentById(fragmentId))).getMapAsync(new OnMapReadyCallback() {
+      @Override
+      public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        if (mMap != null) {
+          if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                  && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+          }
+          mMap.setMyLocationEnabled(true);
+          mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+          mMap.setIndoorEnabled(true);
+          updateLocationOnMap();
+        }
+        mCircles = new Hashtable<String, Circle>();
+      }
+    });
+
   }
 
   public Location getLastKnownLocation() {
-    LocationManager locationManager=(LocationManager)(mActivity.getSystemService(Context.LOCATION_SERVICE));
+    LocationManager locationManager = (LocationManager) (mActivity.getSystemService(Context.LOCATION_SERVICE));
     Criteria criteria = new Criteria();
     criteria.setAltitudeRequired(false);
     criteria.setBearingRequired(false);
     // criteria.setAccuracy(Criteria.ACCURACY_FINE);
     // criteria.setAccuracy(Criteria.ACCURACY_COARSE);
-    String provider = locationManager.getBestProvider(criteria,true);
+    String provider = locationManager.getBestProvider(criteria, true);
     if (provider == null) {
       provider = LocationManager.GPS_PROVIDER;
+    }
+    if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      return null;
     }
     return locationManager.getLastKnownLocation(provider);
   }
@@ -74,8 +93,9 @@ public class Map
           mCurrentLocationMarker.setPosition(location);
         }
       }
-      mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-      mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+      CameraPosition.Builder cameraPositionBuilder = new CameraPosition.Builder().target(location).zoom(15);
+      CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPositionBuilder.build());
+      mMap.animateCamera(cameraUpdate);
     }
   }
 

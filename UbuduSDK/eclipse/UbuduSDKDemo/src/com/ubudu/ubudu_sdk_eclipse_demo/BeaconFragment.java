@@ -2,10 +2,15 @@ package com.ubudu.ubudu_sdk_eclipse_demo;
 
 import com.ubudu.sdk.UbuduSDK;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class BeaconFragment extends UbuduBaseFragment implements OnClickListener{
+
+	private static final int ASK_GEOLOCATION_PERMISSION_REQUEST = 0;
 
 	private RelativeLayout mActiveSpot;
     private RelativeLayout mSendLogsView;
@@ -76,10 +83,28 @@ public class BeaconFragment extends UbuduBaseFragment implements OnClickListener
 	}
 
 	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+		switch (requestCode) {
+			case ASK_GEOLOCATION_PERMISSION_REQUEST: {
+				if (!isScanning()) {
+					startScanning();
+				} else {
+					stopScanning();
+				}
+			}
+		}
+	}
+
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.activeSpot:
 			{
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+						&& ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+					requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ASK_GEOLOCATION_PERMISSION_REQUEST);
+					return;
+				}
 				if (!isScanning()) {
 					startScanning();
 				} else {

@@ -662,6 +662,28 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.4.0</td>
+<td align="left">2016-11-24</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<ul><li>rich notifications handling</li>
+<li>notifications pop out effect to rich notifications and background notifications</li></ul>
+<p>Issues addressed:</p>
+<ul><li>fixed issue of logs not always being posted to server properly</li>
+<li>fixed geofence rules not being triggered due to position updates being delayed to much</li>
+<li>fixed pending status bar notifications not being cancelled when app is killed</li>
+</ul>
+<p>API changes:</p>
+<ul><li>new delegate method: `void notificationActionTriggeredForEvent(UbuduEvent event, String actionIdentifier)` for handling rich notification action buttons click events</li>
+<li>renamed beacon/geofence manager methods:<br />
+- `executeActionsForEvent ` to `executeDefaultActionsForEvent`<br />
+- `actionsCustomExecutedForEvent` to `defaultActionsExecutedForEvent`</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 

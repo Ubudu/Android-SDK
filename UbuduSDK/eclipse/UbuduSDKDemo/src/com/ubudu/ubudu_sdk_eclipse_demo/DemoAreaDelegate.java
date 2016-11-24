@@ -2,6 +2,7 @@ package com.ubudu.ubudu_sdk_eclipse_demo;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.ubudu.sdk.UbuduArea;
 import com.ubudu.sdk.UbuduAreaDelegate;
@@ -31,6 +32,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         mMap = map;
     }
 
+    @Override
     public boolean statusChanged(int change){
         if(mOutput != null) {
             mOutput.printf("service %s\n", ((change == UbuduAreaDelegate.SERVICE_UNAVAILABLE) ? "unavailable"
@@ -44,6 +46,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
     private double oldLatitude = 0.0;
     private double oldLongitude = 0.0;
 
+    @Override
     public void positionChanged(final android.location.Location newPosition) {
         if (mMap == null) {
             return;
@@ -68,6 +71,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         }
     }
 
+    @Override
     public void areaEntered(UbuduArea area) {
         if (area instanceof UbuduGeofence){
             areaEntered((UbuduGeofence) area);
@@ -76,6 +80,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         }
     }
 
+    @Override
     public void areaExited(UbuduArea area) {
         if (area instanceof UbuduGeofence){
             areaExited((UbuduGeofence)area);
@@ -148,6 +153,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         });
     }
 
+    @Override
     public boolean notifyServer(final java.net.URL notificationServerUrl) {
         Handler refresh = new Handler(Looper.getMainLooper());
         refresh.post(new Runnable() {
@@ -165,6 +171,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         return true;
     }
 
+    @Override
     public void ruleFiredForEvent(UbuduEvent event) {
         if (event instanceof UbuduGeofenceEvent) {
             ruleFiredForEvent((UbuduGeofenceEvent)event);
@@ -203,6 +210,7 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
         });
     }
 
+    @Override
     public void notifyUserForEvent(UbuduEvent event) {
         if (event instanceof UbuduGeofenceEvent) {
             notifyUserForEvent((UbuduGeofenceEvent)event);
@@ -242,5 +250,10 @@ public class DemoAreaDelegate implements UbuduAreaDelegate {
             }
         });
         return true;
+    }
+
+    @Override
+    public void notificationActionTriggeredForEvent(UbuduEvent event, String customActionIdentifier) {
+        Log.i(TAG,"user clicked on custom action: "+customActionIdentifier+" in the notification of the event: "+event.area().name());
     }
 }
