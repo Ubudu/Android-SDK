@@ -684,6 +684,17 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.4.1</td>
+<td align="left">2016-11-25</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<ul><li>fixed permissions and bluetooth state analytic logs syntax</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
