@@ -1,3 +1,7 @@
+# Getting started
+
+### **All  info regarding adding the `UbuduSDK` to a host application along with necessary project configuration can be found in the [Wiki](https://github.com/Ubudu/Android-SDK/wiki).**
+
 # Android Contextual Interactions SDK
 
 For information on pricing, features, examples and our fantastic
@@ -10,7 +14,3 @@ Ubudu SDK is a contextual interaction platform designed to help you to develop a
 ## Platform specification
 
 See: [Ubudu Contextual Interactions SDK Specifications](ubudu-sdk-specifications.md)
-
-### Getting started
-
-All  info regarding adding the `UbuduSDK` to a host application along with necessary project configuration can be found in the [Wiki](https://github.com/Ubudu/Android-SDK/wiki).
