@@ -695,6 +695,24 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.4.2</td>
+<td align="left">2016-12-15</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<ul><li>Way to handle rich notification actions after app has been killed. New intent called `com.ubudu.sdk.service.UbuduService.action.ACTION_SERVICE_RESTARTED_WITH_EVENT` is now broadcasted when rich notification custom action is clicked while the app is killed. Mobile app should register a broadcast receiver for this intent to process the custom action with developer's own logic. See <a href="https://github.com/Ubudu/Android-SDK/wiki/Rich-notifications">wiki article</a> for more details.</li></ul>
+<p>Improvements:</p>
+<ul><li>Advertising ID is now not posted for analytics until the app asks for it by calling `enableAdvertisingIdCollection(true)` method on `com.ubudu.UbuduSDK`instance</li></ul>
+<p>Issues addressed:</p>
+<ul>
+<li>rich notificatios actions not being passed to the delegate properly</li>
+<li>rare crash occuring when SDK release() method is called</li>
+<li>multiple `returning user` log posted at the SDK start</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
