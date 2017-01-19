@@ -713,6 +713,26 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.5.0</td>
+<td align="left">2017-01-19</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</p>
+<ul><li>None</li></ul>
+<p>Improvements:</p>
+<ul><li>Analytics logs sending improved</li></ul>
+<ul><li>When notification has no title and body the application name is used as a title of the background notification</li></ul>
+<p>Issues addressed:</p>
+<ul>
+<li>Group rules limits not working properly</li>
+<li>Crash related to BroadcastReceiver registration</li>
+<li>Replacing placeholders in the rule custom payload</li>
+<li>Issues related to controlling geofence and beacon managers auto restart</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 

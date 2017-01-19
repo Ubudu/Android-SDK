@@ -11,17 +11,19 @@ import android.widget.TextView;
 
 import com.ubudu.sdk.UbuduBeacon;
 import com.ubudu.sdk.UbuduBeaconManager;
+import com.ubudu.sdk.UbuduCompletionCallback;
 import com.ubudu.sdk.UbuduGeofenceManager;
 import com.ubudu.sdk.UbuduRangedBeaconsNotifier;
 import com.ubudu.sdk.UbuduSDK;
+import com.ubudu.sdk.UbuduUser;
 
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.Map;
 
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// Set your own app namespace here
-   	private static final String NAMESPACE = "5c457c751d92a4c9d14284ec5aaeba25ed1fcb05";
+   	private static final String NAMESPACE = "9559c95b1e708e8f1876c4af2c48f5c97bb8207c";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
@@ -50,6 +52,35 @@ public class MainActivity extends FragmentActivity implements TextOutput {
 		mUbuduSdk.setNamespace(NAMESPACE);
         mUbuduSdk.setFileLogEnabled(true);
 
+        mUbuduSdk.setUserInformation(new UbuduUser() {
+            @Override
+            public String userId() {
+                return null;
+            }
+
+            @Override
+            public Map<String, String> properties() {
+                return null;
+            }
+
+            @Override
+            public Collection<String> tags() {
+                List<String> tags = new ArrayList<String>();
+                tags.add("LANG_EN");
+                return tags;
+            }
+        }, new UbuduCompletionCallback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError(String s) {
+
+            }
+        });
+
         mAreaDelegate = new DemoAreaDelegate(this);
 
 		mGeofenceManager = mUbuduSdk.getGeofenceManager();
@@ -57,6 +88,7 @@ public class MainActivity extends FragmentActivity implements TextOutput {
 
 		mBeaconManager = mUbuduSdk.getBeaconManager();
         mBeaconManager.setEnableAutomaticUserNotificationSending(true);
+        mBeaconManager.setAutomaticRestart(true);
         mBeaconManager.setAreaDelegate(mAreaDelegate);
 
         mBeaconManager.setRangedBeaconsNotifier(new UbuduRangedBeaconsNotifier() {
