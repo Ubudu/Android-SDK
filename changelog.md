@@ -733,6 +733,19 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.5.1</td>
+<td align="left">2017-01-23</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<ul>
+<li>Rules limits not working properly</li>
+<li>Crash related to BroadcastReceiver registration</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
