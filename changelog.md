@@ -746,6 +746,24 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.5.3</td>
+<td align="left">2017-01-26</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Features added:</o>
+<ul>
+<li>beacon battery level API</li>
+</ul>
+<p>Issues addressed:</p>
+<ul>
+<li>service auto restart not working</li>
+<li>placeholders not filled for geofence rules</li>
+<li>crashes</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
