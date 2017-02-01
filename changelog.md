@@ -764,6 +764,19 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.5.4</td>
+<td align="left">2017-02-01</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<ul>
+<li>global limits being respected even if a rule is not to be counted for global limits</li>
+<li>event counters limits not being updated properly in the local database after new data is fetched from cloud</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
