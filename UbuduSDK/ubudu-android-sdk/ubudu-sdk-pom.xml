@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ubudu.sdk</groupId>
+  <artifactId>ubudu-sdk</artifactId>
+  <version>2.6.0</version>
+  <packaging>aar</packaging>
+  <name>ubudu-sdk</name>
+  <description>Ubudu Contextual Interactions Android SDK</description>
+  <url>http://www.ubudu.com</url>
+  <inceptionYear>2013</inceptionYear>
+  <licenses><license>
+    <name>Proprietary</name>
+    <url>https://github.com/Ubudu/Android-SDK</url>
+    <distribution>repo</distribution>
+    <comments>It is totally free to develop with Ubudu SDKs and we only charge usage.</comments>
+  </license></licenses>
+  <organization><name>Ubudu SAS</name><url>http://www.ubudu.com/</url></organization>
+  <dependencies>
+   <dependency><groupId>com.android.volley</groupId><artifactId>volley</artifactId><version>1.0.0</version></dependency>
+   <dependency><groupId>com.ubudu.beacon</groupId><artifactId>monitor</artifactId><version>1.3.0</version></dependency>
+   <dependency><groupId>com.google.android.gms</groupId><artifactId>play-services-location</artifactId><version>10.0.1</version></dependency>
+   <dependency><groupId>com.google.code.gson</groupId><artifactId>gson</artifactId><version>2.6.2</version></dependency>
+   <dependency><groupId>com.j256.ormlite</groupId><artifactId>ormlite-android</artifactId><version>4.48</version></dependency>
+  </dependencies>
+</project>

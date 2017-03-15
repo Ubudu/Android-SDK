@@ -777,6 +777,23 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.6.0</td>
+<td align="left">2017-03-15</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<ul>
+<li>cleaned API of UbuduBeacon objects</li>
+<li>improved API for bluetooth scanning control</li>
+</ul>
+<p>Issues addressed:</p>
+<ul>
+<li>fixed too many bluetooth scans being launched on Android N</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 

@@ -23,7 +23,7 @@ import java.util.Map;
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// Set your own app namespace here
-   	private static final String NAMESPACE = "9559c95b1e708e8f1876c4af2c48f5c97bb8207c";
+   	private static final String NAMESPACE = "5c457c751d92a4c9d14284ec5aaeba25ed1fcb05";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
@@ -102,7 +102,7 @@ public class MainActivity extends FragmentActivity implements TextOutput {
                         Iterator<UbuduBeacon> iter = rangedBeacons.iterator();
                         while (iter.hasNext()) {
                             UbuduBeacon b = iter.next();
-                            printf("name: " + b.name() + ", rssi: " + b.rssi() + ", minor: " + b.minor() + ", major: " + b.major());
+                            printf("name: " + b.getBluetoothName() + ", rssi: " + b.getRssi() + ", minor: " + b.getMinor() + ", major: " + b.getMajor());
                         }
                     }
                 });
