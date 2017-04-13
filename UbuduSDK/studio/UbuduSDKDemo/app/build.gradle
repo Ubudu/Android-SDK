@@ -9,7 +9,7 @@ dependencies {
     compile('com.android.support:support-v4:20.0.0') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:2.6.0@aar') {
+    compile('com.ubudu.sdk:ubudu-sdk:2.6.1@aar') {
         transitive = true
     }
     compile('com.google.android.gms:play-services-maps:10.0.1')

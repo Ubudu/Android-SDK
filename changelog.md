@@ -794,6 +794,18 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.6.1</td>
+<td align="left">2017-04-13</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<ul>
+<li>crash related to Bluetooth scanning</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
