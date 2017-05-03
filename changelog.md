@@ -806,6 +806,19 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.6.2</td>
+<td align="left">2017-05-03</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Issues addressed:</p>
+<ul>
+<li>deeplink interactions triggering</li>
+<li>Bluetooth scanning start/stop</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
