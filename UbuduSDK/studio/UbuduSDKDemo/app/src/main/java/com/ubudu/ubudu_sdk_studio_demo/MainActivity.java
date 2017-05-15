@@ -102,7 +102,7 @@ public class MainActivity extends FragmentActivity implements TextOutput {
                         Iterator<UbuduBeacon> iter = rangedBeacons.iterator();
                         while (iter.hasNext()) {
                             UbuduBeacon b = iter.next();
-                            printf("name: " + b.getBluetoothName() + ", rssi: " + b.getRssi() + ", minor: " + b.getMinor() + ", major: " + b.getMajor());
+                            printf("name: " + b.getBluetoothDevice().getName() + ", rssi: " + b.getRssi() + ", minor: " + b.getMinor() + ", major: " + b.getMajor());
                         }
                     }
                 });

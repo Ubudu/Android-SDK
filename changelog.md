@@ -819,6 +819,22 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.7.0</td>
+<td align="left">2017-05-15</td>
+<td align="left">MG</td>
+<td align="left">
+<p>API changes:</p>
+<ul>
+<li>added BluetoothDevice getter to UBeacon object</li>
+</ul>
+<p>Improvements:</p>
+<ul>
+<li>Bluetooth scanning stability improvements</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
