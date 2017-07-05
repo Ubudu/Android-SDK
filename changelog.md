@@ -835,6 +835,22 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.7.1</td>
+<td align="left">2017-07-05</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements</p>
+<ul>
+<li>Bluetooth scanning improvements</li>
+</ul>
+<p>Issues addressed:</p>
+<ul>
+<li>rules re-triggering</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
