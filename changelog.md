@@ -851,6 +851,18 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.7.2</td>
+<td align="left">2017-08-16</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<ul>
+<li>Plugged latest Ubudu BLE scanner module</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
