@@ -863,6 +863,20 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.7.3</td>
+<td align="left">2017-10-11</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<ul>
+<li>Updated BLE scanner module with fixes for Android N</li>
+</ul>
+<p>Issues addressed:</p>
+<ul><li>Fixed not all placeholders of server notification be handled</li></ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 

@@ -23,7 +23,7 @@ import java.util.Map;
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// Set your own app namespace here
-   	private static final String NAMESPACE = "5c457c751d92a4c9d14284ec5aaeba25ed1fcb05";
+   	private static final String NAMESPACE = "92c1bd19c72dabf74742026d5a8c085bef150d2a";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;
