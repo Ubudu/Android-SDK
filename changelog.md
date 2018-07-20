@@ -877,6 +877,23 @@ Ubudu-SDK Changelog:
 </td>
 </tr>
 
+<tr class="odd">
+<td align="left">2.8.0</td>
+<td align="left">2018-07-20</td>
+<td align="left">MG</td>
+<td align="left">
+<p>Improvements:</p>
+<ul>
+<li>compatibile with Android 8 background operation</li>
+</ul>
+<p>Issues addressed:</p>
+<ul><li>Status bar notification not working on Android 8</li>
+<li>bluetooth scanning issues on Android 8</li>
+<li>restart after reboot not working on Android 8</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
