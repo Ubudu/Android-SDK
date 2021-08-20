@@ -2,18 +2,18 @@ apply plugin: 'com.android.application'
 
 repositories {
     mavenCentral()
-    maven { url 'http://nexus.ubudu.com:8081/nexus/content/groups/public/' }
+    maven { url 'https://nexus.ubudu.com/repository/maven-releases/' }
 }
 
 dependencies {
-    compile('com.android.support:support-v4:27.1.1') {
+    implementation ('androidx.legacy:legacy-support-v4:1.0.0') {
         transitive = true
     }
-    compile('com.ubudu.sdk:ubudu-sdk:2.8.0@aar') {
+    implementation ('com.ubudu.sdk:ubudu-sdk:2.8.2@aar') {
         transitive = true
     }
-    compile('com.google.android.gms:play-services-maps:15.0.1')
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation ('com.google.android.gms:play-services-maps:15.0.1')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 configurations.all {
@@ -22,12 +22,13 @@ configurations.all {
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId 'com.ubudu.ubudu_sdk_studio_demo'
         minSdkVersion 18
-        targetSdkVersion 27
+        targetSdkVersion 28
+        multiDexEnabled true
         versionCode 2
         versionName '1.0'
     }

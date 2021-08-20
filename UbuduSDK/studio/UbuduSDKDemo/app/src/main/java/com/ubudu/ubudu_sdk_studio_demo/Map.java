@@ -10,7 +10,7 @@ import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;

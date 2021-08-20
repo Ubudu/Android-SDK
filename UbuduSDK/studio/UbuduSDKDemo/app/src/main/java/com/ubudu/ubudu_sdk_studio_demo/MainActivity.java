@@ -3,8 +3,8 @@ package com.ubudu.ubudu_sdk_studio_demo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class MainActivity extends FragmentActivity implements TextOutput {
 	
 	// Set your own app namespace here
-   	private static final String NAMESPACE = "92c1bd19c72dabf74742026d5a8c085bef150d2a";
+   	private static final String NAMESPACE = "bb80ac3a01b73f039fdd0155f0b06d0cc1996742";
 
 	private UbuduPagerAdapter mUbuduPagerAdapter;
 	private ViewPager mViewPager;

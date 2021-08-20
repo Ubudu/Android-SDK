@@ -34,6 +34,11 @@
         android:icon="@drawable/ubudu_ico"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity
             android:name="com.ubudu.ubudu_sdk_studio_demo.MainActivity"
             android:label="@string/app_name"

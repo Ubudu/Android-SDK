@@ -1,6 +1,6 @@
 package com.ubudu.ubudu_sdk_studio_demo;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.widget.TextView;
 
 import com.ubudu.sdk.UbuduAreaManager;
